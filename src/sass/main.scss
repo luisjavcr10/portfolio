@@ -1,3 +1,3 @@
 // src/sass/main.scss
-@import 'variables';
-@import 'globals';
+@use 'variables' as *;
+@use 'globals' as *;

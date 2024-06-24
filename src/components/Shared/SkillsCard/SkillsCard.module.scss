@@ -1,7 +1,14 @@
-@import 'variables';
+@use '@/sass/variables' as *;
 
 .SkillsCard {
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: $border-buttons;
+
     &--1 {
         background-color: var(--bg-card-v1-color);
         grid-column: span 1 / span 1;
@@ -91,13 +98,6 @@
             grid-row-start: 3;
         } 
     }
-    
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    padding: 10px;
-    border-radius: $border-buttons;
 
     &__Title {
         grid-column: span 2 / span 2;

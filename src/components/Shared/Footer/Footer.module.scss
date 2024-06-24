@@ -1,4 +1,4 @@
-@import 'variables';
+@use '@/sass/variables' as *;
 .Footer{
     background-color: var(--bg-footer);
     display: flex;

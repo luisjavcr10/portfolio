@@ -1,4 +1,4 @@
-@import 'variables';
+@use '@/sass/variables' as *;
 
 .ContactButtons{
     display: flex;
