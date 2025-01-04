@@ -11,8 +11,8 @@ export const Title = () => {
           <Image
             className={styles.Home__Profile__Image}
             src="/images/profile/mainprofile.jpeg"
-            width={120} 
-            height={120}
+            width={180} 
+            height={180}
             alt="profile"
             priority
           />
@@ -20,10 +20,6 @@ export const Title = () => {
         </div>
         <div className={styles.Home__Presentation}>
           <NameIterator />
-          <h1>Hola 👋, soy Luis Castillo</h1>
-          <p className={styles.Home__Presentation__Text}>
-          Me apasiona crear experiencias web que sean tanto funcionales como estéticamente cuidadas. Trabajo con tecnologías como React, Next.js y Node.js, siempre buscando calidad y escalabilidad.
-          </p>
         </div>
       </div>
   );

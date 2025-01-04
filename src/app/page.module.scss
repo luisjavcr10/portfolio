@@ -14,11 +14,16 @@
         flex-direction: column;
         justify-content:center;
         align-items: center;
+        gap: 10px;
         width: 100%;
+        @media screen and (min-width: 768px) {
+            width: 60%;
+            flex-direction: row;
+        }
     }
 
     &__home{
-        min-height: 100vh;
+        height: 100vh;
     }
 }
 

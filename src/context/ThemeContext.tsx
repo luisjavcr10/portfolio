@@ -24,17 +24,16 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Función para aplicar el tema actual
   const applyTheme = (currentTheme: Theme) => {
-    let actualThemeToSet: ActualTheme;
+    let themeToApply: ActualTheme;
     
     if (currentTheme === "system") {
-      actualThemeToSet = getSystemTheme();
+      themeToApply = getSystemTheme();
     } else {
-      actualThemeToSet = currentTheme;
+      themeToApply = currentTheme;
     }
     
-    setActualTheme(actualThemeToSet);
-    // Siempre establecer el tema seleccionado por el usuario, no el detectado
-    document.documentElement.setAttribute("data-theme", currentTheme);
+    setActualTheme(themeToApply);
+    document.documentElement.setAttribute("data-theme", themeToApply);
   };
 
   useEffect(() => {
