@@ -68,7 +68,7 @@
 }
 
 html, body {
-    background-color: var(--bg-color);
+    background-color: transparent; /* Permitir que las partículas se vean */
     color: var(--text-color);
     transition: background 0.3s, color 0.3s;
     margin: 0;

@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Shared/NavBar";
 import { Footer } from "@/components/Shared/Footer";
+import { ParticlesBackground } from "@/components/Shared/ParticlesBackground";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Onest } from "next/font/google";
 import styles from "./layout.module.scss";
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${onest.className} ${styles.layout}`}>
         <ThemeProvider>
+          <ParticlesBackground />
           <Navbar />
           {children}
           <Footer />
