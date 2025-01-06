@@ -3,12 +3,141 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./ParticlesBackground.module.scss";
 
+// Interfaces para particles.js
+interface ParticleConfig {
+  particles: {
+    number: {
+      value: number;
+      density: {
+        enable: boolean;
+        value_area: number;
+      };
+    };
+    color: {
+      value: string;
+    };
+    shape: {
+      type: string;
+      stroke: {
+        width: number;
+        color: string;
+      };
+      polygon: {
+        nb_sides: number;
+      };
+      image: {
+        src: string;
+        width: number;
+        height: number;
+      };
+    };
+    opacity: {
+      value: number;
+      random: boolean;
+      anim: {
+        enable: boolean;
+        speed: number;
+        opacity_min: number;
+        sync: boolean;
+      };
+    };
+    size: {
+      value: number;
+      random: boolean;
+      anim: {
+        enable: boolean;
+        speed: number;
+        size_min: number;
+        sync: boolean;
+      };
+    };
+    line_linked: {
+      enable: boolean;
+      distance: number;
+      color: string;
+      opacity: number;
+      width: number;
+    };
+    move: {
+      enable: boolean;
+      speed: number;
+      direction: string;
+      random: boolean;
+      straight: boolean;
+      out_mode: string;
+      bounce: boolean;
+      attract: {
+        enable: boolean;
+        rotateX: number;
+        rotateY: number;
+      };
+    };
+  };
+  interactivity: {
+    detect_on: string;
+    events: {
+      onhover: {
+        enable: boolean;
+        mode: string;
+      };
+      onclick: {
+        enable: boolean;
+        mode: string;
+      };
+      resize: boolean;
+    };
+    modes: {
+      grab: {
+        distance: number;
+        line_linked: {
+          opacity: number;
+        };
+      };
+      bubble: {
+        distance: number;
+        size: number;
+        duration: number;
+        opacity: number;
+        speed: number;
+      };
+      repulse: {
+        distance: number;
+        duration: number;
+      };
+      push: {
+        particles_nb: number;
+      };
+      remove: {
+        particles_nb: number;
+      };
+    };
+  };
+  retina_detect: boolean;
+}
+
+interface StatsJS {
+  new(): {
+    setMode: (mode: number) => void;
+    begin: () => void;
+    end: () => void;
+    domElement: HTMLElement;
+  };
+}
+
+interface ParticlesJSInstance {
+  pJS: {
+    particles: {
+      array: unknown[];
+    };
+  };
+}
+
 // Declaración de tipos para particles.js y stats.js
 declare global {
   interface Window {
-    particlesJS: any;
-    pJSDom: any;
-    Stats: any;
+    particlesJS: (elementId: string, config: ParticleConfig) => void;
+    pJSDom: ParticlesJSInstance[];
+    Stats: StatsJS;
   }
 }
 
@@ -23,14 +152,14 @@ const ParticlesBackground: React.FC = () => {
     /**
      * Carga dinámica de particles.js desde CDN
      */
-    const loadParticles = async () => {
+    const loadParticles = async (): Promise<void> => {
       if (typeof window !== "undefined") {
         // Cargar particles.js desde CDN si no está disponible
         if (!window.particlesJS) {
           const script = document.createElement("script");
           script.src =
             "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
-          script.onload = () => initParticles();
+          script.onload = (): void => initParticles();
           document.head.appendChild(script);
         } else {
           initParticles();
@@ -41,12 +170,12 @@ const ParticlesBackground: React.FC = () => {
     /**
      * Carga dinámica de stats.js desde CDN
      */
-    const loadStats = async () => {
+    const loadStats = async (): Promise<void> => {
       if (typeof window !== "undefined" && !window.Stats) {
         const script = document.createElement("script");
         script.src =
           "https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js";
-        script.onload = () => initStats();
+        script.onload = (): void => initStats();
         document.head.appendChild(script);
       } else if (window.Stats) {
         initStats();
@@ -56,9 +185,9 @@ const ParticlesBackground: React.FC = () => {
     /**
      * Inicializa las partículas con la configuración interactiva
      */
-    const initParticles = () => {
+    const initParticles = (): void => {
       // Configuración de partículas basada en el ejemplo proporcionado
-      const particlesConfig = {
+      const particlesConfig: ParticleConfig = {
         particles: {
           number: {
             value: 150,
@@ -176,7 +305,7 @@ const ParticlesBackground: React.FC = () => {
     /**
      * Inicializa stats.js para mostrar el contador de partículas
      */
-    const initStats = () => {
+    const initStats = (): void => {
       if (window.Stats) {
         const stats = new window.Stats();
         stats.setMode(0);
@@ -187,7 +316,7 @@ const ParticlesBackground: React.FC = () => {
         /**
          * Función de actualización de stats
          */
-        const update = () => {
+        const update = (): void => {
           stats.begin();
           stats.end();
 
