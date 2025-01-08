@@ -4,14 +4,20 @@ import { Projects } from "@/components/Private/Projects";
 import { Skills } from "@/components/Private/Skills";
 import { AboutMe } from "@/components/Private/AboutMe";
 import styles from "./page.module.scss";
+import { NameIterator } from "@/components/Private/Home/NameIterator/NameIterator";
 
 export default function Home() {
   return (
     <div className={styles.Main_Container}>
-      <section id="home" className={styles.Main_Container__home}>
-        <Title />
-        <ContactButtons/>
-      </section>
+      <div id="home" className={styles.Main_Container__home}>
+        <NameIterator />
+
+        <div className={styles.Main_Container__presentation}>
+          <Title />
+          <ContactButtons/>
+        </div>
+
+      </div>
       <section id="projects">
         <Projects />
       </section>

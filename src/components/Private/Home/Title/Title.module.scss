@@ -1,15 +1,12 @@
 @use '@/sass/variables' as *;
 
 .Home {
-  //background-color: red;
-
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  //margin: 10px;
   
   @media screen and (min-width: 768px) {
-      //width: 80%;
       gap: 40px;
   }
 
@@ -28,55 +25,5 @@
     }
   }
 
-  h1 {
-    color: var(--bg-card-v1-color);
-    font-size: 30px;
-    font-weight: 700;
-    margin: 0px;
-    @media screen and (min-width: 768px)  {
-      font-size: 38px;
-    }
-  }
-
-
-
-  h2 {
-    opacity: 0.7;
-    font-size: 25px;
-    font-weight: 500;
-    margin: 5px 0px 0px 0px;
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: 300;
-    margin-top: 5px;
-    line-height: 1.6;
-    text-align: left;
-    word-wrap: break-word;
-    text-rendering: optimizeSpeed;
-    will-change: contents;
-    max-width: 600px;
-    width: 100%;
-    display: block;
-    transform: translateZ(0);
-    @media screen and (min-width: 768px) {
-      font-size: 20px;
-    }
-  }
-  
-  &__Presentation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    @media screen and (min-width: 768px) {
-      //width: 100%;
-    }
-    &__Text {
-      width: 100%;
-      //max-width: 600px;
-      margin: 0;
-    }
-  }
+ 
 }

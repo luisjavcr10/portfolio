@@ -10,11 +10,12 @@
     }
 
     section{
+        z-index: 1;
         display: flex;
         flex-direction: column;
         justify-content:center;
         align-items: center;
-        gap: 10px;
+        gap: 50px;
         width: 100%;
         @media screen and (min-width: 768px) {
             width: 60%;
@@ -22,8 +23,31 @@
         }
     }
 
+
     &__home{
+        z-index: 1;
         height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 30px;
+    }
+
+    &__title{
+        font-size: 1.5rem;
+        margin: 10px;
+    }
+
+    &__presentation{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        gap: 20px;
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+        }
     }
 }
 

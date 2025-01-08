@@ -1,57 +1,44 @@
 .NameIterator {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     font-family: 'system-ui', sans-serif;
-    margin: 10px 0;
+    padding: 10px 0;
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 10px black;
+    border-radius: 17px;
+
     
     h2 {
         margin: 0;
         font-weight: 600;
-        font-size: 24px;
+        font-size: 36px;
+        color:var(--bg-card-v1-color);
     }
     
-    .dynamicText {
-        background-color: #697565;
-        box-shadow: 0 0 4px 1px #697565;
-        padding: 2px;
-        border-radius: 17px;
-        font-weight: 700;
-        font-size: 24px;
+    // Estilos para cada letra individual
+    .letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(5px);
+        
+        // Preservar espacios en blanco
+        white-space: pre;
+        
+        // Asegurar que las letras mantengan su posición
         position: relative;
-        min-width: 150px;
-        text-align: center;
-        
-        &.fullstack {
-            color: #E5E5CB;
-        }
-        
-        &.frontend {
-            color: #E5E5CB;
-        }
-        
-        &.backend {
-            color: #E5E5CB;
-        }
-        
-        &::after {
-            display: none;;
-        }
-        
-        &.active::after {
-            display: none;
-        }
     }
+
     
     @media (max-width: 768px) {
         h2 {
             font-size: 20px;
         }
         
-        .dynamicText {
-            font-size: 20px;
-            min-width: 120px;
-        }
     }
 }
