@@ -2,7 +2,6 @@ import styles from "./Title.module.scss";
 import Image from "next/image";
 
 import { SpecialButton } from "@/components/Shared/SpecialButton";
-import { NameIterator } from "../NameIterator/NameIterator";
 
 export const Title = () => {
   return (
