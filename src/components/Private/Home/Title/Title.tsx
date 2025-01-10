@@ -6,9 +6,6 @@ import { SpecialButton } from "@/components/Shared/SpecialButton";
 export const Title = () => {
   return (
     <div className={styles.Home}>
-      {/**<div className={styles.Home__Presentation}>
-        <NameIterator />
-      </div>*/}
       <div className={styles.Home__Profile}>
         <Image
           className={styles.Home__Profile__Image}
