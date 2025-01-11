@@ -32,17 +32,19 @@
     padding: 6px 10px;
     border: none;
     border-radius: $border-buttons;
-    background-color: var(--green-neutro);
+    //background-color: var(--green-neutro);
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 10px black;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 0 5px 2px var(--green-neutro);
+    //box-shadow: 0 0 5px 2px var(--green-neutro);
     transition-duration: 500ms;
     transition-property: background-color, scale;
     transition-timing-function: ease-in-out;
 
     &:hover {
       scale: 1.1;
-      background-color: $hover-button-color-dark;
       transition-duration: 1s;
     }
   }
@@ -54,23 +56,23 @@
     padding: 6px 10px;
     border: none;
     border-radius: $border-buttons;
-    background-color: var(--green-neutro);
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 10px black;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 0 5px 2px var(--green-neutro);
     transition-duration: 500ms;
     transition-property: background-color, scale;
     transition-timing-function: ease-in-out;
 
     &:hover {
       scale: 1.03;
-      background-color: $hover-button-color-dark;
       transition-duration: 1s;
     }
   }
 
   &__Icon {
-    color: #fff;
+    color: var(--text-color);
   }
 
   &__SocialContact {
@@ -82,7 +84,7 @@
   }
 
   &__correo {
-    color: #fff;
+    color: var(--text-color);
     font-weight: 400;
     font-size: 16px;
     margin: 0;
