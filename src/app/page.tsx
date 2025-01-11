@@ -10,8 +10,6 @@ export default function Home() {
   return (
     <div className={styles.Main_Container}>
       <div id="home" className={styles.Main_Container__home}>
-        <NameIterator />
-
         <div className={styles.Main_Container__presentation}>
           <Title />
           <ContactButtons/>
