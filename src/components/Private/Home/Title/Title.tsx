@@ -1,13 +1,28 @@
+"use client";
 import styles from "./Title.module.scss";
-import Image from "next/image";
+import TiltedCard from "@/components/ReactBits/TiltedCard/TiltedCard";
 
-import { SpecialButton } from "@/components/Shared/SpecialButton";
+//import { SpecialButton } from "@/components/Shared/SpecialButton";
 
 export const Title = () => {
   return (
     <div className={styles.Home}>
-      <div className={styles.Home__Profile}>
-        <Image
+      <TiltedCard
+        imageSrc="/images/profile/mainprofile.jpeg"
+        altText="Perfil Luis Castillo"
+        captionText="Soy Luis Castillo, desarrollador de software."
+        containerHeight="250px"
+        containerWidth="250px"
+        imageHeight="250px"
+        imageWidth="250px"
+        rotateAmplitude={12}
+        scaleOnHover={1.2}
+        showMobileWarning={false}
+        showTooltip={true}
+        displayOverlayContent={true}
+
+      />
+      {/**<Image
           className={styles.Home__Profile__Image}
           src="/images/profile/mainprofile.jpeg"
           width={180}
@@ -18,8 +33,7 @@ export const Title = () => {
         <SpecialButton
           href="https://www.linkedin.com/in/luisjaviercastillorabanal/"
           message="Disponible para trabajar"
-        />
-      </div>
+        />*/}
     </div>
   );
 };

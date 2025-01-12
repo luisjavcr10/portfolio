@@ -1,20 +1,16 @@
 import { Title } from "@/components/Private/Home/Title";
-import {ContactButtons} from "@/components/Private/Home/ContactButtons";
+import { ContactButtons } from "@/components/Private/Home/ContactButtons";
 import { Projects } from "@/components/Private/Projects";
 import { Skills } from "@/components/Private/Skills";
 import { AboutMe } from "@/components/Private/AboutMe";
 import styles from "./page.module.scss";
-import { NameIterator } from "@/components/Private/Home/NameIterator/NameIterator";
 
 export default function Home() {
   return (
     <div className={styles.Main_Container}>
       <div id="home" className={styles.Main_Container__home}>
-        <div className={styles.Main_Container__presentation}>
-          <Title />
-          <ContactButtons/>
-        </div>
-
+        <Title />
+        <ContactButtons />
       </div>
       <section id="projects">
         <Projects />
@@ -25,7 +21,6 @@ export default function Home() {
       <section id="aboutme">
         <AboutMe />
       </section>
-      
     </div>
   );
 }
