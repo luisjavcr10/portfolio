@@ -7,6 +7,7 @@ export const ContactButtons = () => {
     <div className={styles.ContactButtons}>
       <div>
         <h1 className={styles.ContactButtons__title}>Hola 👋, soy Luis Castillo</h1>
+        <p className={styles.Home__Presentation__Text} style={{fontWeight: 'bold'}}>Desarrollador de software</p>
         <p className={styles.Home__Presentation__Text}>+ 1 año de experiencia</p>
         <p className={styles.Home__Presentation__Text}>
           Me apasiona crear soluciones web funcionales para optimizar procesos y asegurar escalabilidad. Me especializo en tecnologías como React, Next.js, NestJS.
