@@ -1,12 +1,14 @@
 import { Navbar } from "@/components/Shared/NavBar";
 import { Footer } from "@/components/Shared/Footer";
 //import { ParticlesBackground } from "@/components/Shared/ParticlesBackground";
-import Particles from "@/components/ReactBits/Particles/Particles";
-import LiquidEther from "@/components/ReactBits/LiquidEther/LiquidEther";
+//import Particles from "@/components/ReactBits/Particles/Particles";
+//import LiquidEther from "@/components/ReactBits/LiquidEther/LiquidEther";
+
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Onest } from "next/font/google";
 import styles from "./layout.module.scss";
 import "@/sass/main.scss";
+import GalaxyWrapper from "@/components/GalaxyWrapper";
 
 const onest = Onest({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -27,8 +29,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${onest.className} ${styles.layout}`}>
         <ThemeProvider>
+          <GalaxyWrapper />
+
           {/** <ParticlesBackground /> */}
-          <LiquidEther
+          {/*<LiquidEther
             colors={['#5227FF', '#FF9FFC', '#B19EEF']}
             mouseForce={20}
             cursorSize={120}
@@ -44,7 +48,7 @@ export default function RootLayout({
             takeoverDuration={0.25}
             autoResumeDelay={3000}
             autoRampDuration={0.6}
-          />
+          />*/}
           {/** <Particles
             particleColors={["#697565", "#697565", "#697565"]} // Colores que contrastan con ambos temas
             particleCount={2000}
