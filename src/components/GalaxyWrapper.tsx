@@ -18,9 +18,9 @@ export default function GalaxyWrapper() {
   
   return (
     <Galaxy 
-      mouseRepulsion={true}
-      mouseInteraction={true}
-      density={1.1}
+      mouseRepulsion={false}
+      mouseInteraction={false}
+      density={1.5}
       glowIntensity={actualTheme==='dark'?0.5:0.1}
       saturation={0.0}  // Cambiar de 0.8 a 0.0 para eliminar colores
       hueShift={0}      // Cambiar de 80 a 0 para eliminar el desplazamiento de color

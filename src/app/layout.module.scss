@@ -4,5 +4,6 @@
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden; /* Evita el scroll horizontal */
+    position: relative; /* Necesario para que Galaxy con position: absolute funcione correctamente */
     //background-color: #060010;
 }
