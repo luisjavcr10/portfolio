@@ -8,13 +8,13 @@ export const Title = () => {
   return (
     <div className={styles.Home}>
       <TiltedCard
-        imageSrc="/images/profile/mainprofile.jpeg"
+        imageSrc="/images/profile/inhco.jpeg"
         altText="Perfil Luis Castillo"
         captionText="Soy Luis Castillo, desarrollador de software."
-        containerHeight="250px"
-        containerWidth="250px"
-        imageHeight="250px"
-        imageWidth="250px"
+        containerHeight="300px"
+        containerWidth="300px"
+        imageHeight="280px"
+        imageWidth="280px"
         rotateAmplitude={12}
         scaleOnHover={1.2}
         showMobileWarning={false}
