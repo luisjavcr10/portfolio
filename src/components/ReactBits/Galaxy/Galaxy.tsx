@@ -236,6 +236,7 @@ export default function Galaxy({
       gl.clearColor(0, 0, 0, 1);
     }
 
+    // Declaramos program antes de usarlo en resize
     let program: Program;
 
     function resize() {
