@@ -23,21 +23,6 @@
         }
     }
 
-    // Estilos específicos para la sección de ScrollStack
-    &__projectsDemo {
-        height: 80vh; // Reducir altura para permitir scroll hacia otras secciones
-        width: 100%;
-        display: block;
-        padding: 0;
-        //margin: 2rem 0; // Agregar margen para separación visual
-        
-        @media screen and (min-width: 768px) {
-            width: 100%;
-            //margin: 4rem 0;
-        }
-    }
-
-
     &__home{
         z-index: 1;
         height: 100vh;

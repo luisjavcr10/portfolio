@@ -1,0 +1,17 @@
+.text-title{
+  color: var(--bg-card-v1-color);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 38px;
+  }
+}
+
+.split-text-base {
+  overflow: hidden;
+  display: inline-block;
+  white-space: normal;
+  word-wrap: break-word;
+  will-change: transform, opacity;
+}
