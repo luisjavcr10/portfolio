@@ -1,0 +1,23 @@
+@import 'variables';
+
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  background-color: $secondary-color;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  ul {
+    display: flex; // Ensure the ul is also a flex container
+    list-style: none; // Remove default list styling
+    padding: 0; // Remove default padding
+    margin: 0; // Remove default margin
+  }
+
+  &__Link {
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+}
