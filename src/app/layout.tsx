@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/NavBar";
+import { Navbar } from "@/components/Shared/NavBar";
 import '@/sass/main.scss';
 
 export default function RootLayout({ children,}: Readonly<{children: React.ReactNode;}>) {

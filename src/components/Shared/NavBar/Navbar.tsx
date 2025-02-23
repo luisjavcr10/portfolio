@@ -12,13 +12,14 @@ const links = [
 export const Navbar = () => {
     return(
         <div className={styles.Navbar}>
-           <ul>
-            {links.map((link) => (
-                <li key={link.name}>
-                    <Link href={link.href} className={styles.Navbar__Link}> {link.name} </Link>
-                </li>
-            ))}
-           </ul>
+            <h1>Luis Castillo Rabanal</h1>
+            <ul>
+                {links.map((link) => (
+                    <li key={link.name}>
+                        <Link href={link.href} className={styles.Navbar__Link}> {link.name} </Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
