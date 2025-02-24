@@ -2,7 +2,6 @@
 import styles from "./Title.module.scss";
 import TiltedCard from "@/components/ReactBits/TiltedCard/TiltedCard";
 
-//import { SpecialButton } from "@/components/Shared/SpecialButton";
 
 export const Title = () => {
   return (
@@ -22,18 +21,6 @@ export const Title = () => {
         displayOverlayContent={true}
 
       />
-      {/**<Image
-          className={styles.Home__Profile__Image}
-          src="/images/profile/mainprofile.jpeg"
-          width={180}
-          height={180}
-          alt="profile"
-          priority
-        />
-        <SpecialButton
-          href="https://www.linkedin.com/in/luisjaviercastillorabanal/"
-          message="Disponible para trabajar"
-        />*/}
     </div>
   );
 };

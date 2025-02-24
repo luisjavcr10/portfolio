@@ -4,7 +4,6 @@ import { Projects } from "@/components/Private/Projects";
 import { Skills } from "@/components/Private/Skills";
 import { AboutMe } from "@/components/Private/AboutMe";
 import styles from "./page.module.scss";
-//import ScrollStack, { ScrollStackItem } from "@/components/ReactBits/ScrollStack/ScrollStack";
 
 export default function Home() {
   return (
