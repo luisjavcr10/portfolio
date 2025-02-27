@@ -1,13 +1,81 @@
-.Home{
+.Home {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    h1{
-        font-size: 3rem;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    max-width: 850px;
+  
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
-
-    h2{
-        font-size: 2rem;
+  
+    &__Profile {
+      display: flex;
+      flex-direction: row;
+      align-items:center; /* 🔹 Asegura que todo se alinee arriba e izquierda */
+      justify-content: flex-start; /* 🔹 Evita que los elementos se centren */
+      gap: 20px; /* 🔹 Espaciado entre la imagen y el botón */
+      padding: 20px 0px 0px 0px;
+      width:90%; 
+  
+      &__Image {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0; 
+      }
+  
+      &__Button {
+        background-color: #697565;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 17px;
+        cursor: pointer;
+        font-size: 16px;
+        flex-shrink: 0; 
+      }
+  
+      &__Button:hover {
+        background-color: #3C3D37;
+      }
     }
-}
+  
+    &__Presentation {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px 0px 20px 0px;
+      width: 90%;
+    }
+  
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 15px 0px 0px 0px;
+    }
+  
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+      color: #666;
+      margin: 15px 0px 0px 0px;
+    }
+  
+    p {
+      font-size: 20px;
+      font-weight: 300;
+      margin: 15px 0px 0px 0px;
+      max-width: 500px;
+      line-height: 1.6;
+      text-align: left;
+      word-wrap: break-word;
+    }
+  }
+  
