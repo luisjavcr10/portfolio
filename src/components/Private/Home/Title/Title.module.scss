@@ -1,81 +1,76 @@
+@import 'variables';
+
 .Home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 10px;
+  
+  @media screen and (min-width: 768px) {
+      width: 60%;
+  }
+
+  &__Profile {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
     gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    max-width: 850px;
-  
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-  
-    &__Profile {
-      display: flex;
-      flex-direction: row;
-      align-items:center; /* 🔹 Asegura que todo se alinee arriba e izquierda */
-      justify-content: flex-start; /* 🔹 Evita que los elementos se centren */
-      gap: 20px; /* 🔹 Espaciado entre la imagen y el botón */
-      padding: 20px 0px 0px 0px;
-      width:90%; 
-  
-      &__Image {
-        border-radius: 50%;
-        object-fit: cover;
-        width: 100px;
-        height: 100px;
-        flex-shrink: 0; 
-      }
-  
-      &__Button {
-        background-color: #697565;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 17px;
-        cursor: pointer;
-        font-size: 16px;
-        flex-shrink: 0; 
-      }
-  
-      &__Button:hover {
-        background-color: #3C3D37;
-      }
-    }
-  
-    &__Presentation {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0px 0px 20px 0px;
-      width: 90%;
-    }
-  
-    h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin: 15px 0px 0px 0px;
-    }
-  
-    h2 {
-      font-size: 30px;
-      font-weight: 500;
-      color: #666;
-      margin: 15px 0px 0px 0px;
-    }
-  
-    p {
-      font-size: 20px;
-      font-weight: 300;
-      margin: 15px 0px 0px 0px;
-      max-width: 500px;
-      line-height: 1.6;
-      text-align: left;
-      word-wrap: break-word;
+    padding: 0px;
+    width: 90%;
+
+    &__Image {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
     }
   }
-  
+
+  &__Presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 10px 0px;
+  }
+
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0px;
+  }
+
+  h2 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #666;
+    margin: 5px 0px 0px 0px;
+  }
+
+  a {
+    background-color: $color-button;
+    color: white;
+    padding: 6px 10px;
+    border-radius: $border-buttons;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    flex-shrink: 1;
+    text-decoration: none;
+    
+    &:hover{
+      background-color: $secondary-color;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 5px 0px 0px 0px;
+    line-height: 1.6;
+    text-align: left;
+    word-wrap: break-word;
+  }
+}
+

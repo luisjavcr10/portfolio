@@ -3,8 +3,7 @@ import Image from 'next/image';
 
 export const Title = () => {
   return (
-    <div className={styles.Home}>
-      <main>
+      <main className={styles.Home}>
         <div className={styles.Home__Profile}>
           <Image
             className={styles.Home__Profile__Image}
@@ -13,16 +12,22 @@ export const Title = () => {
             height={100}
             alt="profile"
           />
-          <button className={styles.Home__Profile__Button}>Disponible para trabajar</button>
+          <a 
+            className={styles.Home__AvailableBotton}
+            href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/'
+            target='_blank'
+            rel='noopener noreferrer  '
+          >
+            Disponible para trabajar
+          </a>
         </div>
         <div className={styles.Home__Presentation}>
-          <h1>Hola!! Soy Luis</h1>
-          <h2>Full Stack Developer</h2>
+          <h2>Desarrollador Full Stack</h2>
+          <h1>Hola!! Soy Luis Castillo</h1>
           <p>
             Apasionado por la tecnología y el desarrollo web. Con experiencia en frontend y backend, creando soluciones eficientes y escalables.
           </p>
         </div>
       </main>
-    </div>
   );
 };
