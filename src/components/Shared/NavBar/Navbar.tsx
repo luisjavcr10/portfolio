@@ -2,10 +2,10 @@ import Link from "next/link";
 import styles from "./Navbar.module.scss";
 
 const links = [
-    { name: "Sobre mi", href: "/"},
-    { name: "Proyectos", href: "/projects"},
-    { name: "Habilidades", href: "/skills"},
-    { name: "Contacto", href: "/contact",},
+    { name: "Inicio", href: "/"},
+    { name: "Proyectos", href: "/#projects"},
+    { name: "Habilidades", href: "/#skills"},
+    { name: "Sobre mi", href: "/#aboutme",},
 ]
 
 export const Navbar = () => {

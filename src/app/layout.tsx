@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Shared/NavBar";
+import {Footer} from "@/components/Shared/Footer";
 import {Onest} from 'next/font/google'
 import styles from './layout.module.scss';
 import '@/sass/main.scss';
@@ -15,6 +16,7 @@ export default function RootLayout({ children,}: Readonly<{children: React.React
       <body className={`${onest.className} ${styles.layout}`}>
         <Navbar/> 
         {children}
+        <Footer/>
       </body>
     </html>
   );

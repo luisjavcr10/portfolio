@@ -1,8 +1,17 @@
-.Home_Container{
+.Main_Container{
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
     padding: 15px;
+
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+    }
 }
+
+
   

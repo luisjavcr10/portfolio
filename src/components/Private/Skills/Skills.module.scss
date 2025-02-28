@@ -1,0 +1,13 @@
+.Skills{
+    padding-top: 20px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 50px;
+    }
+
+    &__Icon{
+        width: 30px;
+        height: 30px;
+    }
+}
+
