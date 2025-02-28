@@ -1,9 +1,14 @@
 @import 'variables';
 
-body {
-    margin: 0;
-    padding: 0;
+html, body {
     background: $primary-color;
     color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita el scroll horizontal global */
+    width: 100vw; /* Asegura que no se pase del viewport */
 }
-    
+
+  
+
+  

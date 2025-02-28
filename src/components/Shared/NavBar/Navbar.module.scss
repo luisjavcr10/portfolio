@@ -4,20 +4,23 @@
   display: flex;
   flex-direction: row;
   background-color: $primary-color;
-  justify-content: space-evenly; // Distribute space between h1 and ul
+  justify-content: space-evenly;
   align-items: center;
-  padding: 20px;
-  h1 {
-    color: white;
-    margin: 0; // Remove default margin
-    font-size: 24px; // Adjust font size as needed
+  padding: 20px 10px;
+  @media screen and (min-width: 768px){
+    padding: 30px 20px;
   }
+  
 
   ul {
-    display: flex; // Ensure the ul is also a flex container
-    list-style: none; // Remove default list styling
-    padding: 0; // Remove default padding
-    margin: 0; // Remove default margin
+    display: flex;
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    @media screen and (min-width: 768px){
+      gap: 20px;
+    }
+    
   }
 
   &__Link {
@@ -25,5 +28,10 @@
     color: white;
     text-decoration: none;
     padding: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    &:hover{
+      color:#697565
+    }
   }
 }
