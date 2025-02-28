@@ -15,7 +15,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 30px;
     padding: 0px;
     width: 90%;
 
@@ -58,9 +58,15 @@
     font-weight: 300;
     flex-shrink: 1;
     text-decoration: none;
+    box-shadow: 0 0 5px 2px $color-button;
+    transition-duration: 200ms;
+    transition-property: background-color, scale;
+    transition-timing-function: ease-in-out;
     
     &:hover{
+      scale: 1.2;
       background-color: $secondary-color;
+      transition-duration: 500ms;  
     }
   }
 
