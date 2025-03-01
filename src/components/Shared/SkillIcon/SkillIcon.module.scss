@@ -1,0 +1,19 @@
+.SkillIcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap:5px;
+    padding: 5px;
+
+    &__Icon{
+        width: 40px;
+        height: 40px;
+    }
+
+    &__Name{
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
