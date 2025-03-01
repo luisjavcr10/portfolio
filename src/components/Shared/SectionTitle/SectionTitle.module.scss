@@ -1,0 +1,12 @@
+.SectionTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+ 
+    &__Word{
+        font-size: 35px;
+        font-weight: 600;
+    }
+}

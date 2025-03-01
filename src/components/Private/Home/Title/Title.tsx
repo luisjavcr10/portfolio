@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Title = () => {
   return (
-      <main className={styles.Home}>
+      <div className={styles.Home}>
         <div className={styles.Home__Profile}>
           <Image
             className={styles.Home__Profile__Image}
@@ -28,6 +28,6 @@ export const Title = () => {
             Apasionado por la tecnología y el desarrollo web. Con experiencia en frontend y backend, creando soluciones eficientes y escalables.
           </p>
         </div>
-      </main>
+      </div>
   );
 };
