@@ -19,7 +19,7 @@
         grid-template-rows: repeat(5, 1fr);
         gap: 15px;
 
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: 1140px) {
             grid-template-columns: repeat(5, 1fr);
             grid-template-rows: repeat(8, 1fr);
         }

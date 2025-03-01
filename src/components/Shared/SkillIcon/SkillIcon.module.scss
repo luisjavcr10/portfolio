@@ -1,3 +1,5 @@
+@import 'variables';
+
 .SkillIcon{
     display: flex;
     flex-direction: column;
@@ -14,6 +16,7 @@
     &__Name{
         margin: 0;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 600;
+        color:$secondary-color;
     }
 }
