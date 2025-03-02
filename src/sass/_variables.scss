@@ -1,7 +1,22 @@
 // src/styles/variables.scss
+
+//---- Dark mode
 $primary-color: #181C14;
 $secondary-color: #3C3D37;
+$color-button: #697565;
+$color-light-1: #E5E5CB;
+$color-light-2: #D5CEA3;
+$color-text:white;
+
+//---- Ligth mode
+//$primary-color: #D5CEA3;
+//$secondary-color: #E5E5CB;
+//$color-button: #697565;
+//$color-light-1: #181C14;
+//$color-light-2: #3C3D37;
+//$color-text:black;
+
 $font-size-base: 16px;
 $spacing-unit: 8px;
 $border-buttons: 17px;
-$color-button: #697565;
+

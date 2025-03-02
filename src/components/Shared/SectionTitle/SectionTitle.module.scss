@@ -1,3 +1,5 @@
+@import 'variables';
+
 .SectionTitle {
     display: flex;
     flex-direction: row;
@@ -8,5 +10,6 @@
     &__Word{
         font-size: 35px;
         font-weight: 600;
+        color:$color-text;
     }
 }

@@ -1,12 +1,108 @@
+@import 'variables';
+
 .AboutMe{
     padding-top: 20px;
 
     @media screen and (min-width: 768px) {
+        width: 80%;  // Aumenta el tamaño en pantallas medianas
         padding-top: 50px;
     }
+    
+    @media screen and (min-width: 1200px) {
+        width: 60%;  // Asegúrate de que este valor sea el correcto
+        padding-top: 50px;
+    }
+    
 
     &__Icon{
         width: 30px;
         height: 30px;
+    }
+
+    &__Container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        gap:20px;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row-reverse;
+        }
+
+        &__ProfileContainer {
+            margin: 20px;
+
+            &__Image {
+                border: 4px solid $color-light-2; 
+                border-radius: 25px;
+                display: block;        
+                transform: rotate(5deg);
+                transform-origin: center; 
+                transition-property: scale,transform;
+                transition-duration: 100ms;
+                &:hover{
+                    scale: 1.1;
+                    transform: rotate(-5deg);
+                    box-shadow: 0 0 5px 2px $color-light-2;
+                    transition-duration: 300ms;
+                }
+            }
+        }
+          
+        
+        &__Info{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap:20px;
+        }
+
+        p{
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        strong{
+            color: $color-light-2;
+        }
+
+        &__DivButton{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            &__CVButton{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap:8px;
+                border:none;
+                background-color: $color-button;
+                padding: 10px 20px;
+                border-radius: $border-buttons;
+                color: white; 
+                cursor: pointer;
+                transition-duration: 200ms;
+                transition-property: background-color, scale;
+                transition-timing-function: ease-in-out;
+
+                &:hover{
+                    scale: 1.1;
+                    background-color: $secondary-color;
+                    box-shadow: 0 0 5px 2px $color-button;
+                    transition-duration: 500ms;   
+                }
+                &__Icon{
+                    width: 20px;
+                    height: 20px;
+                }
+                &__Title{
+                    font-weight: 400;
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+        }
+
     }
 }

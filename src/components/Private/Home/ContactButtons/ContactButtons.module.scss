@@ -19,10 +19,9 @@
         border:none;
         border-radius: $border-buttons;
         background-color: $color-button;
-        color: white;
+        color: $color-text;
         text-decoration: none;
         cursor: pointer;
-        box-shadow: 0 0 5px 2px $color-button;
         transition-duration: 200ms;
         transition-property: background-color, scale;
         transition-timing-function: ease-in-out;
@@ -30,6 +29,7 @@
         &:hover{
             scale: 1.2;
             background-color: $secondary-color;
+            box-shadow: 0 0 5px 2px $color-button;
             transition-duration: 500ms;   
         }
 
