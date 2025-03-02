@@ -1,0 +1,22 @@
+.FirstProject{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10%;
+
+    &__Image1 {
+        position: relative;
+        width: 40%;
+        height: 500px;
+    }
+    
+    &__Image2 {
+        position: relative;
+        width: 40%;
+        height: 500px;
+    }
+    
+    &__Explain {
+        position: relative;
+    }
+}

@@ -18,8 +18,7 @@
         padding: 6px 10px;
         border:none;
         border-radius: $border-buttons;
-        background-color: $color-button;
-        color: $color-text;
+        background-color: $button-color;
         text-decoration: none;
         cursor: pointer;
         transition-duration: 200ms;
@@ -28,16 +27,18 @@
 
         &:hover{
             scale: 1.2;
-            background-color: $secondary-color;
-            box-shadow: 0 0 5px 2px $color-button;
-            transition-duration: 500ms;   
+            background-color: $hover-button-color-dark;
+            box-shadow: 0 0 5px 2px $button-color;
+            transition-duration: 500ms; 
         }
-
-    
     }
 
+    &__Icon{
+        color: #fff;
+    }
 
     h1{
+        color: #fff;
         font-weight: 400;
         font-size: 16px;
         margin: 0;

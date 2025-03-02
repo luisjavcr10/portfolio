@@ -6,8 +6,6 @@ interface iconsInterface {
     name: string;
 }
 
-
-
 export const SkillsCard = ({title,icons, numGrid}: Readonly<{title:string;icons:iconsInterface[]; numGrid:number}>) => {
     return(
         <div className={`${styles.SkillsCard} ${styles[`SkillsCard--${numGrid}`]}`}>

@@ -34,7 +34,7 @@
             margin: 20px;
 
             &__Image {
-                border: 4px solid $color-light-2; 
+                border: 4px solid var(--bg-card-v2-color); 
                 border-radius: 25px;
                 display: block;        
                 transform: rotate(5deg);
@@ -44,7 +44,7 @@
                 &:hover{
                     scale: 1.1;
                     transform: rotate(-5deg);
-                    box-shadow: 0 0 5px 2px $color-light-2;
+                    box-shadow: 0 0 5px 2px var(--bg-card-v2-color);
                     transition-duration: 300ms;
                 }
             }
@@ -64,7 +64,7 @@
         }
 
         strong{
-            color: $color-light-2;
+            color: var(--bg-card-v2-color);
         }
 
         &__DivButton{
@@ -77,7 +77,7 @@
                 align-items: center;
                 gap:8px;
                 border:none;
-                background-color: $color-button;
+                background-color: $button-color;
                 padding: 10px 20px;
                 border-radius: $border-buttons;
                 color: white; 
@@ -87,10 +87,10 @@
                 transition-timing-function: ease-in-out;
 
                 &:hover{
-                    scale: 1.1;
-                    background-color: $secondary-color;
-                    box-shadow: 0 0 5px 2px $color-button;
-                    transition-duration: 500ms;   
+                    scale: 1.2;
+                    background-color: --hover-button-color;
+                    box-shadow: 0 0 5px 2px $button-color;
+                    transition-duration: 500ms;  
                 }
                 &__Icon{
                     width: 20px;
