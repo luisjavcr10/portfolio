@@ -1,15 +1,27 @@
 @import 'variables';
 
 .Navbar {
+  :root {
+    --bg-color: #{$bg-color-light};
+    --text-color:#{$text-color-light};
+  }
+    
+  [data-theme="dark"] {
+      --bg-color: #{$bg-color-dark};
+      --text-color:#{$text-color-dark};
+  }
+
   position: fixed;
   display: flex;
   flex-direction: row;
-  background-color: $primary-color;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  background-color: var(--bg-color);
+  transition: background 0.3s, color 0.3s;
   width: 100%;
   padding: 20px 10px;
   z-index: 100;
+  gap: 15px;
   @media screen and (min-width: 768px){
     padding: 30px 20px;
   }
@@ -28,7 +40,7 @@
 
   &__Link {
     align-items: center;
-    color: $color-text;
+    color: var(--text-color);
     text-decoration: none;
     padding: 10px;
     font-weight: 500;

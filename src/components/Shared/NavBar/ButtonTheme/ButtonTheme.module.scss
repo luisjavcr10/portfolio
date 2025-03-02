@@ -1,0 +1,28 @@
+@import 'variables';
+
+.Button{
+    :root {
+        --text-color:#{$text-color-light};
+    }
+      
+    [data-theme="dark"] {
+        --text-color:#{$text-color-dark};
+    }
+
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: var(--text-color);
+    transition-property: scale;
+    transition-duration: 500ms;
+    &:hover{
+        scale:1.2;
+    }
+    &__Icon{
+        width: 25px;
+        height: 25px;
+    }
+}

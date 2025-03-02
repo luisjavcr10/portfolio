@@ -33,26 +33,26 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px 0px 10px 0px;
+    @media screen and (min-width: 768px) {
+      width: 80%;
+    }
   }
 
   h1 {
     font-size: 42px;
     font-weight: 700;
     margin: 0px;
-    color:$color-text
   }
 
   h2 {
     font-size: 25px;
     font-weight: 500;
-    color: #666;
     margin: 5px 0px 0px 0px;
-    color:$color-text
   }
 
   a {
-    background-color: $color-button;
-    color: $color-text;
+    background-color: $button-color;
+    color: #fff;
     padding: 6px 10px;
     border-radius: $border-buttons;
     cursor: pointer;
@@ -60,14 +60,14 @@
     font-weight: 300;
     flex-shrink: 1;
     text-decoration: none;
-    box-shadow: 0 0 5px 2px $color-button;
+    box-shadow: 0 0 5px 2px $button-color;
     transition-duration: 200ms;
     transition-property: background-color, scale;
     transition-timing-function: ease-in-out;
     
     &:hover{
       scale: 1.2;
-      background-color: $secondary-color;
+      background-color: --hover-button-color;
       transition-duration: 500ms;  
     }
   }
@@ -79,7 +79,6 @@
     line-height: 1.6;
     text-align: left;
     word-wrap: break-word;
-    color:$color-text;
   }
 }
 

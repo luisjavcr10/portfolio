@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
+import { ButtonTheme } from "./ButtonTheme";
 
 const links = [
     { name: "Inicio", href: "/"},
@@ -17,7 +18,9 @@ export const Navbar = () => {
                         <Link href={link.href} className={styles.Navbar__Link}> {link.name} </Link>
                     </li>
                 ))}
+                
             </ul>
+            <ButtonTheme/>
         </div>
     )
 }
