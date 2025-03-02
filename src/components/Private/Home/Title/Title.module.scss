@@ -39,6 +39,7 @@
     font-size: 42px;
     font-weight: 700;
     margin: 0px;
+    color:$color-text
   }
 
   h2 {
@@ -46,11 +47,12 @@
     font-weight: 500;
     color: #666;
     margin: 5px 0px 0px 0px;
+    color:$color-text
   }
 
   a {
     background-color: $color-button;
-    color: white;
+    color: $color-text;
     padding: 6px 10px;
     border-radius: $border-buttons;
     cursor: pointer;
@@ -77,6 +79,7 @@
     line-height: 1.6;
     text-align: left;
     word-wrap: break-word;
+    color:$color-text;
   }
 }
 

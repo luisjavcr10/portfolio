@@ -1,11 +1,20 @@
 @import 'variables';
 
 .SkillsCard {
+    z-index: 1;
     &--1 {
-        background-color: #D5CEA3;
-        box-shadow: 0 0 10px 1px #D5CEA3;
+        background-color: $color-light-2;;
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            scale:1.02;
+            box-shadow: 0 0 10px 1px $color-light-2;
+            transition-duration: 400ms;
+            
+        }
+
         @media screen and (min-width: 1140px) {
             grid-column: span 2 / span 2;
             grid-row: span 3 / span 3;
@@ -13,13 +22,18 @@
     }
 
     &--2 {
-        background-color: #D5CEA3;
-        box-shadow: 0 0 10px 1px #D5CEA3;
+        background-color: $color-light-1;
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            scale:1.02;
+            box-shadow: 0 0 10px 1px $color-light-1;
+            transition-duration: 400ms;
+        }
+
         @media screen and (min-width: 1140px){
-            background-color: #E5E5CB;
-            box-shadow: 0 0 10px 1px #E5E5CB;
             grid-column: span 3 / span 3;
             grid-row: span 3 / span 3;
             grid-column-start: 3;
@@ -27,13 +41,19 @@
     }
 
     &--3 {
-        background-color: #D5CEA3;
-        box-shadow: 0 0 10px 1px #D5CEA3;
+        background-color: $color-light-2;
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            scale:1.02;
+            box-shadow: 0 0 10px 1px $color-light-2;
+            transition-duration: 400ms;
+        }
+
         @media screen and (min-width: 1140px){
-            background-color: #E5E5CB;
-            box-shadow: 0 0 10px 1px #E5E5CB;
+            background-color: $color-light-1;
             grid-column: span 3 / span 3;
             grid-row: span 3 / span 3;
             grid-row-start: 4;
@@ -41,11 +61,19 @@
     }
 
     &--4 {
-        background-color: #D5CEA3;
-        box-shadow: 0 0 10px 1px #D5CEA3;
+        background-color: $color-light-1;
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            scale:1.02;
+            box-shadow: 0 0 10px 1px $color-light-1;
+            transition-duration: 400ms;
+        }
+
         @media screen and (min-width: 1140px){
+            background-color: $color-light-2;
             grid-column: span 2 / span 2;
             grid-row: span 3 / span 3;
             grid-column-start: 4;
@@ -53,11 +81,18 @@
         } 
     }
 
-    &--5 {
-        background-color: #D5CEA3;
-        box-shadow: 0 0 10px 1px #D5CEA3;
+    &--5 {  
+        background-color: $color-light-2;
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            scale:1.02;
+            box-shadow: 0 0 10px 1px $color-light-2;
+            transition-duration: 400ms;
+        }
+
         @media screen and (min-width: 1140px){
             grid-column: span 5 / span 5;
             grid-row: span 2 / span 2;
