@@ -23,7 +23,7 @@ export const Title = () => {
         </div>
         <div className={styles.Home__Presentation}>
           <h2>Desarrollador Full Stack</h2>
-          <h1>Hola!! Soy Luis Castillo</h1>
+          <h1>Hola 👋, soy Luis Castillo</h1>
           <p>
             Apasionado por la tecnología y el desarrollo web. Con experiencia en frontend y backend, creando soluciones eficientes y escalables.
           </p>

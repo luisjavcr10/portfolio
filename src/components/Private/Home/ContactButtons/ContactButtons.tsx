@@ -10,7 +10,7 @@ export const ContactButtons = () =>{
             target='_blank'
             rel='noopener noreferrer  '
         >
-            <CiMail />
+            <CiMail className={styles.ContactButtons__Icon} />
             <h1>Contacto</h1> 
         </a>
         <a 
@@ -26,7 +26,7 @@ export const ContactButtons = () =>{
             target='_blank'
             rel='noopener noreferrer  '
         >
-            <FaGithub />
+            <FaGithub className={styles.ContactButtons__Icon} />
             <h1>Github</h1> 
         </a>
     </div>

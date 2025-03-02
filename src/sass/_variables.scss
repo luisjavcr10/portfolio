@@ -1,14 +1,28 @@
 // src/styles/variables.scss
-
+$button-color:#697565;
 //---- Dark mode
-$primary-color: #181C14;
-$secondary-color: #3C3D37;
-$color-button: #697565;
-$color-light-1: #E5E5CB;
-$color-light-2: #D5CEA3;
-$color-text:white;
+$bg-color-dark:#181C14;
+$hover-button-color-dark:#3C3D37;
+$bg-card-v1-dark:#E5E5CB;
+$bg-card-v2-dark:#D5CEA3;
+$text-color-dark:#fff;
+$text-color-card-skills-dark:#000;
 
 //---- Ligth mode
+$bg-color-light:#D5CEA3;
+$hover-button-color-light:#E5E5CB;
+$bg-card-v1-light:#181C14;
+$bg-card-v2-light:#3C3D37;
+$text-color-light:#000;
+$text-color-card-skills-light:#fff;
+
+//$primary-color: #181C14;
+//$secondary-color: #3C3D37;
+//$color-button: #697565;
+//$color-light-1: #E5E5CB;
+//$color-light-2: #D5CEA3;
+//$color-text:#fff;
+
 //$primary-color: #D5CEA3;
 //$secondary-color: #E5E5CB;
 //$color-button: #697565;

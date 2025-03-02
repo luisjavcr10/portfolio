@@ -3,14 +3,14 @@
 .SkillsCard {
     z-index: 1;
     &--1 {
-        background-color: $color-light-2;;
+        background-color: var(--bg-card-v2-color);
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
             scale:1.02;
-            box-shadow: 0 0 10px 1px $color-light-2;
+            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
             transition-duration: 400ms;
             
         }
@@ -22,14 +22,14 @@
     }
 
     &--2 {
-        background-color: $color-light-1;
+        background-color: var(--bg-card-v1-color);
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
             scale:1.02;
-            box-shadow: 0 0 10px 1px $color-light-1;
+            box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
             transition-duration: 400ms;
         }
 
@@ -41,19 +41,19 @@
     }
 
     &--3 {
-        background-color: $color-light-2;
+        background-color: var(--bg-card-v2-color);
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
             scale:1.02;
-            box-shadow: 0 0 10px 1px $color-light-2;
+            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
             transition-duration: 400ms;
         }
 
         @media screen and (min-width: 1140px){
-            background-color: $color-light-1;
+            background-color: var(--bg-card-v1-color);
             grid-column: span 3 / span 3;
             grid-row: span 3 / span 3;
             grid-row-start: 4;
@@ -61,19 +61,19 @@
     }
 
     &--4 {
-        background-color: $color-light-1;
+        background-color: var(--bg-card-v1-color);
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
             scale:1.02;
-            box-shadow: 0 0 10px 1px $color-light-1;
+            box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
             transition-duration: 400ms;
         }
 
         @media screen and (min-width: 1140px){
-            background-color: $color-light-2;
+            background-color:var(--bg-card-v2-color);
             grid-column: span 2 / span 2;
             grid-row: span 3 / span 3;
             grid-column-start: 4;
@@ -82,14 +82,14 @@
     }
 
     &--5 {  
-        background-color: $color-light-2;
+        background-color: var(--bg-card-v2-color);
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
             scale:1.02;
-            box-shadow: 0 0 10px 1px $color-light-2;
+            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
             transition-duration: 400ms;
         }
 
@@ -106,14 +106,13 @@
     align-items: center;
     padding: 10px;
     border-radius: $border-buttons;
-    
 
     &__Title {
         grid-column: span 2 / span 2;
         font-weight: 600;
         padding-bottom: 10px;
         margin: 0;
-        color: $primary-color;
+        color: var(--text-color-card-skill);
     }
     &__Icons {
         margin: 0;
