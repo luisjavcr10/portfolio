@@ -6,7 +6,7 @@
     --bg-card-v1-color: #{$bg-card-v1-light};
     --bg-card-v2-color: #{$bg-card-v2-light};
     --text-color-card-skill:#{$text-color-card-skills-light};
-    --hover-button-color:#$hover-button-color-light;
+    --hover-button-color:#{$hover-button-color-light};
 }
   
 [data-theme="dark"] {
@@ -15,7 +15,7 @@
     --bg-card-v1-color: #{$bg-card-v1-dark};
     --bg-card-v2-color: #{$bg-card-v2-dark};
     --text-color-card-skill:#{$text-color-card-skills-dark};
-    --hover-button-color:#$hover-button-color-dark;
+    --hover-button-color:#{$hover-button-color-dark};
 }
 
 html, body {

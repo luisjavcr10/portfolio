@@ -1,5 +1,6 @@
 import styles from './Title.module.scss';
 import Image from 'next/image';
+import { SpecialButton } from '@/components/Shared/SpecialButton';
 
 export const Title = () => {
   return (
@@ -12,14 +13,7 @@ export const Title = () => {
             height={100}
             alt="profile"
           />
-          <a 
-            className={styles.Home__AvailableBotton}
-            href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/'
-            target='_blank'
-            rel='noopener noreferrer  '
-          >
-            Disponible para trabajar
-          </a>
+          <SpecialButton href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/' message='Disponible para trabajar'/>
         </div>
         <div className={styles.Home__Presentation}>
           <h2>Desarrollador Full Stack</h2>

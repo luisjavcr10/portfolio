@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SectionTitle } from '@/components/Shared/SectionTitle';
 import { FaUserAstronaut } from "react-icons/fa6";
 import { MdDownload } from "react-icons/md";
+import { SpecialButton } from '@/components/Shared/SpecialButton';
 
 export const AboutMe = () =>{
     return(
@@ -27,10 +28,7 @@ export const AboutMe = () =>{
                         <p>Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.<strong>non hic, nesciunt sint unde neque dolores magni dolorem velit beatae sed!</strong></p>
                     </div>
                     <div className={styles.AboutMe__Container__DivButton}>
-                        <button className={styles.AboutMe__Container__DivButton__CVButton}>
-                            <MdDownload className={styles.AboutMe__Container__DivButton__CVButton__Icon}/>
-                            <p className={styles.AboutMe__Container__DivButton__CVButton__Title}>Download my CV</p>
-                        </button>
+                        <SpecialButton href='/CV.pdf' message='Descarga mi CV'/>
                     </div>
                     
                 </div>
