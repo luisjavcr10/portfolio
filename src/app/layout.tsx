@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Shared/NavBar";
 import {Footer} from "@/components/Shared/Footer";
 import {Onest} from 'next/font/google'
 import styles from './layout.module.scss';
+import '@/styles/tailwind/tailwind.css';
 import '@/sass/main.scss';
 
 const onest = Onest({
