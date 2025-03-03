@@ -67,42 +67,5 @@
             color: var(--bg-card-v2-color);
         }
 
-        &__DivButton{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            &__CVButton{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap:8px;
-                border:none;
-                background-color: $button-color;
-                padding: 10px 20px;
-                border-radius: $border-buttons;
-                color: white; 
-                cursor: pointer;
-                transition-duration: 200ms;
-                transition-property: background-color, scale;
-                transition-timing-function: ease-in-out;
-
-                &:hover{
-                    scale: 1.2;
-                    background-color: --hover-button-color;
-                    box-shadow: 0 0 5px 2px $button-color;
-                    transition-duration: 500ms;  
-                }
-                &__Icon{
-                    width: 20px;
-                    height: 20px;
-                }
-                &__Title{
-                    font-weight: 400;
-                    font-size: 16px;
-                    margin: 0;
-                }
-            }
-        }
-
     }
 }
