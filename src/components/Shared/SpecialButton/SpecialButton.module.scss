@@ -6,9 +6,11 @@
     align-items: center;
     justify-content: center;
     background-color: var(--hover-button-color);
-    color: var(--text-color);
+    color:white;
     padding: 1.5px;
-    border: none;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
     border-radius: 999px;
     cursor: pointer;
     overflow: hidden;
@@ -31,18 +33,18 @@
         position: absolute;
         inset: -1000%;
         background: conic-gradient(
-            from 90deg at 50% 45%,
+            from 90deg at 50% 50%,
             #85A947 0%,
-            transparent 50%,
+            green 80%,
             #85A947 100%
         );
-        animation: spin 1s linear infinite;
+        animation: spin 0.5s linear infinite;
     }
   
     .Content {
         position: relative;
         z-index: 1;
-        background: var(--hover-button-color);
+        background:$hover-button-color-dark;
         margin:0.5px;
         padding: 7px;
         border-radius: 999px;

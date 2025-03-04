@@ -2,15 +2,17 @@
 
 .ContactButtons{
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     gap: 20px;
     margin: 10px;
 
     @media screen and (min-width: 768px) {
         width: 60%;
+        flex-direction: row-reverse;
+        justify-content: start;
     }
 
-    a{
+    &__SocialButton{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,6 +23,7 @@
         background-color: $button-color;
         text-decoration: none;
         cursor: pointer;
+        box-shadow: 0 0 5px 2px $button-color;
         transition-duration: 200ms;
         transition-property: background-color, scale;
         transition-timing-function: ease-in-out;
@@ -28,13 +31,42 @@
         &:hover{
             scale: 1.2;
             background-color: $hover-button-color-dark;
-            box-shadow: 0 0 5px 2px $button-color;
+            transition-duration: 500ms; 
+        }
+    }
+    &__Correo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:7px;
+        padding: 6px 10px;
+        border:none;
+        border-radius: $border-buttons;
+        background-color: $button-color;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 0 5px 2px $button-color;
+        transition-duration: 200ms;
+        transition-property: background-color, scale;
+        transition-timing-function: ease-in-out;
+
+        &:hover{
+            scale: 1.1;
+            background-color: $hover-button-color-dark;
             transition-duration: 500ms; 
         }
     }
 
     &__Icon{
         color: #fff;
+    }
+
+    &__SocialContact{
+        display: flex;
+        justify-content: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
     }
 
     h1{
