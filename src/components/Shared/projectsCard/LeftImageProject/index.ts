@@ -1,0 +1,1 @@
+export { LeftImageProject } from './LeftImageProject';

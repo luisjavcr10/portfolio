@@ -3,11 +3,8 @@ import styles from './page.module.scss';
 
 export default function Animation() {
     return (
-        <div >
-            <button className={styles.GlowingButton}>
-                <span className={styles.Glow}></span>
-                <span className={styles.Content}>Disponible para trabajar</span>
-            </button>
+        <div className={styles.Animation} >
+            <ThreeDCardDemo/>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 .Projects{
     padding-top: 20px;
-    width: 100%;
+    //width: 100%;
 
     @media screen and (min-width: 768px) {
         width: 60%;
@@ -10,6 +10,12 @@
     &__Icon{
         width: 30px;
         height: 30px;
+    }
+
+    &__ProjectsList{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
     }
 
 }
