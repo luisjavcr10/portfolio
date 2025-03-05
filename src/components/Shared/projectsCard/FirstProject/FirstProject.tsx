@@ -4,22 +4,18 @@ import Image from 'next/image';
 export const FirstProject = () =>{
     return(
         <div className={styles.FirstProject}>
-            <div className={styles.FirstProject__Image1}>
+            <div className={styles.FirstProject__ImageContainer}>
                 <Image
-                    src='/images/projects/example.jpg'
-                    fill 
-                    style={{ objectFit: "contain" }} 
+                    src='/images/projects/prototipo2.jpg'
+                    fill
                     alt='imageproject'
+                    className={styles.FirstProject__ImageContainer__Image}
                 />
             </div>
-            <div className={styles.FirstProject__Image2}>
-                <Image
-                    src='/images/projects/example.jpg'
-                    fill 
-                    style={{ objectFit: "contain" }} 
-                    alt='imageproject'
-                />
+            <div>
+                holaaa
             </div>
+            
         </div>
     );
 }

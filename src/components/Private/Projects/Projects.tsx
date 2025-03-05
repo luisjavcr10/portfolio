@@ -9,9 +9,9 @@ export const Projects = () =>{
             <SectionTitle title='Proyectos'>
                 <FaLaptopCode className={styles.Projects__Icon} />
             </SectionTitle>     
-            {/*<div>
+            <div style={{width:'100%'}}>
                 <FirstProject/>
-            </div>*/}
+            </div>
         </div>
     );
 };
