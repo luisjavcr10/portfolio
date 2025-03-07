@@ -3,19 +3,27 @@
 :root {
     --bg-color: #{$bg-color-light};
     --text-color:#{$text-color-light};
+    --text-color-reverse:#{$text-color-dark};
     --bg-card-v1-color: #{$bg-card-v1-light};
     --bg-card-v2-color: #{$bg-card-v2-light};
     --text-color-card-skill:#{$text-color-card-skills-light};
     --hover-button-color:#{$hover-button-color-light};
+    --bg-description-project:#B9B28A;
+    --bg-tag-tech:#040D12;
+    --shadow-special-tag:#FBF8EF;
 }
   
 [data-theme="dark"] {
     --bg-color: #{$bg-color-dark};
     --text-color:#{$text-color-dark};
+    --text-color-reverse:#{$text-color-light};
     --bg-card-v1-color: #{$bg-card-v1-dark};
     --bg-card-v2-color: #{$bg-card-v2-dark};
     --text-color-card-skill:#{$text-color-card-skills-dark};
     --hover-button-color:#{$hover-button-color-dark};
+    --bg-description-project:#040D12;
+    --bg-tag-tech:#{$hover-button-color-light};
+    --shadow-special-tag:#{$bg-card-v2-dark};
 }
 
 html, body {

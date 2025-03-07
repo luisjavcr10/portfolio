@@ -1,6 +1,7 @@
+@import 'variables';
+
 .Projects{
     padding-top: 20px;
-    //width: 100%;
 
     @media screen and (min-width: 768px) {
         width: 60%;
@@ -15,7 +16,48 @@
     &__ProjectsList{
         display: flex;
         flex-direction: column;
-        gap:20px;
+        justify-content: center;
+        align-items: center;
+        gap:30px;
+        //margin: 0 15px; para igualar al grid de los skills
+
+        &__Image{
+            position: relative;
+            width: 90%;
+            aspect-ratio: 16/9;
+            @media screen and (min-width:1200px) {
+                width: 80%;
+            }
+            &__Component{
+                border-radius: 15px;
+            }
+        }
+
+        &__Description{
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+
+            @media screen and (min-width:768) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+            }
+        }
+    }
+
+    h2{
+        font-size: 25px;
+        font-weight: 700;
+    }
+    
+    &__ProjectTitle{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: var(--bg-card-v2-color);   
     }
 
 }

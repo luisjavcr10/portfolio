@@ -6,12 +6,13 @@
         transition-property: scale, transform;
 
         &:hover{
-            scale: 1.1;
-            transition-duration: 2s;
-            @media screen and (min-width: 768px) {
-                transform: translateX(-80px); 
-                scale: 1.15;
-            }
+            scale: 1;
+            //scale: 1.1;
+            //transition-duration: 2s;
+            //@media screen and (min-width: 768px) {
+            //    transform: translateX(-80px); 
+            //    scale: 1.15;
+            //}
         }
 
         &__Image{
