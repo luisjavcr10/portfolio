@@ -9,8 +9,8 @@ export const LeftImageProject = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            setImageWidth(window.innerWidth > 480 ? 400 : 320);
-            setImageHeight(window.innerWidth > 480 ? 245 : 180);
+            setImageWidth(window.innerWidth > 480 ? 640 : 320);
+            setImageHeight(window.innerWidth > 480 ? 360 : 180);
         };
         handleResize(); 
         window.addEventListener('resize', handleResize);

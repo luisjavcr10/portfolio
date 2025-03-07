@@ -1,6 +1,6 @@
 @import 'variables';
 
-.SpecialButton{
+.SpecialTag{
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -12,21 +12,11 @@
     border-width: 3px;
     border-style: solid;
     border-radius: 999px;
-    cursor: pointer;
     overflow: hidden;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0 0 5px 2px $button-color;
+    font-size: 10px;
+    font-weight: 300;
     flex-shrink: 1;
     text-decoration: none;
-    transition-duration: 200ms;
-    transition-property: background-color, scale;
-    transition-timing-function: ease-in-out;
-    
-    &:hover{
-      scale: 1.15;
-      transition-duration: 500ms;  
-    }
 
     .Glow {
         z-index: 0;
@@ -34,9 +24,9 @@
         inset: -1000%;
         background: conic-gradient(
             from 90deg at 50% 50%,
-            #85A947 0%,
+            $bg-card-v2-dark 0%,
             black 80%,
-            #85A947 100%
+            $bg-card-v2-dark 100%
         );
         animation: spin 1s linear infinite;
     }
