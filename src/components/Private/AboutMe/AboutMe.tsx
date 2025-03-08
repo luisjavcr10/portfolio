@@ -1,9 +1,10 @@
 import styles from './AboutMe.module.scss';
 import Image from 'next/image';
+
 import { SectionTitle } from '@/components/Shared/SectionTitle';
-import { FaUserAstronaut } from "react-icons/fa6";
-import { MdDownload } from "react-icons/md";
 import { SpecialButton } from '@/components/Shared/SpecialButton';
+
+import { FaUserAstronaut } from "react-icons/fa6";
 
 export const AboutMe = () =>{
     return(
@@ -18,6 +19,7 @@ export const AboutMe = () =>{
                         width={250}
                         height={250}
                         alt='Profile about me'
+                        loading={undefined}
                         className={styles.AboutMe__Container__ProfileContainer__Image}
                     />
                 </div>

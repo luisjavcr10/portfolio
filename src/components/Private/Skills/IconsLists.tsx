@@ -6,14 +6,11 @@ import { TailwindCSSIcon } from '@/utils/Icons/Frontend/TailwindCSSIcon/Tailwind
 import { BootstrapIcon } from '@/utils/Icons/Frontend/BootStrapIcon';
 import { NodeJsIcon } from '@/utils/Icons/BackEnd/NodeJsIcon';
 import { ExpressJsIcon } from '@/utils/Icons/BackEnd/ExpressJsIcon';
-import { SpringIcon } from '@/utils/Icons/BackEnd/SpringIcon';
 import { GraphQLIcon } from '@/utils/Icons/BackEnd/GraphQLIcon';
 import { RestAPIIcon } from '@/utils/Icons/BackEnd/RestAPIIcon';
 import { JavaScriptIcon } from '@/utils/Icons/Languages/JavascriptIcon';
 import { TypeScriptIcon } from '@/utils/Icons/Languages/TypeScriptIcon';
-import { JavaIcon } from '@/utils/Icons/Languages/JavaIcon';
 import { HTML5Icon } from '@/utils/Icons/Languages/HTMLICon';
-import { CSSIcon } from '@/utils/Icons/Languages/CSSIcon';
 import { SassIcon } from '@/utils/Icons/Languages/SassIcon';
 import { MySQLIcon } from '@/utils/Icons/DataBases/MySQLIcon';
 import { SQLServerIcon } from '@/utils/Icons/DataBases/SQLServerIcon';
@@ -23,8 +20,6 @@ import { GitIcon } from '@/utils/Icons/Tools/GitIcon';
 import { GithubIcon } from '@/utils/Icons/Tools/GithubIcon';
 import { DockerIcon } from '@/utils/Icons/Tools/DockerIcon';
 import { PostmanIcon } from '@/utils/Icons/Tools/PostmanIcon';
-import { SwaggerIcon } from '@/utils/Icons/Tools/SwaggerIcon';
-import { VercelIcon } from '@/utils/Icons/Tools/VercelIcon';
 
 const iconsFrontend = [
     { svg: <NextjsIcon className={styles.Skills__IconList}/> , name: 'Next.js'},
@@ -36,7 +31,6 @@ const iconsFrontend = [
 const iconsBackend = [
     { svg: <NodeJsIcon className={styles.Skills__IconList}/> , name: 'Node.js'},
     { svg: <ExpressJsIcon className={styles.Skills__IconList}/> , name: 'Express.js'},
-    { svg: <SpringIcon className={styles.Skills__IconList}/> , name: 'Spring'},
     { svg: <GraphQLIcon className={styles.Skills__IconList}/> , name: 'GraphQL'},
     { svg: <RestAPIIcon /> , name: 'RestAPI'},
 ];
@@ -44,9 +38,7 @@ const iconsBackend = [
 const iconsLanguages = [
     { svg: <JavaScriptIcon className={styles.Skills__IconList}/> , name: 'JavaScript'},
     { svg: <TypeScriptIcon className={styles.Skills__IconList}/> , name: 'TypeScript'},
-    { svg: <JavaIcon className={styles.Skills__IconList}/> , name: 'Java'},
     { svg: <HTML5Icon className={styles.Skills__IconList}/> , name: 'HTML5'},
-    { svg: <CSSIcon className={styles.Skills__IconList}/> , name: 'CSS'},
     { svg: <SassIcon className={styles.Skills__IconList}/> , name: 'Sass'},
 ];
 
@@ -62,8 +54,6 @@ const iconTools = [
     { svg: <GithubIcon className={styles.Skills__IconList}/> , name: 'Github'},
     { svg: <PostmanIcon className={styles.Skills__IconList}/> , name: 'Postman'},
     { svg: <DockerIcon className={styles.Skills__IconList}/> , name: 'Docker'},
-    { svg: <SwaggerIcon className={styles.Skills__IconList}/> , name: 'Swagger'},
-    { svg: <VercelIcon className={styles.Skills__IconList}/> , name: 'Vercel'},
 ];
 
 export {iconTools,iconsBackend,iconsDataBases,iconsFrontend,iconsLanguages};

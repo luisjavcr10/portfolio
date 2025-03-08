@@ -1,1 +1,0 @@
-export {GridShadow} from './GridShadow';

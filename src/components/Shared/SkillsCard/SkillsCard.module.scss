@@ -3,21 +3,19 @@
 .SkillsCard {
     z-index: 1;
     &--1 {
-        background-color: var(--bg-card-v2-color);
+        background-color: var(--bg-card-v1-color);
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
-            //scale:1.02;
-            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
+            box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
             transition-duration: 400ms;
             
         }
 
         @media screen and (min-width: 1140px) {
-            grid-column: span 2 / span 2;
-            grid-row: span 3 / span 3;
+            grid-column: span 4 / span 4;
         }
     }
 
@@ -28,56 +26,51 @@
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
-            //scale:1.02;
-            box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
-            transition-duration: 400ms;
-        }
-
-        @media screen and (min-width: 1140px){
-            grid-column: span 3 / span 3;
-            grid-row: span 3 / span 3;
-            grid-column-start: 3;
-        } 
-    }
-
-    &--3 {
-        background-color: var(--bg-card-v2-color);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            //scale:1.02;
-            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
-            transition-duration: 400ms;
-        }
-
-        @media screen and (min-width: 1140px){
-            background-color: var(--bg-card-v1-color);
-            grid-column: span 3 / span 3;
-            grid-row: span 3 / span 3;
-            grid-row-start: 4;
-        } 
-    }
-
-    &--4 {
-        background-color: var(--bg-card-v1-color);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            //scale:1.02;
             box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
             transition-duration: 400ms;
         }
 
         @media screen and (min-width: 1140px){
             background-color:var(--bg-card-v2-color);
-            grid-column: span 2 / span 2;
-            grid-row: span 3 / span 3;
-            grid-column-start: 4;
-            grid-row-start: 4;
+            grid-column: span 4 / span 4;
+            grid-column-start: 5;
+        } 
+    }
+
+    &--3 {
+        background: var(--bg-gradient-to-bottom);
+        grid-column: span 1 / span 1;
+        grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
+            transition-duration: 400ms;
+        }
+
+        @media screen and (min-width: 1140px){
+            background: var(--bg-gradient-to-right);
+            grid-column: span 4 / span 4;
+            grid-column-start: 3;
+            grid-row-start: 2;
+        } 
+    }
+
+    &--4 {
+        background-color: var(--bg-card-v2-color);
+        grid-column: span 1 / span 1;
+        grid-row: span 1 / span 1;
+        transition-duration: 50ms;
+        transition-property: scale;
+        &:hover{
+            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
+            transition-duration: 400ms;
+        }
+
+        @media screen and (min-width: 1140px){
+            background-color:var(--bg-card-v1-color);
+            grid-column: span 4 / span 4;
+            grid-row-start: 3;
         } 
     }
 
@@ -88,15 +81,14 @@
         transition-duration: 50ms;
         transition-property: scale;
         &:hover{
-            //scale:1.02;
             box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
             transition-duration: 400ms;
         }
 
         @media screen and (min-width: 1140px){
-            grid-column: span 5 / span 5;
-            grid-row: span 2 / span 2;
-            grid-row-start: 7;
+            grid-column: span 4 / span 4;
+            grid-column-start: 5;
+            grid-row-start: 3;
         } 
     }
     
@@ -117,25 +109,15 @@
     &__Icons {
         margin: 0;
         padding: 0;
-        display: grid;
-        gap: 10px;
         &--1,
-        &--4 {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr); 
-        }
         &--2,
-        &--3 {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-        }
-        &--5 {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            @media screen and (min-width: 1140px) {
-                grid-template-columns: repeat(6, 1fr);
-                grid-template-rows: 1fr; 
-            }
+        &--3,
+        &--4,
+        &--5{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content:space-around; 
         }
     }
     

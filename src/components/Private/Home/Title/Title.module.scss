@@ -28,16 +28,6 @@
     }
   }
 
-  &__Presentation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px 0px 10px 0px;
-    @media screen and (min-width: 768px) {
-      width: 80%;
-    }
-  }
-
   h1 {
     color: var(--bg-card-v1-color);
     font-size: 38px;
@@ -57,10 +47,30 @@
   p {
     font-size: 20px;
     font-weight: 300;
-    margin: 5px 0px 0px 0px;
+    margin-top: 5px;
     line-height: 1.6;
     text-align: left;
     word-wrap: break-word;
+    text-rendering: optimizeSpeed;
+    will-change: contents;
+    max-width: 600px;
+    width: 100%;
+    display: block;
+    transform: translateZ(0);
+  }
+  
+  &__Presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 10px 0px;
+    @media screen and (min-width: 768px) {
+      width: 80%;
+    }
+    &__Text {
+      width: 100%;
+      max-width: 600px;
+    }
   }
 }
 

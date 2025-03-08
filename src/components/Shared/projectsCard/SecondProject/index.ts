@@ -1,1 +1,0 @@
-export {SecondProject} from './SecondProject';
