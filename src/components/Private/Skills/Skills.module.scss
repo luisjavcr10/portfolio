@@ -14,7 +14,7 @@
 
     &__GridCards{
         display: grid;
-        margin: 15px;
+        //margin: 15px;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
         gap: 15px;

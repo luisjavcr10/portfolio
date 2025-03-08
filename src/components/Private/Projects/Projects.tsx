@@ -1,10 +1,9 @@
 import styles from './Projects.module.scss';
 import Image from 'next/image';
 
-import { FaLaptopCode } from "react-icons/fa";
-
 import { SectionTitle } from '@/components/Shared/SectionTitle';
 import { DescriptionProjectCard } from '@/components/Shared/projectsCard/DescriptionProjectCard';
+import { VideoApiRuc } from './VideoApiRuc';
 
 import { ReactIcon } from '@/utils/Icons/Frontend/ReactJsIcon';
 import { TailwindCSSIcon } from '@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon';
@@ -12,8 +11,10 @@ import { NodeJsIcon } from '@/utils/Icons/BackEnd/NodeJsIcon';
 import { ExpressJsIcon } from '@/utils/Icons/BackEnd/ExpressJsIcon';
 
 import { BiSolidPurchaseTagAlt } from "react-icons/bi";
+import { PiDetectiveFill } from "react-icons/pi";
+import { FaLaptopCode } from "react-icons/fa";
 
-const cards = [
+const cardsDamarisSalon = [
     {
         devSide:'FRONTEND',
         techs:[
@@ -34,6 +35,19 @@ const cards = [
     }
 ]
 
+const cardsApiSunat = [
+    {
+        devSide:'BACKEND',
+        techs:[
+            {title:'Node.js', icon:<NodeJsIcon/>},
+            {title:'Express.js', icon:<ExpressJsIcon/>}
+        ],
+        description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vitae est consequuntur ad nostrum tempora, veniam sed obcaecati vero esse sunt eligendi nisi nemo fugiat, odio aliquid minus dignissimos iste!',
+        linkGithub:'https://github.com/luisjavcr10/api-consulta-sunat'
+    }
+]
+
+
 export const Projects = () =>{
     return (
         <div className={styles.Projects}>
@@ -42,7 +56,7 @@ export const Projects = () =>{
             </SectionTitle>     
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
-                    <BiSolidPurchaseTagAlt/> 
+                    <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
                     <h1>Damaris Salón - Sistema de ventas e inventario</h1>
                 </div>
                 <div className={styles.Projects__ProjectsList__Image}>
@@ -54,7 +68,7 @@ export const Projects = () =>{
                     />
                 </div>
                 <div className={styles.Projects__ProjectsList__Description}>
-                    {cards.map((card, index) => (
+                    {cardsDamarisSalon.map((card, index) => (
                         <DescriptionProjectCard
                             key={index}
                             devSide={card.devSide}
@@ -66,6 +80,26 @@ export const Projects = () =>{
                 </div>
 
             </div>
+            <div className={styles.Projects__ProjectsList} >
+                <div className={styles.Projects__ProjectTitle}> 
+                    <PiDetectiveFill className={styles.Projects__ProjectTitle__Icon}/> 
+                    <h1>API Sunat - Consulta de datos</h1>
+                </div>
+                <div className={styles.Projects__ProjectsList__Description}>
+                    <VideoApiRuc />
+                    {cardsApiSunat.map((card, index) => (
+                        <DescriptionProjectCard
+                            key={index}
+                            devSide={card.devSide}
+                            techs={card.techs}
+                            description={card.description}
+                            linkGithub={card.linkGithub}
+                        />
+                    ))}
+                </div>
+
+            </div>
+
         </div>
     );
 };
