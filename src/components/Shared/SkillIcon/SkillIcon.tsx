@@ -4,7 +4,7 @@ export const SkillIcon = ({ icon, name }: Readonly<{ icon: React.ReactElement; n
     return (
         <div className={styles.SkillIcon}>
             {icon} 
-            <h3 className={styles.SkillIcon__Name}>{name}</h3>
+            <p className={styles.SkillIcon__Name}>{name}</p>
         </div>
     );
 };

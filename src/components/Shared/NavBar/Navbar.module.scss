@@ -46,7 +46,12 @@
     font-weight: 500;
     font-size: 14px;
     &:hover{
-      color:#697565
+      color: $button-color;
     }
+  }
+  
+  .active {
+    color: $button-color !important;
+    font-weight: 800;
   }
 }

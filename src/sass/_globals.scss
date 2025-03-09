@@ -13,6 +13,7 @@
     --shadow-special-tag:#FBF8EF;
     --bg-gradient-to-right: #{$gradient-to-right-light};
     --bg-gradient-to-bottom: #{$gradient-to-bottom-light};
+    --bg-footer: #B9B28A;
 }
   
 [data-theme="dark"] {
@@ -28,7 +29,7 @@
     --shadow-special-tag:#{$bg-card-v2-dark};
     --bg-gradient-to-right: #{$gradient-to-right-dark};
     --bg-gradient-to-bottom: #{$gradient-to-bottom-dark};
-
+    --bg-footer:#{$hover-button-color-dark};
 }
 
 html, body {

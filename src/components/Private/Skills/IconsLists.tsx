@@ -38,8 +38,8 @@ const iconsBackend = [
 const iconsLanguages = [
     { svg: <JavaScriptIcon className={styles.Skills__IconList}/> , name: 'JavaScript'},
     { svg: <TypeScriptIcon className={styles.Skills__IconList}/> , name: 'TypeScript'},
-    { svg: <HTML5Icon className={styles.Skills__IconList}/> , name: 'HTML5'},
     { svg: <SassIcon className={styles.Skills__IconList}/> , name: 'Sass'},
+    { svg: <HTML5Icon className={styles.Skills__IconList}/> , name: 'HTML5'},
 ];
 
 const iconsDataBases = [
