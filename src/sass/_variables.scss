@@ -8,6 +8,8 @@ $bg-card-v1-dark:#E5E5CB;
 $bg-card-v2-dark:#D5CEA3;
 $text-color-dark:#fff;
 $text-color-card-skills-dark:#000;
+$gradient-to-right-dark:linear-gradient(to right, #E5E5CB, #D5CEA3);
+$gradient-to-bottom-dark:linear-gradient(to bottom, #E5E5CB, #D5CEA3);
 
 //---- Ligth mode
 $bg-color-light:#D5CEA3;
@@ -16,6 +18,8 @@ $bg-card-v1-light:#181C14;
 $bg-card-v2-light:#3C3D37;
 $text-color-light:#000;
 $text-color-card-skills-light:#fff;
+$gradient-to-right-light:linear-gradient(to right, #181C14, #3C3D37);
+$gradient-to-bottom-light:linear-gradient(to bottom, #181C14, #3C3D37);
 
 
 $font-size-base: 16px;
