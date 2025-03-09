@@ -39,6 +39,7 @@
 
     &--3 {
         background: var(--bg-gradient-to-bottom);
+
         grid-column: span 1 / span 1;
         grid-row: span 1 / span 1;
         transition-duration: 50ms;

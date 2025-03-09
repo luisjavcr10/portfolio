@@ -1,0 +1,1 @@
+export {RightImageProject} from './RightImageProject';

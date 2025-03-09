@@ -1,5 +1,7 @@
 import styles from './Title.module.scss';
 import Image from 'next/image';
+import { SpecialButton } from '@/components/Shared/SpecialButton';
+import { NameIterator } from '../NameIterator/NameIterator';
 
 import { SpecialButton } from '@/components/Shared/SpecialButton';
 
@@ -18,6 +20,7 @@ export const Title = () => {
           <SpecialButton href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/' message='Disponible para trabajar'/>
         </div>
         <div className={styles.Home__Presentation}>
+          {/*<NameIterator />*/}
           <h2>Desarrollador Full Stack</h2>
           <h1>Hola 👋, soy Luis Castillo</h1>
           <p className={styles.Home__Presentation__Text}>

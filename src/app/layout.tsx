@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Shared/NavBar";
+
 import { Footer } from "@/components/Shared/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Onest } from "next/font/google";
