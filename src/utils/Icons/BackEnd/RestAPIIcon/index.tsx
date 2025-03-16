@@ -1,7 +1,6 @@
-import * as React from "react";
-import type { SVGProps } from "react";
+import * as React from "react";;
   
-export const RestAPIIcon = (props: SVGProps<SVGSVGElement>) =><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
+export const RestAPIIcon = () =><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
   <g>
     <g>
       <path d="M128.01,336.3l9.14-11.39a136.661,136.661,0,0,1-9.14-18.95.488.488,0,0,0-.03-.07l.01,30.44Z" fill="#57a4ff"></path>
