@@ -1,7 +1,8 @@
 "use client"
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import styles from "../Navbar.module.scss";
+import styles from './NavLinks.module.scss';
+import { ButtonTheme } from "../ButtonTheme";
 
 const links = [
   { name: "Inicio", href: "/" },
@@ -34,13 +35,13 @@ export const NavLinks = () => {
   }, []);
 
   return (
-    <nav>
+    <nav className={styles.NavLinks}>
       <ul>
         {links.map((link) => (
           <li key={link.name}>
             <Link
               href={link.href}
-              className={`${styles.Navbar__Link} ${
+              className={`${styles.NavLinks__Link} ${
                 activeSection === link.href.replace("/#", "") ? styles.active : ""
               }`}
             >
@@ -49,6 +50,7 @@ export const NavLinks = () => {
           </li>
         ))}
       </ul>
+      <ButtonTheme/>
     </nav>
     
   );

@@ -1,45 +1,11 @@
 .Navbar {
+  width: 100%;
+  margin-top: 10px;
+  z-index: 100;
   position: fixed;
-  display: flex;
-  flex-direction: row;
+  display:flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-color);
-  transition: background 0.3s, color 0.3s;
-  width: 100%;
-  padding: 20px 10px;
-  z-index: 100;
-  gap: 15px;
-  @media screen and (min-width: 768px){
-    padding: 20px 20px;
-  }
-  
-
-  ul {
-    display: flex;
-    list-style: none; 
-    padding: 0;
-    margin: 0;
-    @media screen and (min-width: 768px){
-      gap: 20px;
-    }
-    
-  }
-
-  &__Link {
-    align-items: center;
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 500;
-    font-size: 14px;
-    &:hover{
-      color: var(--green-neutro);
-    }
-  }
-  
-  .active {
-    color: var(--green-neutro) !important;
-    font-weight: 800;
-  }
 }
+
+
