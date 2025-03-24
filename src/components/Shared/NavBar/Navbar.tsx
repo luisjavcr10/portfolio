@@ -4,9 +4,9 @@ import { NavLinks } from "./NavLinks";
 
 export const Navbar = () => {
   return (
-    <div className={styles.Navbar}>
+    <header className={styles.Navbar}>
       <NavLinks />
       <ButtonTheme />
-    </div>
+    </header>
   );
 };

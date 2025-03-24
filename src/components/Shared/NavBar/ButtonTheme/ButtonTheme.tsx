@@ -1,6 +1,6 @@
 "use client";
 import styles from './ButtonTheme.module.scss';
-import { CiLight, CiDark } from "react-icons/ci";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useTheme } from '@/context/ThemeContext';
 
 export const ButtonTheme = () => {
@@ -12,7 +12,7 @@ export const ButtonTheme = () => {
             className={styles.Button} 
             aria-label={`Change to ${theme === "light" ? "dark" : "light"} mode`}
         >
-            {theme === "light" ? <CiLight className={styles.Button__Icon}/> : <CiDark className={styles.Button__Icon}/> }
+            {theme === "light" ? <MdDarkMode className={styles.Button__Icon}/> : <MdLightMode className={styles.Button__Icon}/> }
         </button>
     );
 };
