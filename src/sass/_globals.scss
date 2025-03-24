@@ -76,6 +76,8 @@ html, body {
     overflow-x: hidden;
     width: 100vw;
     box-sizing: border-box;
+    //desactiva scroll en dispositivos moviles ios
+    overscroll-behavior: none;
 }
 
   

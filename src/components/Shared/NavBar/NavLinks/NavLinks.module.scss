@@ -17,7 +17,8 @@
     top: 0px;
     animation: adjust-header linear both;
     animation-timeline: scroll();
-    animation-range: 0 100px;
+    animation-range: 0 10vh;
+
     
     @media screen and (min-width: 768px) {
         font-size: 14px;
