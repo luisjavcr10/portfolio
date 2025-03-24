@@ -2,34 +2,69 @@
 
 :root {
     --bg-color: #{$bg-color-light};
-    --text-color:#{$text-color-light};
-    --text-color-reverse:#{$text-color-dark};
+    --text-color: #{$text-color-light};
+    --text-color-reverse: #{$text-color-dark};
     --bg-card-v1-color: #{$bg-card-v1-light};
     --bg-card-v2-color: #{$bg-card-v2-light};
-    --text-color-card-skill:#{$text-color-card-skills-light};
-    --hover-button-color:#{$hover-button-color-light};
-    --bg-description-project:#B9B28A;
-    --bg-tag-tech:#040D12;
-    --shadow-special-tag:#FBF8EF;
+    --text-color-card-skill: #{$text-color-card-skills-light};
+    --hover-button-color: #{$hover-button-color-light};
+    --bg-description-project: #B9B28A;
+    --bg-tag-tech: #040D12;
+    --shadow-special-tag: #FBF8EF;
     --bg-gradient-to-right: #{$gradient-to-right-light};
     --bg-gradient-to-bottom: #{$gradient-to-bottom-light};
     --bg-footer: #B9B28A;
+    --green-neutro: #{$button-color};
 }
-  
-[data-theme="dark"] {
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg-color: #{$bg-color-dark};
+        --text-color: #{$text-color-dark};
+        --text-color-reverse: #{$text-color-light};
+        --bg-card-v1-color: #{$bg-card-v1-dark};
+        --bg-card-v2-color: #{$bg-card-v2-dark};
+        --text-color-card-skill: #{$text-color-card-skills-dark};
+        --hover-button-color: #{$hover-button-color-dark};
+        --bg-description-project: #040D12;
+        --bg-tag-tech: #{$hover-button-color-light};
+        --shadow-special-tag: #{$bg-card-v2-dark};
+        --bg-gradient-to-right: #{$gradient-to-right-dark};
+        --bg-gradient-to-bottom: #{$gradient-to-bottom-dark};
+        --bg-footer: #{$hover-button-color-dark};
+    }
+}
+
+:root[data-theme="dark"] {
     --bg-color: #{$bg-color-dark};
-    --text-color:#{$text-color-dark};
-    --text-color-reverse:#{$text-color-light};
+    --text-color: #{$text-color-dark};
+    --text-color-reverse: #{$text-color-light};
     --bg-card-v1-color: #{$bg-card-v1-dark};
     --bg-card-v2-color: #{$bg-card-v2-dark};
-    --text-color-card-skill:#{$text-color-card-skills-dark};
-    --hover-button-color:#{$hover-button-color-dark};
-    --bg-description-project:#040D12;
-    --bg-tag-tech:#{$hover-button-color-light};
-    --shadow-special-tag:#{$bg-card-v2-dark};
+    --text-color-card-skill: #{$text-color-card-skills-dark};
+    --hover-button-color: #{$hover-button-color-dark};
+    --bg-description-project: #040D12;
+    --bg-tag-tech: #{$hover-button-color-light};
+    --shadow-special-tag: #{$bg-card-v2-dark};
     --bg-gradient-to-right: #{$gradient-to-right-dark};
     --bg-gradient-to-bottom: #{$gradient-to-bottom-dark};
-    --bg-footer:#{$hover-button-color-dark};
+    --bg-footer: #{$hover-button-color-dark};
+}
+
+:root[data-theme="light"] {
+    --bg-color: #{$bg-color-light};
+    --text-color: #{$text-color-light};
+    --text-color-reverse: #{$text-color-dark};
+    --bg-card-v1-color: #{$bg-card-v1-light};
+    --bg-card-v2-color: #{$bg-card-v2-light};
+    --text-color-card-skill: #{$text-color-card-skills-light};
+    --hover-button-color: #{$hover-button-color-light};
+    --bg-description-project: #B9B28A;
+    --bg-tag-tech: #040D12;
+    --shadow-special-tag: #FBF8EF;
+    --bg-gradient-to-right: #{$gradient-to-right-light};
+    --bg-gradient-to-bottom: #{$gradient-to-bottom-light};
+    --bg-footer: #B9B28A;
 }
 
 html, body {

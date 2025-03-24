@@ -34,19 +34,22 @@ export const NavLinks = () => {
   }, []);
 
   return (
-    <ul>
-      {links.map((link) => (
-        <li key={link.name}>
-          <Link
-            href={link.href}
-            className={`${styles.Navbar__Link} ${
-              activeSection === link.href.replace("/#", "") ? styles.active : ""
-            }`}
-          >
-            {link.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <ul>
+        {links.map((link) => (
+          <li key={link.name}>
+            <Link
+              href={link.href}
+              className={`${styles.Navbar__Link} ${
+                activeSection === link.href.replace("/#", "") ? styles.active : ""
+              }`}
+            >
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
   );
 };

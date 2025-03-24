@@ -1,16 +1,4 @@
-@import 'variables';
-
 .Navbar {
-  :root {
-    --bg-color: #{$bg-color-light};
-    --text-color:#{$text-color-light};
-  }
-    
-  [data-theme="dark"] {
-      --bg-color: #{$bg-color-dark};
-      --text-color:#{$text-color-dark};
-  }
-
   position: fixed;
   display: flex;
   flex-direction: row;
@@ -46,12 +34,12 @@
     font-weight: 500;
     font-size: 14px;
     &:hover{
-      color: $button-color;
+      color: var(--green-neutro);
     }
   }
   
   .active {
-    color: $button-color !important;
+    color: var(--green-neutro) !important;
     font-weight: 800;
   }
 }

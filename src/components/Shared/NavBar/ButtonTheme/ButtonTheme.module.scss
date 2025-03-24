@@ -1,15 +1,9 @@
 @import 'variables';
 
-.Button{
-    :root {
-        --text-color:#{$text-color-light};
-    }
-      
-    [data-theme="dark"] {
-        --text-color:#{$text-color-dark};
-    }
-
- 
+.Button{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: transparent;
     padding: 0;
     margin: 0;
@@ -19,9 +13,10 @@
     transition-duration: 500ms;
     &:hover{
         scale:1.2;
+        color: var(--green-neutro);
     }
     &__Icon{
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
     }
 }
