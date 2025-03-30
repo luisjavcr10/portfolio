@@ -2,6 +2,7 @@ import styles from './Title.module.scss';
 import Image from 'next/image';
 
 import { SpecialButton } from '@/components/Shared/SpecialButton';
+import { NameIterator } from '../NameIterator/NameIterator';
 
 export const Title = () => {
   return (
@@ -18,7 +19,7 @@ export const Title = () => {
           <SpecialButton href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/' message='Disponible para trabajar'/>
         </div>
         <div className={styles.Home__Presentation}>
-          <h2>Desarrollador Full Stack</h2>
+          <NameIterator />
           <h1>Hola 👋, soy Luis Castillo</h1>
           <p className={styles.Home__Presentation__Text}>
             Apasionado por la tecnología y el desarrollo web. Con experiencia en frontend y backend, creando soluciones eficientes y escalables.

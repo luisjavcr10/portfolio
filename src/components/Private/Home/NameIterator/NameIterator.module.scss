@@ -1,5 +1,57 @@
-.NameIterator{
+.NameIterator {
     display: flex;
-    flex-direction: row; 
-    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    font-family: 'system-ui', sans-serif;
+    margin: 10px 0;
+    
+    h2 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+    
+    .dynamicText {
+        background-color: #697565;
+        box-shadow: 0 0 4px 1px #697565;
+        padding: 2px;
+        border-radius: 17px;
+        font-weight: 700;
+        font-size: 1.8rem;
+        position: relative;
+        min-width: 150px;
+        text-align: center;
+        
+        &.fullstack {
+            color: #E5E5CB;
+        }
+        
+        &.frontend {
+            color: #E5E5CB;
+        }
+        
+        &.backend {
+            color: #E5E5CB;
+        }
+        
+        &::after {
+            display: none;;
+        }
+        
+        &.active::after {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        .dynamicText {
+            font-size: 1.5rem;
+            min-width: 120px;
+        }
+    }
 }
