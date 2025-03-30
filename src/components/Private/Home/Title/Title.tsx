@@ -9,9 +9,9 @@ export const Title = () => {
         <div className={styles.Home__Profile}>
           <Image
             className={styles.Home__Profile__Image}
-            src="/images/profile/profile.jpg"
-            width={100} 
-            height={100}
+            src="/images/profile/mainprofile.jpeg"
+            width={120} 
+            height={120}
             alt="profile"
             priority
           />
