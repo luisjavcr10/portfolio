@@ -21,7 +21,7 @@ export const Footer = () => {
                 <div className={styles.Footer__Contact__Social}>
                     <a 
                         className={styles.Footer__Contact__IconContainer}
-                        href='https://github.com/luisjavcr10'
+                        href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/'
                         aria-label='LinkedIn'
                         target='_blank'
                         rel='noopener noreferrer  '
@@ -30,7 +30,7 @@ export const Footer = () => {
                     </a>
                     <a 
                         className={styles.Footer__Contact__IconContainer}
-                        href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/'
+                        href='https://github.com/luisjavcr10'
                         aria-label='GitHub'
                         target='_blank'
                         rel='noopener noreferrer  '

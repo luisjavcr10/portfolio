@@ -21,7 +21,7 @@ const cardsDamarisSalon = [
             {title:'React', icon:<ReactIcon/>},
             {title:'TailwindCSS', icon:<TailwindCSSIcon />}
         ],
-        description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vitae est consequuntur ad nostrum tempora, veniam sed obcaecati vero esse sunt eligendi nisi nemo fugiat, odio aliquid minus dignissimos iste!',
+        description:'Diseñado para brindar una navegación fluida y optimizada, este sistema ofrece una experiencia moderna, ágil y responsiva. Incorpora un dashboard interactivo con gráficos en tiempo real, un módulo de gestión de ventas e inventario, y una integración segura de pagos con PayPal, permitiendo a los usuarios realizar transacciones sin complicaciones.',
         linkGithub:'https://github.com/luisjavcr10/frontEnd_peluqueria'
     },
     {
@@ -30,7 +30,7 @@ const cardsDamarisSalon = [
             {title:'Node.js', icon:<NodeJsIcon/>},
             {title:'Express.js', icon:<ExpressJsIcon/>}
         ],
-        description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vitae est consequuntur ad nostrum tempora, veniam sed obcaecati vero esse sunt eligendi nisi nemo fugiat, odio aliquid minus dignissimos iste!',
+        description: 'Construido para garantizar un rendimiento óptimo, este backend proporciona una API escalable y segura, permitiendo una gestión eficiente de la información. Implementa autenticación y autorización con JWT, asegurando un acceso protegido a los datos. Además, cuenta con integraciones que facilitan pagos en línea con PayPal y conversiones monetarias en tiempo real.',
         linkGithub:'https://github.com/luisjavcr10/backEnd_peluqueria'
     }
 ]
@@ -57,7 +57,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1>Damaris Salón - Sistema de ventas e inventario</h1>
+                    <h1>Damaris Salón - Control de inventario y ventas con integración de PayPal.</h1>
                 </div>
                 <div className={styles.Projects__ProjectsList__Image}>
                     <Image
@@ -83,7 +83,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <PiDetectiveFill className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1>API Sunat - Consulta de datos</h1>
+                    <h1>FastSunat – Consulta RUC y DNI sin esfuerzo.</h1>
                 </div>
                 <div className={styles.Projects__ProjectsList__Description}>
                     <VideoApiRuc />
