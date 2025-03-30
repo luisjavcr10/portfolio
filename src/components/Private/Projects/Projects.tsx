@@ -42,7 +42,7 @@ const cardsApiSunat = [
             {title:'Node.js', icon:<NodeJsIcon/>},
             {title:'Express.js', icon:<ExpressJsIcon/>}
         ],
-        description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vitae est consequuntur ad nostrum tempora, veniam sed obcaecati vero esse sunt eligendi nisi nemo fugiat, odio aliquid minus dignissimos iste!',
+        description:'Este proyecto fue desarrollado para automatizar la obtención de datos de clientes a través de su DNI o RUC dentro de un sistema de ventas. Utilizando Puppeteer, se extrajo automáticamente la información desde el portal oficial de SUNAT, agilizando el proceso y eliminando la necesidad de ingreso manual.',
         linkGithub:'https://github.com/luisjavcr10/api-consulta-sunat'
     }
 ]

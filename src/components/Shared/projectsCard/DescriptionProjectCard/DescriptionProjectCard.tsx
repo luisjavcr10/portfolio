@@ -25,7 +25,7 @@ export const DescriptionProjectCard = ({ devSide, techs, description, linkGithub
                 </div>
             </div>
             
-            <p>
+            <p className={styles.DescriptionProjectCard__Description}>
                 {description}
             </p>
             <div className={styles.DescriptionProjectCard__LinkSection}>
