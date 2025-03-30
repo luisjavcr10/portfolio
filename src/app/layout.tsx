@@ -20,7 +20,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body className={`${onest.className} ${styles.layout}`}>
         <ThemeProvider>
           <Navbar />
