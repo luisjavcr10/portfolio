@@ -9,7 +9,7 @@
     h2 {
         margin: 0;
         font-weight: 600;
-        font-size: 1.8rem;
+        font-size: 24px;
     }
     
     .dynamicText {
@@ -18,7 +18,7 @@
         padding: 2px;
         border-radius: 17px;
         font-weight: 700;
-        font-size: 1.8rem;
+        font-size: 24px;
         position: relative;
         min-width: 150px;
         text-align: center;
@@ -46,11 +46,11 @@
     
     @media (max-width: 768px) {
         h2 {
-            font-size: 1.5rem;
+            font-size: 20px;
         }
         
         .dynamicText {
-            font-size: 1.5rem;
+            font-size: 20px;
             min-width: 120px;
         }
     }
