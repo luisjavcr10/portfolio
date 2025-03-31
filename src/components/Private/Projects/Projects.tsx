@@ -74,9 +74,7 @@ export const Projects = () =>{
                             techs={card.techs}
                             description={card.description}
                             linkGithub={card.linkGithub}
-                        >
-                            {card.description}
-                        </DescriptionProjectCard>
+                        />
                     ))}
                 </div>
 
@@ -94,9 +92,7 @@ export const Projects = () =>{
                             devSide={card.devSide}
                             techs={card.techs}
                             description={card.description}
-                            linkGithub={card.linkGithub}>
-                                {card.description}
-                        </DescriptionProjectCard>
+                            linkGithub={card.linkGithub}/>
                     ))}
                 </div>
 

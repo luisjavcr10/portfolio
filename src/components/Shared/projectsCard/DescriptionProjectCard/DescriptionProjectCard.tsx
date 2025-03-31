@@ -9,7 +9,7 @@ interface TechTagProps{
     icon: React.ReactElement;
 }
 
-export const DescriptionProjectCard = ({ children,devSide, techs, description, linkGithub}: Readonly<{children:React.ReactNode;devSide:string; techs: TechTagProps[]; description: string; linkGithub:string }>) => {
+export const DescriptionProjectCard = ({devSide, techs, description, linkGithub}: Readonly<{devSide:string; techs: TechTagProps[]; description: string; linkGithub:string }>) => {
     return(
         <div className={styles.DescriptionProjectCard}>
             <div className={styles.DescriptionProjectCard__TagsSection}>
@@ -26,7 +26,7 @@ export const DescriptionProjectCard = ({ children,devSide, techs, description, l
             </div>
             
             <p className={styles.DescriptionProjectCard__Description}>
-                {children}
+                {description}
             </p>
             <div className={styles.DescriptionProjectCard__LinkSection}>
                 <GithubButton href={linkGithub}/>
