@@ -34,14 +34,17 @@
         }
 
         &__Description{
-            display: grid;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
-            grid-template-columns: repeat(1, 1fr);
-            grid-template-rows: repeat(2, 1fr);
+            //grid-template-columns: repeat(1, 1fr);
+            //grid-template-rows: repeat(2, 1fr);
 
             @media screen and (min-width: 1050px) {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(1, 1fr);
+                display: flex;
+                flex-direction: row;
+                //grid-template-columns: repeat(2, 1fr);
+                //grid-template-rows: repeat(1, 1fr);
             }
         }
     }

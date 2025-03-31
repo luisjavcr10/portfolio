@@ -8,7 +8,7 @@ export const ContactButtons = () =>{
         <div className={styles.ContactButtons__SocialContact}>
             <a
                 className={styles.ContactButtons__SocialButton} 
-                href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/'
+                href='https://www.linkedin.com/in/luisjaviercastillorabanal/'
                 target='_blank'
                 rel='noopener noreferrer  '
             >

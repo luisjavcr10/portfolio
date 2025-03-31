@@ -1,5 +1,5 @@
 .VideoApiRuc{
-    width: 100%;
+    max-width: 100%;
     position: relative;
     height: auto;
     overflow: hidden;
@@ -9,9 +9,8 @@
 
     &__Video{
         width: 100%;
-        height: 100%;
+        //height: 100%;
         border-radius: 15px;
-        
     }
 
 }

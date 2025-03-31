@@ -16,7 +16,7 @@ export const Title = () => {
             alt="profile"
             priority
           />
-          <SpecialButton href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/' message='Disponible para trabajar'/>
+          <SpecialButton href='https://www.linkedin.com/in/luisjaviercastillorabanal/' message='Disponible para trabajar'/>
         </div>
         <div className={styles.Home__Presentation}>
           <NameIterator />

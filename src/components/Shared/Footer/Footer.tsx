@@ -21,7 +21,7 @@ export const Footer = () => {
                 <div className={styles.Footer__Contact__Social}>
                     <a 
                         className={styles.Footer__Contact__IconContainer}
-                        href='https://www.linkedin.com/in/luis-javier-castillo-rabanal-897b542a4/'
+                        href='https://www.linkedin.com/in/luisjaviercastillorabanal/'
                         aria-label='LinkedIn'
                         target='_blank'
                         rel='noopener noreferrer  '

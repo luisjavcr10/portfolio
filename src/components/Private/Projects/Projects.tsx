@@ -1,6 +1,5 @@
 import styles from './Projects.module.scss';
 import Image from 'next/image';
-
 import { SectionTitle } from '@/components/Shared/SectionTitle';
 import { DescriptionProjectCard } from '@/components/Shared/projectsCard/DescriptionProjectCard';
 import { VideoApiRuc } from './VideoApiRuc';
@@ -21,7 +20,7 @@ const cardsDamarisSalon = [
             {title:'React', icon:<ReactIcon/>},
             {title:'TailwindCSS', icon:<TailwindCSSIcon />}
         ],
-        description:'Diseñado para brindar una navegación fluida y optimizada, este sistema ofrece una experiencia moderna, ágil y responsiva. Incorpora un dashboard interactivo con gráficos en tiempo real, un módulo de gestión de ventas e inventario, y una integración segura de pagos con PayPal, permitiendo a los usuarios realizar transacciones sin complicaciones.',
+        description:'Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.',
         linkGithub:'https://github.com/luisjavcr10/frontEnd_peluqueria'
     },
     {
@@ -30,7 +29,7 @@ const cardsDamarisSalon = [
             {title:'Node.js', icon:<NodeJsIcon/>},
             {title:'Express.js', icon:<ExpressJsIcon/>}
         ],
-        description: 'Construido para garantizar un rendimiento óptimo, este backend proporciona una API escalable y segura, permitiendo una gestión eficiente de la información. Implementa autenticación y autorización con JWT, asegurando un acceso protegido a los datos. Además, cuenta con integraciones que facilitan pagos en línea con PayPal y conversiones monetarias en tiempo real.',
+        description: 'API REST escalable y segura para gestionar información de forma eficiente. Implementa autenticación JWT y se integra con PayPal y ExchangeRate para pagos y conversiones en tiempo real.',
         linkGithub:'https://github.com/luisjavcr10/backEnd_peluqueria'
     }
 ]
@@ -42,7 +41,7 @@ const cardsApiSunat = [
             {title:'Node.js', icon:<NodeJsIcon/>},
             {title:'Express.js', icon:<ExpressJsIcon/>}
         ],
-        description:'Este proyecto fue desarrollado para automatizar la obtención de datos de clientes a través de su DNI o RUC dentro de un sistema de ventas. Utilizando Puppeteer, se extrajo automáticamente la información desde el portal oficial de SUNAT, agilizando el proceso y eliminando la necesidad de ingreso manual.',
+        description:'API REST para automatizar la obtención de datos de clientes (DNI/RUC) en un sistema de ventas. Extrae información de SUNAT con Puppeteer, agilizando el proceso y evitando el ingreso manual.',
         linkGithub:'https://github.com/luisjavcr10/api-consulta-sunat'
     }
 ]
@@ -75,7 +74,9 @@ export const Projects = () =>{
                             techs={card.techs}
                             description={card.description}
                             linkGithub={card.linkGithub}
-                        />
+                        >
+                            {card.description}
+                        </DescriptionProjectCard>
                     ))}
                 </div>
 
@@ -93,8 +94,9 @@ export const Projects = () =>{
                             devSide={card.devSide}
                             techs={card.techs}
                             description={card.description}
-                            linkGithub={card.linkGithub}
-                        />
+                            linkGithub={card.linkGithub}>
+                                {card.description}
+                        </DescriptionProjectCard>
                     ))}
                 </div>
 
