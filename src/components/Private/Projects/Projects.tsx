@@ -56,7 +56,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1>Damaris Salón - Control de inventario y ventas con integración de PayPal.</h1>
+                    <h1 className={styles.Projects__ProjectTitle__Text}>Damaris Salón - Control de inventario y ventas con integración de PayPal.</h1>
                 </div>
                 <div className={styles.Projects__ProjectsList__Image}>
                     <Image
@@ -84,7 +84,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <PiDetectiveFill className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1>FastSunat – Consulta RUC y DNI sin esfuerzo.</h1>
+                    <h1 className={styles.Projects__ProjectTitle__Text}>FastSunat – Consulta RUC y DNI sin esfuerzo.</h1>
                 </div>
                 <div className={styles.Projects__ProjectsList__Description}>
                     <VideoApiRuc />
