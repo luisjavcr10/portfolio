@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SectionTitle } from '@/components/Shared/SectionTitle';
 import { DescriptionProjectCard } from '@/components/Shared/projectsCard/DescriptionProjectCard';
 import { VideoApiRuc } from './VideoApiRuc';
+import { ImageCarousel } from './ImageCarousel';
 
 import { ReactIcon } from '@/utils/Icons/Frontend/ReactJsIcon';
 import { TailwindCSSIcon } from '@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon';
@@ -46,26 +47,69 @@ const cardsApiSunat = [
     }
 ]
 
+const cardsAuditAi = [
+    {
+        devSide:'BACKEND',
+        techs:[
+            {title:'Node.js', icon:<NodeJsIcon/>},
+            {title:'Express.js', icon:<ExpressJsIcon/>}
+        ],
+        description:'API REST para automatizar la obtención de datos de clientes (DNI/RUC) en un sistema de ventas. Extrae información de SUNAT con Puppeteer, agilizando el proceso y evitando el ingreso manual.',
+        linkGithub:'https://github.com/luisjavcr10/api-consulta-sunat'
+    }
+]
+
 
 export const Projects = () =>{
     return (
         <div className={styles.Projects}>
             <SectionTitle title='Proyectos'>
                 <FaLaptopCode className={styles.Projects__Icon} />
-            </SectionTitle>     
+            </SectionTitle> 
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1 className={styles.Projects__ProjectTitle__Text}>Damaris Salón - Control de inventario y ventas con integración de PayPal.</h1>
+                    <h1 className={styles.Projects__ProjectTitle__Text}>AuditAI - Smart Auditing with AI.</h1>
                 </div>
-                <div className={styles.Projects__ProjectsList__Image}>
-                    <Image
-                        className={styles.Projects__ProjectsList__Image__Component}
-                        src={'/images/projects/prototipo2.jpg'}
-                        alt='Damaris Salón - Sistema de ventas e inventario'
-                        fill
-                    />
+                
+                <ImageCarousel 
+                    images={[
+                        '/images/projects/AuditAi/home.png',
+                        '/images/projects/AuditAi/load-file.png',
+                        '/images/projects/AuditAi/config.png',
+                        '/images/projects/AuditAi/dashboard.png',
+                        '/images/projects/AuditAi/register.png',
+                        '/images/projects/AuditAi/login.png',
+                    ]}
+                    alt='AuditAI - Smart Auditing with AI'
+                />
+               
+                <div className={styles.Projects__ProjectsList__Description}>
+                    {cardsAuditAi.map((card, index) => (
+                        <DescriptionProjectCard
+                            key={index}
+                            devSide={card.devSide}
+                            techs={card.techs}
+                            description={card.description}
+                            linkGithub={card.linkGithub}
+                        />
+                    ))}
                 </div>
+
+            </div>    
+            <div className={styles.Projects__ProjectsList} >
+                <div className={styles.Projects__ProjectTitle}> 
+                    <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
+                    <h1 className={styles.Projects__ProjectTitle__Text}>Damaris Salón - Inventario y ventas con integración de PayPal.</h1>
+                </div>
+
+                <ImageCarousel 
+                    images={[
+                        '/images/projects/prototipo2.jpg',
+                    ]}
+                    alt='Damaris Salón - Sistema de ventas e inventario'
+                />
+
                 <div className={styles.Projects__ProjectsList__Description}>
                     {cardsDamarisSalon.map((card, index) => (
                         <DescriptionProjectCard
