@@ -1,1 +1,1 @@
-export { GithubButton } from './GithubButton';
+export { CodeTag } from './CodeTag';

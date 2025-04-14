@@ -2,14 +2,21 @@ import styles from './DescriptionProjectCard.module.scss';
 
 import { SpecialTag } from '@/components/Shared/tags/SpecialTag';
 import { TechTag } from '@/components/Shared/tags/TechTag';
-import { GithubButton } from '@/components/Shared/tags/CodeTag';
+import { CodeTag } from '@/components/Shared/tags/CodeTag';
+
+import { FiGithub } from "react-icons/fi";
+import { FaEye } from "react-icons/fa";
 
 interface TechTagProps{
     title: string;
     icon: React.ReactElement;
 }
 
-export const DescriptionProjectCard = ({devSide, techs, description, linkGithub}: Readonly<{devSide:string; techs: TechTagProps[]; description: string; linkGithub:string }>) => {
+export const DescriptionProjectCard = ({
+    devSide, techs, description, linkGithub,linkPreview
+}: Readonly<{
+    devSide:string; techs: TechTagProps[]; description: string; linkGithub:string;linkPreview?:string  
+}>) => {
     return(
         <div className={styles.DescriptionProjectCard}>
             <div className={styles.DescriptionProjectCard__TagsSection}>
@@ -29,7 +36,14 @@ export const DescriptionProjectCard = ({devSide, techs, description, linkGithub}
                 {description}
             </p>
             <div className={styles.DescriptionProjectCard__LinkSection}>
-                <GithubButton href={linkGithub}/>
+                <CodeTag message='CODIGO' href={linkGithub}>
+                    <FiGithub />
+                </CodeTag>
+                {linkPreview &&
+                <CodeTag message='PREVIEW' href={linkPreview}>
+                    <FaEye />
+                </CodeTag>
+                }
             </div>                
         </div>
     );

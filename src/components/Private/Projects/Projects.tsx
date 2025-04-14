@@ -1,5 +1,4 @@
 import styles from './Projects.module.scss';
-import Image from 'next/image';
 import { SectionTitle } from '@/components/Shared/SectionTitle';
 import { DescriptionProjectCard } from '@/components/Shared/projectsCard/DescriptionProjectCard';
 import { VideoApiRuc } from './VideoApiRuc';
@@ -9,6 +8,8 @@ import { ReactIcon } from '@/utils/Icons/Frontend/ReactJsIcon';
 import { TailwindCSSIcon } from '@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon';
 import { NodeJsIcon } from '@/utils/Icons/BackEnd/NodeJsIcon';
 import { ExpressJsIcon } from '@/utils/Icons/BackEnd/ExpressJsIcon';
+import { NextjsIcon } from '@/utils/Icons/Frontend/NextJsIcon';
+import { SassIcon } from '@/utils/Icons/Languages/SassIcon';
 
 import { BiSolidPurchaseTagAlt } from "react-icons/bi";
 import { PiDetectiveFill } from "react-icons/pi";
@@ -49,13 +50,14 @@ const cardsApiSunat = [
 
 const cardsAuditAi = [
     {
-        devSide:'BACKEND',
+        devSide:'FRONTEND',
         techs:[
-            {title:'Node.js', icon:<NodeJsIcon/>},
-            {title:'Express.js', icon:<ExpressJsIcon/>}
+            {title:'Next.js', icon:<NextjsIcon/>},
+            {title:'Sass', icon:<SassIcon/>}
         ],
         description:'API REST para automatizar la obtención de datos de clientes (DNI/RUC) en un sistema de ventas. Extrae información de SUNAT con Puppeteer, agilizando el proceso y evitando el ingreso manual.',
-        linkGithub:'https://github.com/luisjavcr10/api-consulta-sunat'
+        linkGithub:'https://github.com/luisjavcr10/front-audit-ai',
+        linkPreview:'https://front-audit-ai.vercel.app/'
     }
 ]
 
@@ -92,6 +94,7 @@ export const Projects = () =>{
                             techs={card.techs}
                             description={card.description}
                             linkGithub={card.linkGithub}
+                            linkPreview={card.linkPreview}
                         />
                     ))}
                 </div>
