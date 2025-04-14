@@ -108,7 +108,13 @@ export const Projects = () =>{
 
                 <ImageCarousel 
                     images={[
-                        '/images/projects/prototipo2.jpg',
+                        '/images/projects/DamarisSalon/dashboard.png',
+                        '/images/projects/DamarisSalon/inventary.png',
+                        '/images/projects/DamarisSalon/homesale.png',
+                        '/images/projects/DamarisSalon/sale.png',
+                        '/images/projects/DamarisSalon/postsale.png',
+                        '/images/projects/DamarisSalon/crud.png',
+                        '/images/projects/DamarisSalon/login.png',
                     ]}
                     alt='Damaris Salón - Sistema de ventas e inventario'
                 />
