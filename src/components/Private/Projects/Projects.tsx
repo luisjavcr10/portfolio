@@ -55,7 +55,7 @@ const cardsAuditAi = [
             {title:'Next.js', icon:<NextjsIcon/>},
             {title:'Sass', icon:<SassIcon/>}
         ],
-        description:'API REST para automatizar la obtención de datos de clientes (DNI/RUC) en un sistema de ventas. Extrae información de SUNAT con Puppeteer, agilizando el proceso y evitando el ingreso manual.',
+        description:'Sistema web que automatiza análisis de auditorías mediante IA (DeepSeek). Procesa datos, evalúa con normativas (SOX, GDPR, etc.) y genera dashboards interactivos con hallazgos clave. Como desarrollador frontend, lideré la creación de la interfaz de esta plataforma de auditoría inteligente',
         linkGithub:'https://github.com/luisjavcr10/front-audit-ai',
         linkPreview:'https://front-audit-ai.vercel.app/'
     }
@@ -71,7 +71,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1 className={styles.Projects__ProjectTitle__Text}>AuditAI - Smart Auditing with AI.</h1>
+                    <h1 className={styles.Projects__ProjectTitle__Text}>AuditAI - Auditoría inteligente con IA</h1>
                 </div>
                 
                 <ImageCarousel 
@@ -103,7 +103,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <BiSolidPurchaseTagAlt className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1 className={styles.Projects__ProjectTitle__Text}>Damaris Salón - Inventario y ventas con integración de PayPal.</h1>
+                    <h1 className={styles.Projects__ProjectTitle__Text}>Damaris Salón - Inventario y ventas con integración de PayPal</h1>
                 </div>
 
                 <ImageCarousel 
@@ -135,7 +135,7 @@ export const Projects = () =>{
             <div className={styles.Projects__ProjectsList} >
                 <div className={styles.Projects__ProjectTitle}> 
                     <PiDetectiveFill className={styles.Projects__ProjectTitle__Icon}/> 
-                    <h1 className={styles.Projects__ProjectTitle__Text}>FastSunat – Consulta RUC y DNI sin esfuerzo.</h1>
+                    <h1 className={styles.Projects__ProjectTitle__Text}>FastSunat – Consulta RUC y DNI sin esfuerzo</h1>
                 </div>
                 <div className={styles.Projects__ProjectsList__Description}>
                     <VideoApiRuc />
