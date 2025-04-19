@@ -30,7 +30,7 @@ export const AboutMe = () =>{
                         <p>Fuera del mundo del código, me gusta mantenerme activo. <strong>Disfruto entrenar en el gimnasio, jugar fútbol y en general, mantener un equilibrio entre la vida profesional y personal.</strong></p>
                     </div>
                     <div className={styles.AboutMe__Container__DivButton}>
-                        <SpecialButton href='/CV.pdf' message='⬇️ Descarga mi CV'/>
+                        <SpecialButton href='/docs/Full Stack Developer - Castillo R. Luis J..pdf' message='⬇️ Descarga mi CV'/>
                     </div>
                     
                 </div>
