@@ -31,7 +31,7 @@ export const AboutMe = () =>{
                     </div>
                     <div className={styles.AboutMe__Container__DivButton}>
                         <SpecialButton 
-                            href='/public/docs/Full Stack Developer - Castillo R. Luis J..pdf' 
+                            href='/docs/Full Stack Developer - Castillo R. Luis J..pdf' 
                             message='⬇️ Descarga mi CV'
                         />
                     </div>
