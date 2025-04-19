@@ -25,9 +25,9 @@ export const AboutMe = () =>{
                 </div>
                 <div className={styles.AboutMe__Container__Info}>
                     <div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolore earum provident autem voluptate ea nostrum alias dolor,<strong>non hic, nesciunt sint unde neque dolores magni dolorem velit beatae sed!</strong></p>
-                        <p>Si tu div se superpone al navbar, puede ser por varias razones, pero lo más probable es que tenga un z-index mayor o que su contenedor lo haga sobresalir<strong>non hic, nesciunt sint unde neque dolores magni dolorem velit beatae sed!</strong></p>
-                        <p>Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.<strong>non hic, nesciunt sint unde neque dolores magni dolorem velit beatae sed!</strong></p>
+                        <p><strong>Soy un desarrollador web full stack de Perú,</strong> con interés en construir experiencias digitales que combinan funcionalidad, diseño y eficiencia. Me enfoco en crear soluciones que no solo se vean bien, sino que también estén bien estructuradas a nivel técnico. <strong>Actualmente, busco mi primera experiencia laboral para aplicar mis habilidades en un entorno profesional.</strong></p>
+                        <p>A lo largo de mi formación y práctica personal, <strong>he aprendido a comunicarme de forma clara, trabajar en equipo y adaptarme fácilmente a nuevos entornos.</strong> Me gusta organizar mi trabajo, buscar siempre mejorar, y mantener una mentalidad abierta al aprendizaje continuo.</p>
+                        <p>Fuera del mundo del código, me gusta mantenerme activo. <strong>Disfruto entrenar en el gimnasio, jugar fútbol y en general, mantener un equilibrio entre la vida profesional y personal.</strong></p>
                     </div>
                     <div className={styles.AboutMe__Container__DivButton}>
                         <SpecialButton href='/CV.pdf' message='⬇️ Descarga mi CV'/>
