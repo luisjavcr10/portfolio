@@ -22,7 +22,7 @@ export const Title = () => {
           <NameIterator />
           <h1>Hola 👋, soy Luis Castillo</h1>
           <p className={styles.Home__Presentation__Text}>
-            Apasionado por la tecnología y el desarrollo web. Con experiencia en frontend y backend, creando soluciones eficientes y escalables.
+          Me apasiona crear experiencias web que sean tanto funcionales como estéticamente cuidadas. Trabajo con tecnologías como React, Next.js y Node.js, siempre buscando calidad y escalabilidad.
           </p>
         </div>
       </div>
