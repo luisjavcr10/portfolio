@@ -33,7 +33,6 @@ export const AboutMe = () =>{
                         <SpecialButton 
                             href='/public/docs/Full Stack Developer - Castillo R. Luis J..pdf' 
                             message='⬇️ Descarga mi CV'
-                            isDownload={true}
                         />
                     </div>
                     
