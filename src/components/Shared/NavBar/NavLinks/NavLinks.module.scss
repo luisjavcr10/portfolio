@@ -15,9 +15,11 @@
     font-size: 12px;
 
     top: 0px;
-    animation: adjust-header linear both;
-    animation-timeline: scroll();
-    animation-range: 0 10vh;
+    transition: all 0.3s ease;
+    
+    /* Estado inicial (sin scroll) */
+    transform: scale(1);
+    opacity: 0.9;
 
     
     @media screen and (min-width: 768px) {
@@ -53,10 +55,15 @@
     }
 }
 
-@keyframes adjust-header {
-    to {
-        color: var(--text-color-reverse);
-        border: 2px solid var(--green-neutro);
-    }
+/* Estado cuando se ha hecho scroll */
+.NavLinks.scrolled {
+    transform: scale(0.95);
+    opacity: 1;
+    background: var(--bg-color-alt, var(--bg-color));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: var(--text-color-reverse);
+    border: 2px solid var(--green-neutro);
 }
+
+/* Animación removida - ahora se maneja con JavaScript y transiciones CSS */
 

@@ -13,16 +13,27 @@ const links = [
 
 export const NavLinks = () => {
   const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    /**
+     * Maneja el scroll para detectar la sección activa y el estado del navbar
+     */
     const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      
+      // Detectar si se ha hecho scroll (más del 10% del viewport)
+      setIsScrolled(scrollY > viewportHeight * 0.1);
+      
+      // Detectar sección activa
       const sections = document.querySelectorAll("section");
       let current = "";
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+        if (scrollY >= sectionTop - sectionHeight / 3) {
           current = section.getAttribute("id") || "";
         }
       });
@@ -30,12 +41,15 @@ export const NavLinks = () => {
       setActiveSection(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Ejecutar una vez al montar para establecer el estado inicial
+    handleScroll();
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className={styles.NavLinks}>
+    <nav className={`${styles.NavLinks} ${isScrolled ? styles.scrolled : ''}`}>
       <ul>
         {links.map((link) => (
           <li key={link.name}>
