@@ -8,7 +8,7 @@ import styles from "./page.module.scss";
 export default function Home() {
   return (
     <div className={styles.Main_Container}>
-      <section id="home">
+      <section id="home" className={styles.Main_Container__home}>
         <Title />
         <ContactButtons/>
       </section>
