@@ -9,7 +9,7 @@
     gap: 20px;
     border-radius: 20px;
     
-    padding: 5px 10px;
+    padding: 10px 20px;
 
     font-weight: 500;
     font-size: 12px;
@@ -23,7 +23,7 @@
 
     
     @media screen and (min-width: 768px) {
-        font-size: 14px;
+        font-size: 20px;
         gap: 40px;
     }
 
@@ -59,10 +59,11 @@
 .NavLinks.scrolled {
     transform: scale(0.95);
     opacity: 1;
-    background: var(--bg-color-alt, var(--bg-color));
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(30px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     color: var(--text-color-reverse);
-    border: 2px solid var(--green-neutro);
+    border: 1px solid var(--green-neutro);
 }
 
 /* Animación removida - ahora se maneja con JavaScript y transiciones CSS */
