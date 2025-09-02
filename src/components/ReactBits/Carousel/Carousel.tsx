@@ -2,8 +2,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, PanInfo, useMotionValue, useTransform } from 'motion/react';
 import Image from 'next/image';
-// replace icons with your own if needed
-import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from 'react-icons/fi';
 import './Carousel.css';
 
 export interface CarouselItem {
