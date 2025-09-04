@@ -4,7 +4,6 @@ import { Projects } from "@/components/Private/Projects";
 import { Skills } from "@/components/Private/Skills";
 import { AboutMe } from "@/components/Private/AboutMe";
 import styles from "./page.module.scss";
-import Carousel from "@/components/ReactBits/Carousel/Carousel";
 
 export default function Home() {
   return (
@@ -13,16 +12,6 @@ export default function Home() {
         <Title />
         <ContactButtons />
       </div>
-       <section id="projectsDemo">
-         <Carousel
-          baseWidth={500}
-          autoplay={true}
-          autoplayDelay={3000}
-          pauseOnHover={true}
-          loop={true}
-          round={false}
-        />
-      </section>
       <section id="projects">
         <Projects />
       </section>

@@ -1,85 +1,76 @@
-@use '@/sass/variables' as *;
+@use "@/sass/variables" as *;
 
-.Projects{
-    padding-top: 35px;
+.Projects {
+  padding-top: 35px;
 
-    @media screen and (min-width: 768px) {
-        width: 90%;
-        padding-top: 50px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 90%;
+    padding-top: 50px;
+  }
 
-    &__Icon{
-        width: 30px;
-        height: 30px;
-    }
-
-    &__ProjectsList{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap:30px;
-        width: 100%;
-
-        &__Image{
-            position: relative;
-            width: 100%;
-            aspect-ratio: 2880/1750;
-            @media screen and (min-width:1200px) {
-                width: 80%;
-            }
-        }
-
-        &__Description{
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            @media screen and (min-width: 1050px) {
-                display: flex;
-                flex-direction: row;
-            }
-        }
-    }
-
-    &__ProjectImageAndDescriptionContainer{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-
-        @media screen and (min-width: 1050px) {
-            flex-direction: row;
-        }
-    }
-
-    h2{
-        font-size: 25px;
-        font-weight: 700;
-    }
-    
-    &__ProjectTitle{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        color: var(--bg-card-v2-color);  
-        padding-top: 30px;
-        
-        &__Icon{
-            width: 20px;
-            height: 20px;
-        }
-
-        &__Text{
-            text-align: center;
-            margin: 0;
-            font-size: 20px;
-            @media screen and (min-width: 768px) {
-                font-size: 24px;
-            }
-        }
-    }
+  h2 {
+    font-size: 25px;
+    font-weight: 700;
+  }
 }
 
+.projectCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media screen and (min-width: 1050px) {
+    flex-direction: row;
+  }
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.projectTitleContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--bg-card-v2-color);
+  padding-top: 30px;
+}
+
+.projectTitleText {
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.projectDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 1050px) {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.sectionIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.projectIcon {
+  width: 20px;
+  height: 20px;
+}

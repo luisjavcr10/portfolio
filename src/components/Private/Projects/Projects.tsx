@@ -3,6 +3,7 @@ import { SectionTitle } from "@/components/Shared/SectionTitle";
 import { DescriptionProjectCard } from "@/components/Shared/projectsCard/DescriptionProjectCard";
 import { VideoApiRuc } from "./VideoApiRuc";
 import { ImageCarousel } from "./ImageCarousel";
+import Carousel from "@/components/ReactBits/Carousel/Carousel";
 
 import { ReactIcon } from "@/utils/Icons/Frontend/ReactJsIcon";
 import { TailwindCSSIcon } from "@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon";
@@ -71,32 +72,29 @@ export const Projects = () => {
   return (
     <div className={styles.Projects}>
       <SectionTitle title="Proyectos">
-        <FaLaptopCode className={styles.Projects__Icon} />
+        <FaLaptopCode className={styles.sectionIcon} />
       </SectionTitle>
-      <div className={styles.Projects__ProjectsList}>
-        <div className={styles.Projects__ProjectTitle}>
+      <div className={styles.projectList}>
+        <div className={styles.projectTitleContainer}>
           <BiSolidPurchaseTagAlt
-            className={styles.Projects__ProjectTitle__Icon}
+            className={styles.projectIcon}
           />
-          <h1 className={styles.Projects__ProjectTitle__Text}>
+          <h1 className={styles.projectTitleText}>
             AuditAI - Auditoría inteligente con IA
           </h1>
         </div>
 
-        <div className={styles.Projects__ProjectImageAndDescriptionContainer}>
-          <ImageCarousel
-            images={[
-              "/images/projects/AuditAi/home.png",
-              "/images/projects/AuditAi/load-file.png",
-              "/images/projects/AuditAi/config.png",
-              "/images/projects/AuditAi/dashboard.png",
-              "/images/projects/AuditAi/register.png",
-              "/images/projects/AuditAi/login.png",
-            ]}
-            alt="AuditAI - Smart Auditing with AI"
+        <div className={styles.projectCardContainer}>
+          <Carousel
+            baseWidth={500}
+            autoplay={true}
+            autoplayDelay={3000}
+            pauseOnHover={true}
+            loop={true}
+            round={false}
           />
 
-          <div className={styles.Projects__ProjectsList__Description}>
+          <div className={styles.projectDescription}>
             {cardsAuditAi.map((card, index) => (
               <DescriptionProjectCard
                 key={index}
@@ -110,30 +108,25 @@ export const Projects = () => {
           </div>
         </div>
       </div>
-      <div className={styles.Projects__ProjectsList}>
-        <div className={styles.Projects__ProjectTitle}>
+      <div className={styles.projectList}>
+        <div className={styles.projectTitleContainer}>
           <BiSolidPurchaseTagAlt
-            className={styles.Projects__ProjectTitle__Icon}
+            className={styles.projectIcon}
           />
-          <h1 className={styles.Projects__ProjectTitle__Text}>
+          <h1 className={styles.projectTitleText}>
             Damaris Salón - Inventario y ventas con integración de PayPal
           </h1>
         </div>
-        <div className={styles.Projects__ProjectImageAndDescriptionContainer}>
-          <ImageCarousel
-            images={[
-              "/images/projects/DamarisSalon/dashboard.png",
-              "/images/projects/DamarisSalon/inventary.png",
-              "/images/projects/DamarisSalon/homesale.png",
-              "/images/projects/DamarisSalon/sale.png",
-              "/images/projects/DamarisSalon/postsale.png",
-              "/images/projects/DamarisSalon/crud.png",
-              "/images/projects/DamarisSalon/login.png",
-            ]}
-            alt="Damaris Salón - Sistema de ventas e inventario"
+        <div className={styles.projectCardContainer}>
+         <Carousel
+            baseWidth={500}
+            autoplay={true}
+            autoplayDelay={3000}
+            pauseOnHover={true}
+            loop={true}
+            round={false}
           />
-
-          <div className={styles.Projects__ProjectsList__Description}>
+          <div className={styles.projectDescription}>
             {cardsDamarisSalon.map((card, index) => (
               <DescriptionProjectCard
                 key={index}
@@ -146,15 +139,23 @@ export const Projects = () => {
           </div>
         </div>
       </div>
-      <div className={styles.Projects__ProjectsList}>
-        <div className={styles.Projects__ProjectTitle}>
-          <PiDetectiveFill className={styles.Projects__ProjectTitle__Icon} />
-          <h1 className={styles.Projects__ProjectTitle__Text}>
+      <div className={styles.projectList}>
+        <div className={styles.projectTitleContainer}>
+          <PiDetectiveFill className={styles.projectIcon} />
+          <h1 className={styles.projectTitleText}>
             FastSunat – Consulta RUC y DNI sin esfuerzo
           </h1>
         </div>
-        <div className={styles.Projects__ProjectsList__Description}>
-          <VideoApiRuc />
+        <div className={styles.projectDescription}>
+          <Carousel
+            baseWidth={500}
+            autoplay={true}
+            autoplayDelay={3000}
+            pauseOnHover={true}
+            loop={true}
+            round={false}
+          />
+          <div className={styles.projectDescription}>
           {cardsApiSunat.map((card, index) => (
             <DescriptionProjectCard
               key={index}
@@ -164,6 +165,7 @@ export const Projects = () => {
               linkGithub={card.linkGithub}
             />
           ))}
+          </div>
         </div>
       </div>
     </div>
