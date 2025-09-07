@@ -13,12 +13,33 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+/**
+ * Función para leer cookies en el cliente
+ */
+function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
+  return null;
+}
+
+/**
+ * Función para establecer cookies
+ */
+function setCookie(name: string, value: string, days: number = 365) {
+  if (typeof document === 'undefined') return;
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Lax`;
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme | undefined>(undefined);
-  const [actualTheme, setActualTheme] = useState<ActualTheme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
+  const [actualTheme, setActualTheme] = useState<ActualTheme>("dark");
 
   // Función para obtener el tema del sistema
   const getSystemTheme = (): ActualTheme => {
+    if (typeof window === 'undefined') return 'dark';
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   };
 
@@ -33,34 +54,37 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
     
     setActualTheme(themeToApply);
-    document.documentElement.setAttribute("data-theme", themeToApply);
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute("data-theme", themeToApply);
+    }
   };
 
   useEffect(() => {
-    // Obtener la preferencia guardada del usuario o usar 'system' por defecto
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const initialTheme = savedTheme ?? "system"; // 'system' es el valor por defecto
+    // Leer la preferencia desde cookies
+    const savedTheme = getCookie('theme') as Theme | null;
+    const initialTheme = savedTheme || "dark";
     
     setTheme(initialTheme);
     applyTheme(initialTheme);
 
     // Escuchar cambios en la preferencia del sistema
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleSystemThemeChange = () => {
-      if (theme === "system") {
-        applyTheme("system");
-      }
-    };
+    if (typeof window !== 'undefined') {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handleSystemThemeChange = () => {
+        if (theme === "system") {
+          applyTheme("system");
+        }
+      };
 
-    mediaQuery.addEventListener("change", handleSystemThemeChange);
-    return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
+      mediaQuery.addEventListener("change", handleSystemThemeChange);
+      return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
+    }
   }, []);
 
   useEffect(() => {
-    if (theme) {
-      localStorage.setItem("theme", theme);
-      applyTheme(theme);
-    }
+    // Guardar en cookies cuando cambie el tema
+    setCookie('theme', theme);
+    applyTheme(theme);
   }, [theme]);
 
   const toggleTheme = () => {
