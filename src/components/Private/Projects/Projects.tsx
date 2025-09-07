@@ -29,16 +29,6 @@ const cardsDamarisSalon = [
       "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",
     linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
   },
-  //{
-  //  devSide: "BACKEND",
-  //  techs: [
-  //    { title: "Node.js", icon: <NodeJsIcon /> },
-  //    { title: "Express.js", icon: <ExpressJsIcon /> },
-  //  ],
-  //  description:
-  //    "API REST escalable y segura para gestionar información de forma eficiente. Implementa autenticación JWT y se integra con PayPal y ExchangeRate para pagos y conversiones en tiempo real.",
-  //  linkGithub: "https://github.com/luisjavcr10/backEnd_peluqueria",
-  //},
 ];
 
 const cardsApiSunat = [
