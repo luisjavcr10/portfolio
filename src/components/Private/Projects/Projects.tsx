@@ -1,8 +1,6 @@
 import styles from "./Projects.module.scss";
 import { SectionTitle } from "@/components/Shared/SectionTitle";
 import { DescriptionProjectCard } from "@/components/Shared/projectsCard/DescriptionProjectCard";
-import { VideoApiRuc } from "./VideoApiRuc";
-import { ImageCarousel } from "./ImageCarousel";
 import Carousel from "@/components/ReactBits/Carousel/Carousel";
 
 import { ReactIcon } from "@/utils/Icons/Frontend/ReactJsIcon";
