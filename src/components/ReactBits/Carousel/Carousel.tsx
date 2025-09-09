@@ -28,7 +28,7 @@ const DEFAULT_ITEMS: CarouselItem[] = [
   },
   {
     title: 'Animations',
-    image:'/images/projects/AuditAi/home.png',
+    image:'/images/projects/digenio/digenioHome.png',
     id: 2,
   },
   {
