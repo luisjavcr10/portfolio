@@ -1,13 +1,16 @@
 .carousel-container {
+  background-color: transparent; 
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(10px);
   flex: 1;
   position: relative;
   overflow: hidden;
-  border: 1px solid #555;
-  border-radius: 24px;
+  border-radius: 15px;
   padding: 8px;
   --outer-r: 24px;
   --p-distance: 12px;
 }
+
 
 .carousel-track {
   display: flex;
