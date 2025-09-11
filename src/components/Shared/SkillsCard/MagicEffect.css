@@ -1,0 +1,83 @@
+:root {
+  /* Variables para tema oscuro (default) */
+  --green-primary: rgba(185, 197, 181, 1);
+  --green-glow: rgba(185, 197, 181, 0.2);
+  --green-border: rgba(185, 197, 181, 0.8);
+  --border-color: #697565;
+  --background-dark: #060010;
+}
+
+/* Variables para tema claro */
+[data-theme="light"] {
+  --green-primary: rgba(225, 225, 225, 1);
+  --green-glow: rgba(225, 225, 225, 0.2);
+  --green-border: rgba(225, 225, 225, 0.8);
+  --border-color: #fff;
+  --background-dark: #060010;
+}
+
+/* Estilos para el efecto de hover */
+.magic-card {
+  position: relative;
+  transition: transform 1s ease, box-shadow 1s ease;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 1;
+  --glow-radius: 200px;
+}
+
+.magic-card:hover {
+  transform: translateY(-1px);
+}
+
+/* Efecto de borde brillante */
+.magic-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 6px;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    color-mix(in srgb, var(--green-border) calc(var(--glow-intensity) * 100%), transparent) 0%,
+    color-mix(in srgb, var(--green-glow) calc(var(--glow-intensity) * 100%), transparent) 30%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 1;
+}
+
+.magic-card:hover::after {
+  opacity: 1;
+}
+
+/* Estilos para el efecto de spotlight global */
+.global-spotlight {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--border-color) 15%, transparent) 0%,
+    color-mix(in srgb, var(--border-color) 5%, transparent) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 10;
+  will-change: transform, opacity;
+}

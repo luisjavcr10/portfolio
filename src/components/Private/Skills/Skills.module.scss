@@ -13,16 +13,23 @@
     }
 
     &__GridCards{
+        position: relative;
+        user-select: none;
         margin-top: 30px;
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(4, 1fr);
-        gap: 15px;
+        gap: 20px;
+        padding: 20px 0;
+        perspective: 1000px;
+        overflow: visible;
 
         @media screen and (min-width: 1140px) {
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: repeat(3, 1fr);
+            gap: 30px;
+            padding: 30px 0;
         }
 
     }

@@ -4,7 +4,6 @@ import { Projects } from "@/components/Private/Projects";
 import { Skills } from "@/components/Private/Skills";
 import { AboutMe } from "@/components/Private/AboutMe";
 import styles from "./page.module.scss";
-import MagicBento from "@/components/ReactBits/MagicBento/MagicBento";
 
 export default function Home() {
   return (
@@ -15,20 +14,6 @@ export default function Home() {
       </div>
       <section id="projects">
         <Projects />
-      </section>
-      <section id="grid">
-        <MagicBento
-          textAutoHide={true}
-          enableStars={true}
-          enableSpotlight={true}
-          enableBorderGlow={true}
-          enableTilt={true}
-          enableMagnetism={true}
-          clickEffect={true}
-          spotlightRadius={300}
-          particleCount={12}
-          glowColor="132, 0, 255"
-        />
       </section>
       <section id="skills">
         <Skills />

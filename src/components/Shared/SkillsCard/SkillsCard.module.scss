@@ -1,125 +1,105 @@
-@use '@/sass/variables' as *;
+@use "@/sass/variables" as *;
 
 .SkillsCard {
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border-radius: $border-buttons;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: $border-buttons;
 
-    &--1 {
-        background-color: var(--bg-card-v1-color);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
-            transition-duration: 400ms;
-            
-        }
+  &--1 {
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px 1px black;
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
 
-        @media screen and (min-width: 1140px) {
-            grid-column: span 4 / span 4;
-        }
+    @media screen and (min-width: 1140px) {
+      grid-column: span 4 / span 4;
     }
+  }
 
-    &--2 {
-        background-color: var(--bg-card-v1-color);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            box-shadow: 0 0 10px 1px var(--bg-card-v1-color);
-            transition-duration: 400ms;
-        }
+  &--2 {
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(2px);
 
-        @media screen and (min-width: 1140px){
-            background-color:var(--bg-card-v2-color);
-            grid-column: span 4 / span 4;
-            grid-column-start: 5;
-        } 
+    box-shadow: 0 0 10px 1px black;
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
+
+    @media screen and (min-width: 1140px) {
+      background-color: var(--background-color-alt, var(--background-color));
+      backdrop-filter: blur(2px);
+      grid-column: span 4 / span 4;
+      grid-column-start: 5;
     }
+  }
 
-    &--3 {
-        background: var(--bg-gradient-to-bottom);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
-            transition-duration: 400ms;
-        }
+  &--3 {
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 10px 1px black;
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
 
-        @media screen and (min-width: 1140px){
-            background: var(--bg-gradient-to-right);
-            grid-column: span 4 / span 4;
-            grid-column-start: 3;
-            grid-row-start: 2;
-        } 
+    @media screen and (min-width: 1140px) {
+      background-color: var(--background-color-alt, var(--background-color));
+      backdrop-filter: blur(2px);
+      grid-column: span 4 / span 4;
+      grid-column-start: 3;
+      grid-row-start: 2;
     }
+  }
 
-    &--4 {
-        background-color: var(--bg-card-v2-color);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
-            transition-duration: 400ms;
-        }
+  &--4 {
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 10px 1px black;
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
 
-        @media screen and (min-width: 1140px){
-            background-color:var(--bg-card-v1-color);
-            grid-column: span 4 / span 4;
-            grid-row-start: 3;
-        } 
+    @media screen and (min-width: 1140px) {
+      background-color: var(--background-color-alt, var(--background-color));
+      backdrop-filter: blur(2px);
+      grid-column: span 4 / span 4;
+      grid-row-start: 3;
     }
+  }
 
-    &--5 {  
-        background-color: var(--bg-card-v2-color);
-        grid-column: span 1 / span 1;
-        grid-row: span 1 / span 1;
-        transition-duration: 50ms;
-        transition-property: scale;
-        &:hover{
-            box-shadow: 0 0 10px 1px var(--bg-card-v2-color);
-            transition-duration: 400ms;
-        }
+  &--5 {
+    background-color: var(--background-color-alt, var(--background-color));
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 10px 1px black;
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
 
-        @media screen and (min-width: 1140px){
-            grid-column: span 4 / span 4;
-            grid-column-start: 5;
-            grid-row-start: 3;
-        } 
+    @media screen and (min-width: 1140px) {
+      grid-column: span 4 / span 4;
+      grid-column-start: 5;
+      grid-row-start: 3;
     }
+  }
 
-    &__Title {
-        grid-column: span 2 / span 2;
-        font-weight: 600;
-        padding-bottom: 10px;
-        margin: 0;
-        color: var(--text-color-card-skill);
+  &__Title {
+    grid-column: span 2 / span 2;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin: 0;
+  }
+  &__Icons {
+    margin: 0;
+    padding: 0;
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5 {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
     }
-    &__Icons {
-        margin: 0;
-        padding: 0;
-        &--1,
-        &--2,
-        &--3,
-        &--4,
-        &--5{
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-            justify-content:space-around; 
-        }
-    }
-    
-
+  }
 }
