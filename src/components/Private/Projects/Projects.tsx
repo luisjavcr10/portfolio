@@ -2,7 +2,13 @@ import styles from "./Projects.module.scss";
 import { SectionTitle } from "@/components/Shared/SectionTitle";
 import { DescriptionProjectCard } from "@/components/Shared/projectsCard/DescriptionProjectCard";
 import Carousel from "@/components/ReactBits/Carousel/Carousel";
-import { digenioImages, damarisSalonImages, smarttalentImages } from "@/components/Private/Projects/images";
+import {
+  digenioImages,
+  damarisSalonImages,
+  smarttalentImages,
+  coplacontImages,
+  auditaiImages,
+} from "@/components/Private/Projects/images";
 
 import { ReactIcon } from "@/utils/Icons/Frontend/ReactJsIcon";
 import { TailwindCSSIcon } from "@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon";
@@ -63,13 +69,76 @@ export const Projects = () => {
       <SectionTitle title="Proyectos">
         <FaLaptopCode className={styles.sectionIcon} />
       </SectionTitle>
+
+      {/** Coplacont */}
       <div className={styles.projectList}>
         <div className={styles.projectTitleContainer}>
-          <BiSolidPurchaseTagAlt
-            className={styles.projectIcon}
-          />
+          <PiDetectiveFill className={styles.projectIcon} />
           <h1 className={styles.projectTitleText}>
-            AuditAI - Auditoría inteligente con IA
+            Coplacont – Sistema contable experto
+          </h1>
+        </div>
+        <div className={styles.projectDescription}>
+          <Carousel
+            items={coplacontImages}
+            baseWidth={500}
+            autoplay={true}
+            autoplayDelay={3000}
+            pauseOnHover={true}
+            loop={true}
+            round={false}
+          />
+          <div className={styles.projectDescription}>
+            {cardsApiSunat.map((card, index) => (
+              <DescriptionProjectCard
+                key={index}
+                devSide={card.devSide}
+                techs={card.techs}
+                description={card.description}
+                linkGithub={card.linkGithub}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/** Smarttalent */}
+      <div className={styles.projectList}>
+        <div className={styles.projectTitleContainer}>
+          <PiDetectiveFill className={styles.projectIcon} />
+          <h1 className={styles.projectTitleText}>
+            Smarttalent – Sistema de solicitudes y reclutamientos
+          </h1>
+        </div>
+        <div className={styles.projectDescription}>
+          <Carousel
+            items={smarttalentImages}
+            baseWidth={500}
+            autoplay={true}
+            autoplayDelay={3000}
+            pauseOnHover={true}
+            loop={true}
+            round={false}
+          />
+          <div className={styles.projectDescription}>
+            {cardsApiSunat.map((card, index) => (
+              <DescriptionProjectCard
+                key={index}
+                devSide={card.devSide}
+                techs={card.techs}
+                description={card.description}
+                linkGithub={card.linkGithub}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      {/** Digenio */}
+      <div className={styles.projectList}>
+        <div className={styles.projectTitleContainer}>
+          <BiSolidPurchaseTagAlt className={styles.projectIcon} />
+          <h1 className={styles.projectTitleText}>
+            Digenio - CRM para gestión de proyectos
           </h1>
         </div>
 
@@ -98,11 +167,10 @@ export const Projects = () => {
           </div>
         </div>
       </div>
+      {/** Damaris Salon */}
       <div className={styles.projectList}>
         <div className={styles.projectTitleContainer}>
-          <BiSolidPurchaseTagAlt
-            className={styles.projectIcon}
-          />
+          <BiSolidPurchaseTagAlt className={styles.projectIcon} />
           <h1 className={styles.projectTitleText}>
             Damaris Salón - Inventario y ventas con integración de PayPal
           </h1>
@@ -130,16 +198,17 @@ export const Projects = () => {
           </div>
         </div>
       </div>
+      {/** AuditAi */}
       <div className={styles.projectList}>
         <div className={styles.projectTitleContainer}>
           <PiDetectiveFill className={styles.projectIcon} />
           <h1 className={styles.projectTitleText}>
-            FastSunat – Consulta RUC y DNI sin esfuerzo
+            AuditAi – Auditoría inteligente con IA
           </h1>
         </div>
         <div className={styles.projectDescription}>
           <Carousel
-            items={smarttalentImages}
+            items={auditaiImages}
             baseWidth={500}
             autoplay={true}
             autoplayDelay={3000}
@@ -148,15 +217,15 @@ export const Projects = () => {
             round={false}
           />
           <div className={styles.projectDescription}>
-          {cardsApiSunat.map((card, index) => (
-            <DescriptionProjectCard
-              key={index}
-              devSide={card.devSide}
-              techs={card.techs}
-              description={card.description}
-              linkGithub={card.linkGithub}
-            />
-          ))}
+            {cardsApiSunat.map((card, index) => (
+              <DescriptionProjectCard
+                key={index}
+                devSide={card.devSide}
+                techs={card.techs}
+                description={card.description}
+                linkGithub={card.linkGithub}
+              />
+            ))}
           </div>
         </div>
       </div>

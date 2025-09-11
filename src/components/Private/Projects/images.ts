@@ -130,6 +130,92 @@ export const smarttalentImages = [
     image: "/images/projects/smarttalent/login.png",
     id: 9,
   },
+];
+
+export const coplacontImages = [
+  {
+    title: "Coplacont - Kardex",
+    image: "/images/projects/coplacont/kardex.png",
+    id: 1,
+  },
+
+  {
+    title: "Coplacont - Estado costo venta",
+    image: "/images/projects/coplacont/estado-costo-venta.png",
+    id: 2,
+  },
+
+  {
+    title: "Coplacont - Estado consolidado",
+    image: "/images/projects/coplacont/estado-consolidado.png",
+    id: 3,
+  },
+  {
+    title: "Coplacont - Compras",
+    image: "/images/projects/coplacont/compras.png",
+    id: 4,
+  },
+  {
+    title: "Coplacont - Crear compra",
+    image: "/images/projects/coplacont/crear-compra.png",
+    id: 5,
+  },
+  {
+    title: "Coplacont - Detalle compra",
+    image: "/images/projects/coplacont/detalle-compra.png",
+    id: 6,
+  },
+  {
+    title: "Coplacont - Ventas",
+    image: "/images/projects/coplacont/ventas.png",
+    id: 7,
+  },
+  {
+    title: "Coplacont - Crear venta",
+    image: "/images/projects/coplacont/crear-venta.png",
+    id: 8,
+  },
+  {
+    title: "Coplacont - Clientes",
+    image: "/images/projects/coplacont/clientes.png",
+    id: 9,
+  },
+  {
+    title: "Coplacont - Login",
+    image: "/images/projects/coplacont/login.png",
+    id: 10,
+  },
+];
+
+export const auditaiImages = [
+  {
+    title: "Auditai - Dashboard",
+    image: "/images/projects/auditai/dashboard.png",
+    id: 1,
+  },
+  {
+    title: "Auditai - Config",
+    image: "/images/projects/auditai/config.png",
+    id: 2,
+  },
+  {
+    title: "Auditai - Load File",
+    image: "/images/projects/auditai/load-file.png",
+    id: 3,
+  },
+  {
+    title: "Auditai - Home",
+    image: "/images/projects/auditai/home.png",
+    id: 4,
+  },
+  {
+    title: "Auditai - Login",
+    image: "/images/projects/auditai/login.png",
+    id: 5,
+  },
+  {
+    title: "Auditai - Register",
+    image: "/images/projects/auditai/register.png",
+    id: 6,
+  },
 ]
-
-
