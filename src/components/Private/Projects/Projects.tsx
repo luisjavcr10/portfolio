@@ -2,7 +2,7 @@ import styles from "./Projects.module.scss";
 import { SectionTitle } from "@/components/Shared/SectionTitle";
 import { DescriptionProjectCard } from "@/components/Shared/projectsCard/DescriptionProjectCard";
 import Carousel from "@/components/ReactBits/Carousel/Carousel";
-import { digenioImages, damarisSalonImages } from "@/components/Private/Projects/images";
+import { digenioImages, damarisSalonImages, smarttalentImages } from "@/components/Private/Projects/images";
 
 import { ReactIcon } from "@/utils/Icons/Frontend/ReactJsIcon";
 import { TailwindCSSIcon } from "@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon";
@@ -139,6 +139,7 @@ export const Projects = () => {
         </div>
         <div className={styles.projectDescription}>
           <Carousel
+            items={smarttalentImages}
             baseWidth={500}
             autoplay={true}
             autoplayDelay={3000}

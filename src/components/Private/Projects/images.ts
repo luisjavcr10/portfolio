@@ -82,4 +82,54 @@ export const damarisSalonImages = [
     image: "/images/projects/damarisSalon/login.png",
     id: 7,
   },
+];
+
+export const smarttalentImages = [
+  {
+    title: "Smarttalent - Home",
+    image: "/images/projects/smarttalent/dashboard.png",
+    id: 1,
+  },
+  {
+    title: "Smarttalent - Requests",
+    image: "/images/projects/smarttalent/requests.png",
+    id: 2,
+  },
+  {
+    title: "Smarttalent - Create Request",
+    image: "/images/projects/smarttalent/create-request.png",
+    id: 3,
+  },
+  {
+    title: "Smarttalent - Create Request Detail",
+    image: "/images/projects/smarttalent/create-detail-request.png",
+    id: 4,
+  },
+  {
+    title: "Smarttalent - Request Detail",
+    image: "/images/projects/smarttalent/detail-request.png",
+    id: 5,
+  },
+  {
+    title: "Smarttalent - Users",
+    image: "/images/projects/smarttalent/users.png",
+    id: 6,
+  },
+  {
+    title: "Smarttalent - Users Detail",
+    image: "/images/projects/smarttalent/user-detail.png",
+    id: 7,
+  },
+  {
+    title: "Smarttalent - Login dark",
+    image: "/images/projects/smarttalent/observed.png",
+    id: 8,
+  },
+  {
+    title: "Smarttalent - Home dark",
+    image: "/images/projects/smarttalent/login.png",
+    id: 9,
+  },
 ]
+
+
