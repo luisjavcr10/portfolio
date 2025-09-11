@@ -5,7 +5,7 @@ import { useTheme } from '@/context/ThemeContext';
 
 export const ExpressJsIcon = (props: SVGProps<SVGSVGElement>) => {
   const { theme } = useTheme();
-  const fillColor = theme === 'dark' ? '#000' : '#fff';
+  const fillColor = theme === 'light' ? '#000' : '#fff';
   
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1em" height="1em" {...props}>

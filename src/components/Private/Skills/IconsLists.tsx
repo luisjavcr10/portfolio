@@ -1,25 +1,25 @@
 import styles from './Skills.module.scss';
 
-import { NextjsIcon } from '@/utils/Icons/Frontend/NextJsIcon';
-import { ReactIcon } from '@/utils/Icons/Frontend/ReactJsIcon';
-import { TailwindCSSIcon } from '@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon';
-import { BootstrapIcon } from '@/utils/Icons/Frontend/BootStrapIcon';
-import { NodeJsIcon } from '@/utils/Icons/BackEnd/NodeJsIcon';
-import { ExpressJsIcon } from '@/utils/Icons/BackEnd/ExpressJsIcon';
-import { GraphQLIcon } from '@/utils/Icons/BackEnd/GraphQLIcon';
-import { RestAPIIcon } from '@/utils/Icons/BackEnd/RestAPIIcon';
-import { JavaScriptIcon } from '@/utils/Icons/Languages/JavascriptIcon';
-import { TypeScriptIcon } from '@/utils/Icons/Languages/TypeScriptIcon';
-import { HTML5Icon } from '@/utils/Icons/Languages/HTMLICon';
-import { SassIcon } from '@/utils/Icons/Languages/SassIcon';
-import { MySQLIcon } from '@/utils/Icons/DataBases/MySQLIcon';
-import { SQLServerIcon } from '@/utils/Icons/DataBases/SQLServerIcon';
-import { PostgreSQLIcon } from '@/utils/Icons/DataBases/PostgreSQLIcon';
-import { MongoDBIcon } from '@/utils/Icons/DataBases/MongoDBIcon';
-import { GitIcon } from '@/utils/Icons/Tools/GitIcon';
-import { GithubIcon } from '@/utils/Icons/Tools/GithubIcon';
-import { DockerIcon } from '@/utils/Icons/Tools/DockerIcon';
-import { PostmanIcon } from '@/utils/Icons/Tools/PostmanIcon';
+import { NextjsIcon } from '@/components/Shared/Icons/Frontend/NextJsIcon';
+import { ReactIcon } from '@/components/Shared/Icons/Frontend/ReactJsIcon';
+import { TailwindCSSIcon } from '@/components/Shared/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon';
+import { BootstrapIcon } from '@/components/Shared/Icons/Frontend/BootStrapIcon';
+import { NodeJsIcon } from '@/components/Shared/Icons/BackEnd/NodeJsIcon';
+import { ExpressJsIcon } from '@/components/Shared/Icons/BackEnd/ExpressJsIcon';
+import { GraphQLIcon } from '@/components/Shared/Icons/BackEnd/GraphQLIcon';
+import { RestAPIIcon } from '@/components/Shared/Icons/BackEnd/RestAPIIcon';
+import { JavaScriptIcon } from '@/components/Shared/Icons/Languages/JavascriptIcon';
+import { TypeScriptIcon } from '@/components/Shared/Icons/Languages/TypeScriptIcon';
+import { HTML5Icon } from '@/components/Shared/Icons/Languages/HTMLICon';
+import { SassIcon } from '@/components/Shared/Icons/Languages/SassIcon';
+import { MySQLIcon } from '@/components/Shared/Icons/DataBases/MySQLIcon';
+import { SQLServerIcon } from '@/components/Shared/Icons/DataBases/SQLServerIcon';
+import { PostgreSQLIcon } from '@/components/Shared/Icons/DataBases/PostgreSQLIcon';
+import { MongoDBIcon } from '@/components/Shared/Icons/DataBases/MongoDBIcon';
+import { GitIcon } from '@/components/Shared/Icons/Tools/GitIcon';
+import { GithubIcon } from '@/components/Shared/Icons/Tools/GithubIcon';
+import { DockerIcon } from '@/components/Shared/Icons/Tools/DockerIcon';
+import { PostmanIcon } from '@/components/Shared/Icons/Tools/PostmanIcon';
 
 const iconsFrontend = [
     { svg: <NextjsIcon className={styles.Skills__IconList}/> , name: 'Next.js'},

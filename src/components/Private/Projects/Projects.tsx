@@ -10,12 +10,12 @@ import {
   auditaiImages,
 } from "@/components/Private/Projects/images";
 
-import { ReactIcon } from "@/utils/Icons/Frontend/ReactJsIcon";
-import { TailwindCSSIcon } from "@/utils/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon";
-import { NodeJsIcon } from "@/utils/Icons/BackEnd/NodeJsIcon";
-import { ExpressJsIcon } from "@/utils/Icons/BackEnd/ExpressJsIcon";
-import { NextjsIcon } from "@/utils/Icons/Frontend/NextJsIcon";
-import { SassIcon } from "@/utils/Icons/Languages/SassIcon";
+import { ReactIcon } from "@/components/Shared/Icons/Frontend/ReactJsIcon";
+import { TailwindCSSIcon } from "@/components/Shared/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon";
+import { NodeJsIcon } from "@/components/Shared/Icons/BackEnd/NodeJsIcon";
+import { ExpressJsIcon } from "@/components/Shared/Icons/BackEnd/ExpressJsIcon";
+import { NextjsIcon } from "@/components/Shared/Icons/Frontend/NextJsIcon";
+import { SassIcon } from "@/components/Shared/Icons/Languages/SassIcon";
 
 import { BiSolidPurchaseTagAlt } from "react-icons/bi";
 import { PiDetectiveFill } from "react-icons/pi";
