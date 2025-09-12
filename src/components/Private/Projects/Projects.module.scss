@@ -1,11 +1,13 @@
 @use "@/sass/variables" as *;
 
 .Projects {
-  padding-top: 35px;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 
   @media screen and (min-width: 768px) {
     width: 90%;
-    padding-top: 50px;
   }
 
   h2 {
@@ -17,10 +19,12 @@
 .projectCardContainer {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-
-  @media screen and (min-width: 1050px) {
-    flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  @media screen and (min-width: 1150px) {
+    flex: 1;
+    display: flex;
+    flex-direction: row-reverse;
   }
 }
 
@@ -41,27 +45,15 @@
   align-items: center;
   gap: 10px;
   color: var(--bg-card-v2-color);
-  padding-top: 30px;
 }
 
 .projectTitleText {
-  text-align: center;
+  width: 100%;
+  text-align: start;
   margin: 0;
   font-size: 20px;
   @media screen and (min-width: 768px) {
     font-size: 24px;
-  }
-}
-
-.projectDescription {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  @media screen and (min-width: 1050px) {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
   }
 }
 

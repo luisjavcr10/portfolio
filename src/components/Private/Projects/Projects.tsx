@@ -16,14 +16,12 @@ import { NodeJsIcon } from "@/components/Shared/Icons/BackEnd/NodeJsIcon";
 import { ExpressJsIcon } from "@/components/Shared/Icons/BackEnd/ExpressJsIcon";
 import { NextjsIcon } from "@/components/Shared/Icons/Frontend/NextJsIcon";
 import { SassIcon } from "@/components/Shared/Icons/Languages/SassIcon";
-
-import { BiSolidPurchaseTagAlt } from "react-icons/bi";
-import { PiDetectiveFill } from "react-icons/pi";
 import { FaLaptopCode } from "react-icons/fa";
 
-const cardsDamarisSalon = [
+const cardsCoplacont = [
   {
     devSide: "FULLSTACK",
+    title: "Coplacont - Sistema contable experto",
     techs: [
       { title: "React", icon: <ReactIcon /> },
       { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
@@ -36,9 +34,42 @@ const cardsDamarisSalon = [
   },
 ];
 
-const cardsApiSunat = [
+const cardsDamarisSalon = [
+  {
+    devSide: "FULLSTACK",
+    title: "Sistema de gestión de ventas e inventario para Damaris Salón",
+    techs: [
+      { title: "React", icon: <ReactIcon /> },
+      { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
+      { title: "Node.js", icon: <NodeJsIcon /> },
+      { title: "Express.js", icon: <ExpressJsIcon /> },
+    ],
+    description:
+      "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",
+    linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
+  },
+];
+
+const cardsDigenio = [
+  {
+    devSide: "FULLSTACK",
+    title: "Sistema de gestión de OKRs y Startups para Digenio",
+    techs: [
+      { title: "React", icon: <ReactIcon /> },
+      { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
+      { title: "Node.js", icon: <NodeJsIcon /> },
+      { title: "Express.js", icon: <ExpressJsIcon /> },
+    ],
+    description:
+      "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",
+    linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
+  },
+];
+
+const cardsSmartTalent = [
   {
     devSide: "BACKEND",
+    title: "Sistema de Gestión de Solicitudes y Reclutamiento para SmartTalent",
     techs: [
       { title: "Node.js", icon: <NodeJsIcon /> },
       { title: "Express.js", icon: <ExpressJsIcon /> },
@@ -52,6 +83,7 @@ const cardsApiSunat = [
 const cardsAuditAi = [
   {
     devSide: "FRONTEND",
+    title: "Audit AI - Sistema de auditoria automatizada con IA",
     techs: [
       { title: "Next.js", icon: <NextjsIcon /> },
       { title: "Sass", icon: <SassIcon /> },
@@ -72,161 +104,123 @@ export const Projects = () => {
 
       {/** Coplacont */}
       <div className={styles.projectList}>
-        <div className={styles.projectTitleContainer}>
-          <PiDetectiveFill className={styles.projectIcon} />
-          <h1 className={styles.projectTitleText}>
-            Coplacont – Sistema contable experto
-          </h1>
-        </div>
-        <div className={styles.projectDescription}>
+        <div className={styles.projectCardContainer}>
           <Carousel
             items={coplacontImages}
-            baseWidth={500}
+            baseWidth={480}
             autoplay={true}
-            autoplayDelay={3000}
+            autoplayDelay={6000}
             pauseOnHover={true}
             loop={true}
             round={false}
           />
-          <div className={styles.projectDescription}>
-            {cardsApiSunat.map((card, index) => (
-              <DescriptionProjectCard
-                key={index}
-                devSide={card.devSide}
-                techs={card.techs}
-                description={card.description}
-                linkGithub={card.linkGithub}
-              />
-            ))}
-          </div>
+          {cardsCoplacont.map((card, index) => (
+            <DescriptionProjectCard
+              title={card.title}
+              key={index}
+              devSide={card.devSide}
+              techs={card.techs}
+              description={card.description}
+              linkGithub={card.linkGithub}
+            />
+          ))}
         </div>
       </div>
 
       {/** Smarttalent */}
       <div className={styles.projectList}>
-        <div className={styles.projectTitleContainer}>
-          <PiDetectiveFill className={styles.projectIcon} />
-          <h1 className={styles.projectTitleText}>
-            Smarttalent – Sistema de solicitudes y reclutamientos
-          </h1>
-        </div>
-        <div className={styles.projectDescription}>
+        <div className={styles.projectCardContainer}>
           <Carousel
             items={smarttalentImages}
-            baseWidth={500}
+            baseWidth={480}
             autoplay={true}
-            autoplayDelay={3000}
+            autoplayDelay={6000}
             pauseOnHover={true}
             loop={true}
             round={false}
           />
-          <div className={styles.projectDescription}>
-            {cardsApiSunat.map((card, index) => (
-              <DescriptionProjectCard
-                key={index}
-                devSide={card.devSide}
-                techs={card.techs}
-                description={card.description}
-                linkGithub={card.linkGithub}
-              />
-            ))}
-          </div>
+          {cardsSmartTalent.map((card, index) => (
+            <DescriptionProjectCard
+              title={card.title}
+              key={index}
+              devSide={card.devSide}
+              techs={card.techs}
+              description={card.description}
+              linkGithub={card.linkGithub}
+            />
+          ))}
         </div>
       </div>
       {/** Digenio */}
       <div className={styles.projectList}>
-        <div className={styles.projectTitleContainer}>
-          <BiSolidPurchaseTagAlt className={styles.projectIcon} />
-          <h1 className={styles.projectTitleText}>
-            Digenio - CRM para gestión de proyectos
-          </h1>
-        </div>
-
         <div className={styles.projectCardContainer}>
           <Carousel
             items={digenioImages}
-            baseWidth={500}
+            baseWidth={480}
             autoplay={true}
-            autoplayDelay={3000}
+            autoplayDelay={6000}
             pauseOnHover={true}
             loop={true}
             round={false}
           />
-
-          <div className={styles.projectDescription}>
-            {cardsAuditAi.map((card, index) => (
-              <DescriptionProjectCard
-                key={index}
-                devSide={card.devSide}
-                techs={card.techs}
-                description={card.description}
-                linkGithub={card.linkGithub}
-                linkPreview={card.linkPreview}
-              />
-            ))}
-          </div>
+          {cardsDigenio.map((card, index) => (
+            <DescriptionProjectCard
+              title={card.title}
+              key={index}
+              devSide={card.devSide}
+              techs={card.techs}
+              description={card.description}
+              linkGithub={card.linkGithub}
+            />
+          ))}
         </div>
       </div>
       {/** Damaris Salon */}
       <div className={styles.projectList}>
-        <div className={styles.projectTitleContainer}>
-          <BiSolidPurchaseTagAlt className={styles.projectIcon} />
-          <h1 className={styles.projectTitleText}>
-            Damaris Salón - Inventario y ventas con integración de PayPal
-          </h1>
-        </div>
         <div className={styles.projectCardContainer}>
           <Carousel
             items={damarisSalonImages}
-            baseWidth={500}
+            baseWidth={480}
             autoplay={true}
-            autoplayDelay={3000}
+            autoplayDelay={6000}
             pauseOnHover={true}
             loop={true}
             round={false}
           />
-          <div className={styles.projectDescription}>
-            {cardsDamarisSalon.map((card, index) => (
-              <DescriptionProjectCard
-                key={index}
-                devSide={card.devSide}
-                techs={card.techs}
-                description={card.description}
-                linkGithub={card.linkGithub}
-              />
-            ))}
-          </div>
+          {cardsDamarisSalon.map((card, index) => (
+            <DescriptionProjectCard
+              title={card.title}
+              key={index}
+              devSide={card.devSide}
+              techs={card.techs}
+              description={card.description}
+              linkGithub={card.linkGithub}
+            />
+          ))}
         </div>
       </div>
       {/** AuditAi */}
       <div className={styles.projectList}>
-        <div className={styles.projectTitleContainer}>
-          <PiDetectiveFill className={styles.projectIcon} />
-          <h1 className={styles.projectTitleText}>
-            AuditAi – Auditoría inteligente con IA
-          </h1>
-        </div>
-        <div className={styles.projectDescription}>
+        <div className={styles.projectCardContainer}>
           <Carousel
             items={auditaiImages}
-            baseWidth={500}
+            baseWidth={480}
             autoplay={true}
-            autoplayDelay={3000}
+            autoplayDelay={6000}
             pauseOnHover={true}
             loop={true}
             round={false}
           />
-          <div className={styles.projectDescription}>
-            {cardsApiSunat.map((card, index) => (
-              <DescriptionProjectCard
-                key={index}
-                devSide={card.devSide}
-                techs={card.techs}
-                description={card.description}
-                linkGithub={card.linkGithub}
-              />
-            ))}
-          </div>
+          {cardsAuditAi.map((card, index) => (
+            <DescriptionProjectCard
+              title={card.title}
+              key={index}
+              devSide={card.devSide}
+              techs={card.techs}
+              description={card.description}
+              linkGithub={card.linkGithub}
+            />
+          ))}
         </div>
       </div>
     </div>
