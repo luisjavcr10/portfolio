@@ -26,11 +26,11 @@ export const DescriptionProjectCard = ({
   linkPreview?: string;
 }>) => {
   return (
-    <div className={styles.DescriptionProjectCard}>
-      <div className={styles.DescriptionProjectCard__TagsSection}>
-        <h1 style={{ margin: "0px", flex: 1 }}>{title}</h1>
+    <div className={styles.descriptionProjectCard}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.titleText}>{title}</h1>
 
-        <div className={styles.DescriptionProjectCard__LinkSection}>
+        <div className={styles.repositoriesContainer}>
           {linkGithub && (
             <CodeTag message="CODIGO" href={linkGithub}>
               <FiGithub />
@@ -44,11 +44,11 @@ export const DescriptionProjectCard = ({
         </div>
       </div>
 
-      <p className={styles.DescriptionProjectCard__Description}>
+      <p className={styles.descriptionProject}>
         {description}
       </p>
 
-      <div className={styles.DescriptionProjectCard__Techs}>
+      <div className={styles.techContainer}>
         {techs.map((tech, index) => (
           <TechTag key={index} title={tech.title} icon={tech.icon} />
         ))}

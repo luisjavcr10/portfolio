@@ -114,7 +114,7 @@ export const Projects = () => {
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  const baseWidth = isMobile? 300 : 480;
+  const baseWidth = isMobile? 320 : 480;
 
 
   return (
