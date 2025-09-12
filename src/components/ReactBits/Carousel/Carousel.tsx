@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion, PanInfo, useMotionValue, useTransform } from 'motion/react';
 import Image from 'next/image';
 import './Carousel.css';
@@ -75,7 +75,17 @@ export default function Carousel({
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isResetting, setIsResetting] = useState<boolean>(false);
 
+  // Crear las transformaciones fuera del callback usando useMemo
+  const rotateTransforms = useMemo(() => {
+    return carouselItems.map((_, index) => {
+      const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
+      const outputRange = [90, 0, -90];
+      return useTransform(x, range, outputRange, { clamp: false });
+    });
+  }, [carouselItems.length, trackItemOffset, x]);
+
   const containerRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -171,9 +181,6 @@ export default function Carousel({
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
-          const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
           return (
             <motion.div
               key={index}
@@ -181,7 +188,7 @@ export default function Carousel({
               style={{
                 width: itemWidth,
                 height: round ? itemWidth : Math.round(itemWidth * (1750/2880)),
-                rotateY: rotateY,
+                rotateY: rotateTransforms[index],
                 ...(round && { borderRadius: '50%' }),
                 overflow: 'hidden'
               }}
