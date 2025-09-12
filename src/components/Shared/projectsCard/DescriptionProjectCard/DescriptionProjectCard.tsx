@@ -13,7 +13,6 @@ interface TechTagProps {
 }
 
 export const DescriptionProjectCard = ({
-  devSide,
   title,
   techs,
   description,
@@ -24,24 +23,20 @@ export const DescriptionProjectCard = ({
   title: string;
   techs: TechTagProps[];
   description: string;
-  linkGithub: string;
+  linkGithub?: string;
   linkPreview?: string;
 }>) => {
   return (
     <div className={styles.DescriptionProjectCard}>
       <div className={styles.DescriptionProjectCard__TagsSection}>
-        {/**<div className={styles.SpecialTag} >
-                    <SpecialTag 
-                        message={devSide}
-                    />
-                </div>*/}
-
-        <h1 style={{margin: '0px', flex: 1}}>{title}</h1>
+        <h1 style={{ margin: "0px", flex: 1 }}>{title}</h1>
 
         <div className={styles.DescriptionProjectCard__LinkSection}>
-          <CodeTag message="CODIGO" href={linkGithub}>
-            <FiGithub />
-          </CodeTag>
+          {linkGithub && (
+            <CodeTag message="CODIGO" href={linkGithub}>
+              <FiGithub />
+            </CodeTag>
+          )}
           {linkPreview && (
             <CodeTag message="PREVIEW" href={linkPreview}>
               <FaEye />

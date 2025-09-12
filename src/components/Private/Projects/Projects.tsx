@@ -16,7 +16,11 @@ import { NodeJsIcon } from "@/components/Shared/Icons/BackEnd/NodeJsIcon";
 import { ExpressJsIcon } from "@/components/Shared/Icons/BackEnd/ExpressJsIcon";
 import { NextjsIcon } from "@/components/Shared/Icons/Frontend/NextJsIcon";
 import { SassIcon } from "@/components/Shared/Icons/Languages/SassIcon";
+import { NestJsIcon } from "@/components/Shared/Icons/BackEnd/NestJsIcon";
+import { PostgreSQLIcon } from "@/components/Shared/Icons/DataBases/PostgreSQLIcon";
 import { FaLaptopCode } from "react-icons/fa";
+import { MongoDBIcon } from "@/components/Shared/Icons/DataBases/MongoDBIcon";
+import { GraphQLIcon } from "@/components/Shared/Icons/BackEnd/GraphQLIcon";
 
 const cardsCoplacont = [
   {
@@ -24,16 +28,45 @@ const cardsCoplacont = [
     title: "Coplacont - Sistema contable experto",
     techs: [
       { title: "React", icon: <ReactIcon /> },
-      { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
-      { title: "Node.js", icon: <NodeJsIcon /> },
-      { title: "Express.js", icon: <ExpressJsIcon /> },
+      { title: "Sass", icon: <SassIcon /> },
+      { title: "NestJs", icon: <NestJsIcon /> },
+      { title: "PSQL", icon:<PostgreSQLIcon/> }
     ],
     description:
       "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",
-    linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
   },
 ];
 
+const cardsSmartTalent = [
+  {
+    devSide: "BACKEND",
+    title: "Sistema de Gestión de Solicitudes y Reclutamiento para SmartTalent",
+    techs: [
+      { title: "React", icon: <ReactIcon /> },
+      {title:"TailwindCSS", icon: <TailwindCSSIcon />},
+      { title: "Express.js", icon: <ExpressJsIcon /> },
+      { title: "PSQL", icon:<PostgreSQLIcon/> }
+    ],
+    description:
+      "API REST para automatizar la obtención de datos de clientes (DNI/RUC) en un sistema de ventas. Extrae información de SUNAT con Puppeteer, agilizando el proceso y evitando el ingreso manual.",
+  },
+];
+
+const cardsDigenio = [
+  {
+    devSide: "FULLSTACK",
+    title: "Sistema de gestión de OKRs y Startups para Digenio",
+    techs: [
+      { title: "Next.js", icon: <NextjsIcon /> },
+      { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
+      { title: "GraphQL", icon: <GraphQLIcon/> },
+      { title: "MongoDB", icon: <MongoDBIcon /> }
+    ],
+    description:
+      "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",
+    linkGithub: "https://github.com/luisjavcr10/app-crm-digenio.git",
+  },
+];
 const cardsDamarisSalon = [
   {
     devSide: "FULLSTACK",
@@ -50,35 +83,6 @@ const cardsDamarisSalon = [
   },
 ];
 
-const cardsDigenio = [
-  {
-    devSide: "FULLSTACK",
-    title: "Sistema de gestión de OKRs y Startups para Digenio",
-    techs: [
-      { title: "React", icon: <ReactIcon /> },
-      { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
-      { title: "Node.js", icon: <NodeJsIcon /> },
-      { title: "Express.js", icon: <ExpressJsIcon /> },
-    ],
-    description:
-      "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",
-    linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
-  },
-];
-
-const cardsSmartTalent = [
-  {
-    devSide: "BACKEND",
-    title: "Sistema de Gestión de Solicitudes y Reclutamiento para SmartTalent",
-    techs: [
-      { title: "Node.js", icon: <NodeJsIcon /> },
-      { title: "Express.js", icon: <ExpressJsIcon /> },
-    ],
-    description:
-      "API REST para automatizar la obtención de datos de clientes (DNI/RUC) en un sistema de ventas. Extrae información de SUNAT con Puppeteer, agilizando el proceso y evitando el ingreso manual.",
-    linkGithub: "https://github.com/luisjavcr10/api-consulta-sunat",
-  },
-];
 
 const cardsAuditAi = [
   {
@@ -121,7 +125,6 @@ export const Projects = () => {
               devSide={card.devSide}
               techs={card.techs}
               description={card.description}
-              linkGithub={card.linkGithub}
             />
           ))}
         </div>
@@ -146,7 +149,6 @@ export const Projects = () => {
               devSide={card.devSide}
               techs={card.techs}
               description={card.description}
-              linkGithub={card.linkGithub}
             />
           ))}
         </div>
