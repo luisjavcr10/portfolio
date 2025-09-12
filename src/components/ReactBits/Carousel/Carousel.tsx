@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from 'react';
-import { motion, PanInfo, useMotionValue } from 'motion/react';
+import { motion, PanInfo, useMotionValue, useTransform } from 'motion/react';
 import Image from 'next/image';
 import './Carousel.css';
 
@@ -76,19 +76,6 @@ export default function Carousel({
   const [isResetting, setIsResetting] = useState<boolean>(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Función para calcular la rotación basada en la posición
-  const calculateRotation = (index: number, xValue: number): number => {
-    const itemPosition = -(index * trackItemOffset);
-    const distanceFromCenter = itemPosition + xValue;
-    const normalizedDistance = distanceFromCenter / trackItemOffset;
-    
-    // Aplicar rotación basada en la distancia del centro
-    if (normalizedDistance < -1) return 90;
-    if (normalizedDistance > 1) return -90;
-    return normalizedDistance * -90;
-  };
-
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -158,9 +145,6 @@ export default function Carousel({
         }
       };
 
-  // Calcular la posición actual del track
-  const currentXPosition = -(currentIndex * trackItemOffset);
-
   return (
     <div
       ref={containerRef}
@@ -182,13 +166,14 @@ export default function Carousel({
           x
         }}
         onDragEnd={handleDragEnd}
-        animate={{ x: currentXPosition }}
+        animate={{ x: -(currentIndex * trackItemOffset) }}
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
-          const rotation = calculateRotation(index, currentXPosition);
-          
+          const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
+          const outputRange = [90, 0, -90];
+          const rotateY = useTransform(x, range, outputRange, { clamp: false });
           return (
             <motion.div
               key={index}
@@ -196,7 +181,7 @@ export default function Carousel({
               style={{
                 width: itemWidth,
                 height: round ? itemWidth : Math.round(itemWidth * (1750/2880)),
-                transform: `rotateY(${rotation}deg)`,
+                rotateY: rotateY,
                 ...(round && { borderRadius: '50%' }),
                 overflow: 'hidden'
               }}
