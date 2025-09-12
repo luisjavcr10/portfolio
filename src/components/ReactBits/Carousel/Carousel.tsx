@@ -7,7 +7,7 @@ import {
   useTransform,
   MotionValue,
   Transition,
-} from "framer-motion"; // 👈 importa Transition desde framer-motion
+} from "framer-motion"; 
 import Image from "next/image";
 import "./Carousel.css";
 
