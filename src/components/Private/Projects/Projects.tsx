@@ -45,7 +45,7 @@ const cardsSmartTalent = [
     techs: [
       { title: "React", icon: <ReactIcon /> },
       {title:"TailwindCSS", icon: <TailwindCSSIcon />},
-      { title: "Express.js", icon: <ExpressJsIcon /> },
+      { title: "Express.js", icon: <ExpressJsIcon inTag={true} /> },
       { title: "PSQL", icon:<PostgreSQLIcon/> }
     ],
     description:
@@ -77,7 +77,7 @@ const cardsDamarisSalon = [
       { title: "React", icon: <ReactIcon /> },
       { title: "TailwindCSS", icon: <TailwindCSSIcon /> },
       { title: "Node.js", icon: <NodeJsIcon /> },
-      { title: "Express.js", icon: <ExpressJsIcon /> },
+      { title: "Express.js", icon: <ExpressJsIcon inTag={true}/> },
     ],
     description:
       "Sistema que ofrece una navegación ágil y responsiva, con un dashboard interactivo, gestión de ventas e inventario, e integración segura de pagos con PayPal.",

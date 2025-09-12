@@ -1,6 +1,5 @@
 import styles from "./DescriptionProjectCard.module.scss";
 
-import { SpecialTag } from "@/components/Shared/tags/SpecialTag";
 import { TechTag } from "@/components/Shared/tags/TechTag";
 import { CodeTag } from "@/components/Shared/tags/CodeTag";
 
