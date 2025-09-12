@@ -1,7 +1,7 @@
 import styles from "./Projects.module.scss";
+import Carousel from "@/components/ReactBits/Carousel/Carousel";
 import { SectionTitle } from "@/components/Shared/SectionTitle";
 import { DescriptionProjectCard } from "@/components/Shared/projectsCard/DescriptionProjectCard";
-import Carousel from "@/components/ReactBits/Carousel/Carousel";
 import {
   digenioImages,
   damarisSalonImages,
@@ -9,18 +9,19 @@ import {
   coplacontImages,
   auditaiImages,
 } from "@/components/Private/Projects/images";
-
-import { ReactIcon } from "@/components/Shared/Icons/Frontend/ReactJsIcon";
-import { TailwindCSSIcon } from "@/components/Shared/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon";
-import { NodeJsIcon } from "@/components/Shared/Icons/BackEnd/NodeJsIcon";
-import { ExpressJsIcon } from "@/components/Shared/Icons/BackEnd/ExpressJsIcon";
-import { NextjsIcon } from "@/components/Shared/Icons/Frontend/NextJsIcon";
-import { SassIcon } from "@/components/Shared/Icons/Languages/SassIcon";
-import { NestJsIcon } from "@/components/Shared/Icons/BackEnd/NestJsIcon";
-import { PostgreSQLIcon } from "@/components/Shared/Icons/DataBases/PostgreSQLIcon";
+import { 
+  NodeJsIcon, 
+  ExpressJsIcon, 
+  NestJsIcon, 
+  GraphQLIcon,
+  ReactIcon,
+  TailwindCSSIcon,
+  NextjsIcon,
+  SassIcon, 
+  PostgreSQLIcon,
+  MongoDBIcon
+} from "@/components/Shared/Icons";
 import { FaLaptopCode } from "react-icons/fa";
-import { MongoDBIcon } from "@/components/Shared/Icons/DataBases/MongoDBIcon";
-import { GraphQLIcon } from "@/components/Shared/Icons/BackEnd/GraphQLIcon";
 
 const cardsCoplacont = [
   {
@@ -67,6 +68,7 @@ const cardsDigenio = [
     linkGithub: "https://github.com/luisjavcr10/app-crm-digenio.git",
   },
 ];
+
 const cardsDamarisSalon = [
   {
     devSide: "FULLSTACK",
@@ -82,7 +84,6 @@ const cardsDamarisSalon = [
     linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
   },
 ];
-
 
 const cardsAuditAi = [
   {

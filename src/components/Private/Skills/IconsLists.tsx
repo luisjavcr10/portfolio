@@ -2,7 +2,7 @@ import styles from './Skills.module.scss';
 
 import { NextjsIcon } from '@/components/Shared/Icons/Frontend/NextJsIcon';
 import { ReactIcon } from '@/components/Shared/Icons/Frontend/ReactJsIcon';
-import { TailwindCSSIcon } from '@/components/Shared/Icons/Frontend/TailwindCSSIcon/TailwindCSSIcon';
+import { TailwindCSSIcon } from '@/components/Shared/Icons/Frontend/TailwindCSSIcon';
 import { BootstrapIcon } from '@/components/Shared/Icons/Frontend/BootStrapIcon';
 import { NodeJsIcon } from '@/components/Shared/Icons/BackEnd/NodeJsIcon';
 import { ExpressJsIcon } from '@/components/Shared/Icons/BackEnd/ExpressJsIcon';
