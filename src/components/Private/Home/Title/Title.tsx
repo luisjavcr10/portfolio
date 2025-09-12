@@ -7,22 +7,14 @@ export const Title = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Función para verificar si es un dispositivo móvil
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
-    // Verificar al cargar
     checkIfMobile();
-    
-    // Agregar listener para cambios de tamaño
-    window.addEventListener("resize", checkIfMobile);
-    
-    // Limpiar listener
+    window.addEventListener("resize", checkIfMobile)
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  // Tamaños condicionales basados en si es móvil o no
   const cardSize = isMobile ? "200px" : "280px";
 
   return (

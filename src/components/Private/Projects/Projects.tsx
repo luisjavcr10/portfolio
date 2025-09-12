@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import styles from "./Projects.module.scss";
 import Carousel from "@/components/ReactBits/Carousel/Carousel";
 import { SectionTitle } from "@/components/Shared/SectionTitle";
@@ -101,6 +103,20 @@ const cardsAuditAi = [
 ];
 
 export const Projects = () => {
+   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile)
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
+  const baseWidth = isMobile? 300 : 480;
+
+
   return (
     <div className={styles.Projects}>
       <SectionTitle title="Proyectos">
@@ -112,7 +128,7 @@ export const Projects = () => {
         <div className={styles.projectCardContainer}>
           <Carousel
             items={coplacontImages}
-            baseWidth={480}
+            baseWidth={baseWidth}
             autoplay={true}
             autoplayDelay={6000}
             pauseOnHover={true}
@@ -136,7 +152,7 @@ export const Projects = () => {
         <div className={styles.projectCardContainer}>
           <Carousel
             items={smarttalentImages}
-            baseWidth={480}
+            baseWidth={baseWidth}
             autoplay={true}
             autoplayDelay={6000}
             pauseOnHover={true}
@@ -159,7 +175,7 @@ export const Projects = () => {
         <div className={styles.projectCardContainer}>
           <Carousel
             items={digenioImages}
-            baseWidth={480}
+            baseWidth={baseWidth}
             autoplay={true}
             autoplayDelay={6000}
             pauseOnHover={true}
@@ -183,7 +199,7 @@ export const Projects = () => {
         <div className={styles.projectCardContainer}>
           <Carousel
             items={damarisSalonImages}
-            baseWidth={480}
+            baseWidth={baseWidth}
             autoplay={true}
             autoplayDelay={6000}
             pauseOnHover={true}
@@ -207,7 +223,7 @@ export const Projects = () => {
         <div className={styles.projectCardContainer}>
           <Carousel
             items={auditaiImages}
-            baseWidth={480}
+            baseWidth={baseWidth}
             autoplay={true}
             autoplayDelay={6000}
             pauseOnHover={true}
