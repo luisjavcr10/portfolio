@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import { motion, PanInfo, useMotionValue, useTransform, MotionValue } from "motion/react";
+import { motion, PanInfo, useMotionValue, useTransform, MotionValue , Transition} from "motion/react";
 import Image from "next/image";
 import "./Carousel.css";
 
@@ -68,7 +68,7 @@ function CarouselItemComponent({
   trackItemOffset: number;
   itemWidth: number;
   round: boolean;
-  effectiveTransition: any;
+  effectiveTransition: Transition;
 }) {
   const range = [
     -(index + 1) * trackItemOffset,
