@@ -1,7 +1,7 @@
 .carousel-container {
   background-color: transparent; 
-  backdrop-filter: blur(60px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
   flex: 1;
   position: relative;
   overflow: hidden;
