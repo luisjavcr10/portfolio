@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState, useRef, useMemo } from 'react';
-import { motion, PanInfo, useMotionValue, useTransform } from 'motion/react';
+import { useEffect, useState, useRef } from 'react';
+import { motion, PanInfo, useMotionValue } from 'motion/react';
 import Image from 'next/image';
 import './Carousel.css';
 
@@ -75,17 +75,20 @@ export default function Carousel({
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isResetting, setIsResetting] = useState<boolean>(false);
 
-  // Crear las transformaciones fuera del callback usando useMemo
-  const rotateTransforms = useMemo(() => {
-    return carouselItems.map((_, index) => {
-      const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-      const outputRange = [90, 0, -90];
-      return useTransform(x, range, outputRange, { clamp: false });
-    });
-  }, [carouselItems.length, trackItemOffset, x]);
-
   const containerRef = useRef<HTMLDivElement>(null);
   
+  // Función para calcular la rotación basada en la posición
+  const calculateRotation = (index: number, xValue: number): number => {
+    const itemPosition = -(index * trackItemOffset);
+    const distanceFromCenter = itemPosition + xValue;
+    const normalizedDistance = distanceFromCenter / trackItemOffset;
+    
+    // Aplicar rotación basada en la distancia del centro
+    if (normalizedDistance < -1) return 90;
+    if (normalizedDistance > 1) return -90;
+    return normalizedDistance * -90;
+  };
+
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -155,6 +158,9 @@ export default function Carousel({
         }
       };
 
+  // Calcular la posición actual del track
+  const currentXPosition = -(currentIndex * trackItemOffset);
+
   return (
     <div
       ref={containerRef}
@@ -176,11 +182,13 @@ export default function Carousel({
           x
         }}
         onDragEnd={handleDragEnd}
-        animate={{ x: -(currentIndex * trackItemOffset) }}
+        animate={{ x: currentXPosition }}
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
+          const rotation = calculateRotation(index, currentXPosition);
+          
           return (
             <motion.div
               key={index}
@@ -188,7 +196,7 @@ export default function Carousel({
               style={{
                 width: itemWidth,
                 height: round ? itemWidth : Math.round(itemWidth * (1750/2880)),
-                rotateY: rotateTransforms[index],
+                transform: `rotateY(${rotation}deg)`,
                 ...(round && { borderRadius: '50%' }),
                 overflow: 'hidden'
               }}
