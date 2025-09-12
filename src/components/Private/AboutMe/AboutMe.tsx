@@ -16,17 +16,19 @@ export const AboutMe = () => {
         <div className={styles.AboutMe__Container__ProfileContainer}>
           <PixelTransition
             firstContent={
-              <img
+              <Image
                 src="/images/profile/profile.jpg"
                 alt="with nena in a beach"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                fill
               />
             }
             secondContent={
-              <img
+              <Image
                 src="/images/profile/gildhi.jpg"
                 alt="with nena gildhi"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                fill
               />
             }
             gridSize={24}
