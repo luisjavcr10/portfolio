@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     gap: 20px;
     @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -32,7 +32,6 @@
     padding: 6px 10px;
     border: none;
     border-radius: $border-buttons;
-    //background-color: var(--green-neutro);
     background-color: var(--background-color-alt, var(--background-color));
     backdrop-filter: blur(3px);
     box-shadow: 0 0 10px black;
@@ -52,7 +51,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     padding: 6px 10px;
     border: none;
     border-radius: $border-buttons;
@@ -78,9 +77,9 @@
   &__SocialContact {
     display: flex;
     justify-content: row;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
 
   &__correo {
