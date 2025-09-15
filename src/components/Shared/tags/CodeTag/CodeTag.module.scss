@@ -1,9 +1,10 @@
 .GithubButton{
+    //width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    gap: 4px;
-    padding:0 5px;
+    gap: 6px;
+    padding: 5px;
     cursor: pointer;
     text-decoration: none;
     border: 1px solid var(--bg-tag-tech);

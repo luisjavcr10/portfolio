@@ -22,7 +22,7 @@ export const DescriptionProjectCard = ({
   title: string;
   techs: TechTagProps[];
   description: React.ReactNode;
-  linkGithub?: string;
+  linkGithub?: {link:string,message:string}[];
   linkPreview?: string;
 }>) => {
   return (
@@ -31,10 +31,14 @@ export const DescriptionProjectCard = ({
         <h1 className={styles.titleText}>{title}</h1>
 
         <div className={styles.repositoriesContainer}>
-          {linkGithub && (
-            <CodeTag message="CODIGO" href={linkGithub}>
-              <FiGithub />
-            </CodeTag>
+          {linkGithub ? (
+            linkGithub.map((item, index) => (
+              <CodeTag key={index} message={item.message} href={item.link}>
+                <FiGithub />
+              </CodeTag>
+            ))
+          ):(
+            <p style={{fontSize:'10px', opacity:'0.6'}}>Código no disponible por confidencialidad</p>
           )}
           {linkPreview && (
             <CodeTag message="PREVIEW" href={linkPreview}>

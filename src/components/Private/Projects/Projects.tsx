@@ -50,7 +50,6 @@ const cardSmartTalent = {
   ],
   description:
     <p><strong>Plataforma para digitalizar procesos de RRHH:</strong>  permite a clientes registrar solicitudes de verificación (laboral, académica, crediticia, etc.) y gestionar procesos de reclutamiento.<strong>Trabajé como desarrollador full stack en todas las etapas del proyecto.</strong>  El reto clave fue cumplir un deadline exigente: entregamos una versión funcional en menos tiempo del previsto y luego hicimos un ciclo de pruebas y mejoras con el cliente.
-
     </p>
 };
 const cardDigenio = {
@@ -65,7 +64,12 @@ const cardDigenio = {
   description:
     <p> <strong>Sistema interno para gestionar OKRs, startups y equipos,</strong> con módulos de seguimiento de sprints, tareas y empleados. Como full stack, participé en el desarrollo de la solución junto a un compañero diseñador,<strong>desde el modelado de datos hasta la implementación de la interfaz.</strong> La experiencia se centró en estructurar objetivos medibles y escalables en una plataforma intuitiva.
     </p>,
-  linkGithub: "https://github.com/luisjavcr10/app-crm-digenio.git",
+  linkGithub: [
+    {
+      link:"https://github.com/luisjavcr10/app-crm-digenio.git",
+      message:"FULLSTACK",
+    },
+  ],
 };
 
 const cardDamarisSalon = {
@@ -81,7 +85,16 @@ const cardDamarisSalon = {
     <p> <strong>Mi primer proyecto freelance y en solitario:</strong> un sistema para administrar ventas e inventario en una peluquería. Me encargué de todo el ciclo de desarrollo, desde el análisis de necesidades del cliente hasta la implementación final. Supuso un reto especial al ser <strong>mi primera experiencia completa como responsable único del producto.</strong>
 
     </p>,
-  linkGithub: "https://github.com/luisjavcr10/frontEnd_peluqueria",
+  linkGithub: [
+    {
+      link:"https://github.com/luisjavcr10/front-peluqueria-damaris",
+      message:"FRONTEND",
+    },
+    {
+      link:"https://github.com/luisjavcr10/back-peluqueria-damaris",
+      message:"BACKEND",
+    },
+  ],
 };
 
 const cardAuditAi = {
@@ -94,7 +107,12 @@ const cardAuditAi = {
   description:
     <p><strong>Sistema web que automatiza análisis de auditorías mediante IA (DeepSeek).</strong> Procesa datos, evalúa con normativas (SOX, GDPR, etc.) y genera dashboards interactivos con hallazgos clave. Como desarrollador frontend,<strong> lideré la creación de la interfaz de esta plataforma de auditoría inteligente.</strong>
     </p>,
-  linkGithub: "https://github.com/luisjavcr10/front-audit-ai",
+  linkGithub: [
+    {
+      link:"https://github.com/luisjavcr10/front-audit-ai",
+      message:"FRONTEND",
+    },
+  ],
   linkPreview: "https://front-audit-ai.vercel.app/",
 };
 
