@@ -35,7 +35,7 @@ const cardCoplacont = {
     { title: "PSQL", icon: <PostgreSQLIcon /> },
   ],
   description:
-      <p style={{ margin: "0px" }}>
+      <p>
         <strong>Software diseñado para estudios contables:</strong> gestiona compras, ventas, planillas, activos fijos y genera automáticamente asientos, libros contables y reportes financieros. <strong>Participé como full stack,</strong> desde la definición de requerimientos hasta el desarrollo frontend y backend. El mayor desafío fue <strong>dominar la lógica contable y sus tecnicismos,</strong> logrando traducir procesos financieros complejos en una herramienta digital usable.
       </p>
 };
@@ -49,7 +49,9 @@ const cardSmartTalent = {
     { title: "PSQL", icon: <PostgreSQLIcon /> },
   ],
   description:
-    "Plataforma para digitalizar procesos de RRHH: permite a clientes registrar solicitudes de verificación (laboral, académica, crediticia, etc.) y gestionar procesos de reclutamiento. Trabajé como full stack developer en todas las etapas del proyecto. El reto clave fue cumplir un deadline exigente: entregamos una versión funcional en menos tiempo del previsto y luego hicimos un ciclo de pruebas y mejoras con el cliente.",
+    <p><strong>Plataforma para digitalizar procesos de RRHH:</strong>  permite a clientes registrar solicitudes de verificación (laboral, académica, crediticia, etc.) y gestionar procesos de reclutamiento. Trabajé como full stack developer en todas las etapas del proyecto. El reto clave fue cumplir un deadline exigente: entregamos una versión funcional en menos tiempo del previsto y luego hicimos un ciclo de pruebas y mejoras con el cliente.
+
+    </p>
 };
 const cardDigenio = {
   devSide: "FULLSTACK",

@@ -15,6 +15,15 @@
     font-size: 25px;
     font-weight: 700;
   }
+
+  p{
+    margin: 0;
+    font-size: 14px;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
   strong {
     color: var(--bg-card-v2-color);
   }
