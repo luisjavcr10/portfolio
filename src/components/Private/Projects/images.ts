@@ -49,37 +49,37 @@ export const digenioImages = [
 export const damarisSalonImages = [
   {
     title: "Damaris Salon - Home",
-    image: "/images/projects/damarisSalon/dashboard.png",
+    image: "/images/projects/DamarisSalon/dashboard.png",
     id: 1,
   },
   {
     title: "Damaris Salon - Login",
-    image: "/images/projects/damarisSalon/homesale.png",
+    image: "/images/projects/DamarisSalon/homesale.png",
     id: 2,
   },
   {
     title: "Damaris Salon - Home dark",
-    image: "/images/projects/damarisSalon/sale.png",
+    image: "/images/projects/DamarisSalon/sale.png",
     id: 3,
   },
   {
     title: "Damaris Salon - Login dark",
-    image: "/images/projects/damarisSalon/postsale.png",
+    image: "/images/projects/DamarisSalon/postsale.png",
     id: 4,
   },
   {
     title: "Damaris Salon - Home dark",
-    image: "/images/projects/damarisSalon/inventory.png",
+    image: "/images/projects/DamarisSalon/inventory.png",
     id: 5,
   },
   {
     title: "Damaris Salon - Login dark",
-    image: "/images/projects/damarisSalon/crud.png",
+    image: "/images/projects/DamarisSalon/crud.png",
     id: 6,
   },
   {
     title: "Damaris Salon - Home dark",
-    image: "/images/projects/damarisSalon/login.png",
+    image: "/images/projects/DamarisSalon/login.png",
     id: 7,
   },
 ];
@@ -190,32 +190,32 @@ export const coplacontImages = [
 export const auditaiImages = [
   {
     title: "Auditai - Dashboard",
-    image: "/images/projects/auditai/dashboard.png",
+    image: "/images/projects/AuditAi/dashboard.png",
     id: 1,
   },
   {
     title: "Auditai - Config",
-    image: "/images/projects/auditai/config.png",
+    image: "/images/projects/AuditAi/config.png",
     id: 2,
   },
   {
     title: "Auditai - Load File",
-    image: "/images/projects/auditai/load-file.png",
+    image: "/images/projects/AuditAi/load-file.png",
     id: 3,
   },
   {
     title: "Auditai - Home",
-    image: "/images/projects/auditai/home.png",
+    image: "/images/projects/AuditAi/home.png",
     id: 4,
   },
   {
     title: "Auditai - Login",
-    image: "/images/projects/auditai/login.png",
+    image: "/images/projects/AuditAi/login.png",
     id: 5,
   },
   {
     title: "Auditai - Register",
-    image: "/images/projects/auditai/register.png",
+    image: "/images/projects/AuditAi/register.png",
     id: 6,
   },
 ]
