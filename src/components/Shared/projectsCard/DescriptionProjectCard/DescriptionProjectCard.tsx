@@ -21,7 +21,7 @@ export const DescriptionProjectCard = ({
   devSide: string;
   title: string;
   techs: TechTagProps[];
-  description: string;
+  description: React.ReactNode;
   linkGithub?: string;
   linkPreview?: string;
 }>) => {
@@ -44,9 +44,7 @@ export const DescriptionProjectCard = ({
         </div>
       </div>
 
-      <p className={styles.descriptionProject}>
         {description}
-      </p>
 
       <div className={styles.techContainer}>
         {techs.map((tech, index) => (
