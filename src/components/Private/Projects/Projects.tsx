@@ -62,7 +62,7 @@ const cardDigenio = {
     { title: "MongoDB", icon: <MongoDBIcon /> },
   ],
   description:
-    <p> <strong>Sistema interno para gestionar OKRs, startups y equipos,</strong> con módulos de seguimiento de sprints, tareas y empleados. Como full stack, participé en el desarrollo de la solución junto a un compañero diseñador,<strong>desde el modelado de datos hasta la implementación de la interfaz.</strong> La experiencia se centró en estructurar objetivos medibles y escalables en una plataforma intuitiva.
+    <p> <strong>Sistema interno para gestionar OKRs, startups y equipos,</strong> con módulos de seguimiento de sprints, tareas y empleados. Como full stack, participé en el desarrollo de la solución junto a un compañero diseñador, <strong>desde el modelado de datos hasta la implementación de la interfaz.</strong> La experiencia se centró en estructurar objetivos medibles y escalables en una plataforma intuitiva.
     </p>,
   linkGithub: [
     {

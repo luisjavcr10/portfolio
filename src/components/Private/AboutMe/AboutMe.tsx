@@ -40,33 +40,36 @@ export const AboutMe = () => {
         <div className={styles.AboutMe__Container__Info}>
           <div>
             <p>
-              <strong>Soy un desarrollador web full stack de Perú,</strong> con
-              interés en construir experiencias digitales que combinan
-              funcionalidad, diseño y eficiencia. Me enfoco en crear soluciones
-              que no solo se vean bien, sino que también estén bien
-              estructuradas a nivel técnico.{" "}
+              ¡Hola otra vez! Mi nombre es Luis Javier y te agradezco por llegar
+              hasta este punto.{" "}
+              <strong>Soy desarrollador de software en Trujillo, Perú</strong>,
+              y me gustaría contarte un poco más sobre mí.{" "}
               <strong>
-                Actualmente, busco mi primera experiencia laboral para aplicar
-                mis habilidades en un entorno profesional.
-              </strong>
-            </p>
-            <p>
-              A lo largo de mi formación y práctica personal,{" "}
-              <strong>
-                he aprendido a comunicarme de forma clara, trabajar en equipo y
-                adaptarme fácilmente a nuevos entornos.
+                Actualmente, estoy en búsqueda de nuevos retos profesionales
               </strong>{" "}
-              Me gusta organizar mi trabajo, buscar siempre mejorar, y mantener
-              una mentalidad abierta al aprendizaje continuo.
+              que me permitan crecer y aportar valor con mis habilidades.
             </p>
+
+            <p>
+              A lo largo de mi formación y práctica profesional,{" "}
+              <strong>
+                he desarrollado la capacidad de comunicarme con claridad,
+                trabajar en equipo y adaptarme con facilidad a nuevos entornos
+              </strong>
+              . Me gusta organizar mi trabajo, buscar siempre la mejora continua
+              y mantener una mentalidad abierta al aprendizaje.
+            </p>
+
             <p>
               Fuera del mundo del código, me gusta mantenerme activo.{" "}
               <strong>
-                Disfruto entrenar en el gimnasio, jugar fútbol y en general,
-                mantener un equilibrio entre la vida profesional y personal.
+                Disfruto entrenar en el gimnasio, jugar fútbol y mantener un
+                equilibrio entre mi vida profesional y personal
               </strong>
+              .
             </p>
           </div>
+
           <div className={styles.AboutMe__Container__DivButton}>
             <SpecialButton
               href="/docs/Full Stack Developer - Castillo R. Luis J..pdf"
