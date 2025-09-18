@@ -2,6 +2,7 @@
 import styles from "./Title.module.scss";
 import TiltedCard from "@/components/ReactBits/TiltedCard/TiltedCard";
 import { useEffect, useState } from "react";
+import { SpecialButton } from "@/components/Shared/SpecialButton";
 
 export const Title = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -11,7 +12,7 @@ export const Title = () => {
       setIsMobile(window.innerWidth < 768);
     };
     checkIfMobile();
-    window.addEventListener("resize", checkIfMobile)
+    window.addEventListener("resize", checkIfMobile);
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
@@ -33,6 +34,12 @@ export const Title = () => {
         showTooltip={true}
         displayOverlayContent={true}
       />
+      <div className={styles.cvButton}>
+        <SpecialButton
+          href="/docs/Full Stack Developer - Castillo R. Luis J..pdf"
+          message="⬇️ Descarga mi CV"
+        />
+      </div>
     </div>
   );
 };

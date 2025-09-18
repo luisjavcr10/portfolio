@@ -7,7 +7,7 @@
   gap: 20px;
   
   @media screen and (min-width: 768px) {
-      gap: 40px;
+      gap: 20px;
   }
 
   &__Profile {
@@ -26,4 +26,9 @@
   }
 
  
+}
+.cvButton{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
