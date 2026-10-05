@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio · Luis Castillo
 
-## Getting Started
+Portafolio personal en Next.js (App Router), bilingüe ES/EN, con modo oscuro/claro y diseño bento.
 
-First, run the development server:
+## Desarrollo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000 → redirige a /es o /en según el navegador
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/[lang]/          layout raíz y página por idioma (/es, /en)
+  proxy.ts             redirige "/" al idioma del navegador
+  i18n/
+    config.ts          idiomas soportados
+    dictionaries/      todos los textos (es.ts es la fuente de tipos, en.ts debe cumplirla)
+  data/                datos que no dependen del idioma
+    site.ts            correo, redes, WhatsApp, ruta del CV
+    solutions.ts       slides de "Soluciones por rubro" (acento, stack, demo, capturas)
+    projects.ts        proyectos reales (imagen, stack, enlaces)
+    stack.ts           grupos de tecnologías
+  components/
+    layout/            Header, Footer, ThemeToggle
+    sections/          Hero, Solutions (carrusel), Projects, Experience, Stack, About, Contact
+    ui/                Button, Chip, SectionHeading, DeviceMockup
+  styles/globals.css   tokens de color, tipografía y utilidades
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tareas comunes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Cambiar un texto:** edita `src/i18n/dictionaries/es.ts` y `en.ts`.
+- **Activar WhatsApp:** pon tu número en `whatsapp` dentro de `src/data/site.ts` (formato `51987654321`).
+- **Publicar la demo de un rubro:** en `src/data/solutions.ts` agrega `demoUrl`, `caseStudyUrl` y
+  `screens: { laptop: "/images/solutions/x-desktop.png", phone: "/images/solutions/x-mobile.png" }`.
+  Sin `demoUrl` el slide muestra "Demo en construcción".
+- **Agregar un proyecto:** añade una entrada en `src/data/projects.ts` y su descripción en ambos diccionarios.

@@ -1,0 +1,153 @@
+/* ---------- Design tokens ---------- */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0b0a;
+  --surface: #14130f;
+  --inset: #0f0e0b;
+  --border: #2a2620;
+  --border-strong: #3a342b;
+  --text: #efe6d2;
+  --muted: #a89f8c;
+  --accent-text: #6fb8b5;
+  --placeholder-1: #17160f;
+  --placeholder-2: #1c1a14;
+  --device: #050504;
+  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M0 28L28 0L56 28L28 56Z' fill='none' stroke='%23EFE6D2' stroke-width='1'/%3E%3Crect x='23' y='23' width='10' height='10' fill='none' stroke='%23EFE6D2'/%3E%3C/svg%3E");
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #efe6d2;
+  --surface: #f7f1e4;
+  --inset: #eae0ca;
+  --border: #d9cdb4;
+  --border-strong: #c9bb9e;
+  --text: #1a1813;
+  --muted: #5c5445;
+  --accent-text: #1f5c5b;
+  --placeholder-1: #e6dcc4;
+  --placeholder-2: #e0d5bb;
+  --device: #1a1813;
+  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M0 28L28 0L56 28L28 56Z' fill='none' stroke='%237A5535' stroke-width='1'/%3E%3Crect x='23' y='23' width='10' height='10' fill='none' stroke='%237A5535'/%3E%3C/svg%3E");
+}
+
+:root {
+  /* Theme-independent brand colors */
+  --cream: #efe6d2;
+  --brown: #7a5535;
+  --teal: #1f5c5b;
+  --teal-light: #2f8583;
+  --teal-glow: rgba(47, 133, 131, 0.18);
+
+  /* Chan Chan stepped border */
+  --fret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='16'%3E%3Cpath d='M0 14H6V10H10V6H14V2H18V6H22V10H26V14H32' fill='none' stroke='%237A5535' stroke-width='1.2'/%3E%3C/svg%3E");
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --header-height: 64px;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 8px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal-light);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section {
+  border-top: 1px solid var(--border);
+  padding-block: clamp(64px, 9vw, 112px);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+
+[data-reveal] {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    transition: none;
+  }
+
+  .js [data-reveal]:not([data-revealed]) {
+    opacity: 1;
+    transform: none;
+  }
+}

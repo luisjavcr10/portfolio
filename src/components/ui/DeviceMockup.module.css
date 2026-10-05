@@ -1,0 +1,141 @@
+.stage {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--inset);
+  padding: 32px 28px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  background-image: var(--pattern);
+  background-size: 56px 56px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.devices {
+  position: relative;
+  width: 100%;
+  padding-right: 13%;
+  padding-bottom: 4%;
+}
+
+.lid {
+  border-radius: 14px 14px 4px 4px;
+  background: var(--device);
+  padding: 10px 10px 12px;
+  border: 1px solid var(--border-strong);
+}
+
+.screen,
+.phoneScreen {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(135deg, var(--placeholder-1) 0 10px, var(--placeholder-2) 10px 20px);
+}
+
+.screen {
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+}
+
+.base {
+  height: 12px;
+  margin: 0 -5%;
+  border-radius: 2px 2px 12px 12px;
+  background: linear-gradient(180deg, var(--border-strong), var(--border));
+}
+
+.phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 23%;
+  aspect-ratio: 9 / 19;
+  border-radius: 22px;
+  background: var(--device);
+  padding: 6px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.55);
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.notch {
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--device);
+}
+
+.image {
+  object-fit: cover;
+  object-position: top left;
+}
+
+.placeholderLabel {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--inset);
+  border: 1px solid var(--border);
+}
+
+.phone .placeholderLabel {
+  font-size: 10px;
+  padding: 3px 6px;
+}
+
+@media (max-width: 999px) {
+  .stage {
+    padding: 28px 0;
+  }
+
+  .devices {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .laptop {
+    display: none;
+  }
+
+  .phone {
+    position: relative;
+    width: min(56%, 240px);
+    border-radius: 32px;
+    padding: 7px;
+  }
+
+  .phoneScreen {
+    border-radius: 25px;
+  }
+
+  .notch {
+    top: 8px;
+    width: 32%;
+    height: 12px;
+  }
+}

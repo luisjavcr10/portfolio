@@ -1,0 +1,42 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.md {
+  padding: 13px 20px;
+  font-size: 15px;
+}
+
+.sm {
+  padding: 11px 16px;
+  font-size: 14px;
+}
+
+.primary {
+  background: var(--teal);
+  color: var(--cream);
+  border: 1px solid transparent;
+}
+
+.primary:hover {
+  background: var(--teal-light);
+  box-shadow: 0 0 0 4px var(--teal-glow);
+}
+
+.secondary {
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  background: transparent;
+}
+
+.secondary:hover {
+  background: var(--inset);
+}

@@ -1,0 +1,125 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px rgba(47, 133, 131, 0.25), 0 20px 60px -30px rgba(47, 133, 131, 0.45);
+}
+
+.wide {
+  grid-column: span 4;
+}
+
+.narrow {
+  grid-column: span 2;
+}
+
+.media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--placeholder-1);
+  border: 1px solid var(--border);
+}
+
+.wide .media {
+  aspect-ratio: 16 / 8;
+}
+
+.narrow .media {
+  aspect-ratio: 16 / 11;
+}
+
+.image {
+  object-fit: cover;
+  object-position: top left;
+}
+
+.body {
+  padding: 18px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.name {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.role {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.description {
+  color: var(--muted);
+  font-size: 15px;
+  text-wrap: pretty;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.link {
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--accent-text);
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+@media (max-width: 819px) {
+  .wide,
+  .narrow {
+    grid-column: span 6;
+  }
+
+  .wide .media,
+  .narrow .media {
+    aspect-ratio: 16 / 10;
+  }
+}
