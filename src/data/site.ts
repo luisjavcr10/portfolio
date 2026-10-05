@@ -11,6 +11,6 @@ export const site = {
     handle: "luisjavcr10",
   },
   /** International format without "+" or spaces, e.g. "51987654321". Leave empty to hide the WhatsApp button. */
-  whatsapp: "",
+  whatsapp: "51943721646",
   cvPath: "/docs/Full Stack Developer - Castillo R. Luis J..pdf",
 };
