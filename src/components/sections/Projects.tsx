@@ -7,7 +7,7 @@ import styles from "./Projects.module.css";
 
 export function Projects({ t }: { t: Dictionary["projects"] }) {
   return (
-    <section id="proyectos" className="section">
+    <section id="projects" className="section">
       <div className={`container ${styles.wrapper}`} data-reveal>
         <SectionHeading eyebrow={t.eyebrow} title={t.title} />
         <div className={styles.grid}>

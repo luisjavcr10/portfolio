@@ -4,7 +4,7 @@ import styles from "./Experience.module.css";
 
 export function Experience({ t }: { t: Dictionary["experience"] }) {
   return (
-    <section id="experiencia" className="section">
+    <section id="experience" className="section">
       <div className={`container ${styles.grid}`} data-reveal>
         <SectionHeading eyebrow={t.eyebrow} title={t.title} />
 

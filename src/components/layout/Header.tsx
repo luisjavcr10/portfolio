@@ -12,17 +12,17 @@ type HeaderProps = {
 
 export function Header({ lang, t }: HeaderProps) {
   const links = [
-    { href: "#soluciones", label: t.solutions },
-    { href: "#proyectos", label: t.projects },
-    { href: "#experiencia", label: t.experience },
+    { href: "#solutions", label: t.solutions },
+    { href: "#projects", label: t.projects },
+    { href: "#experience", label: t.experience },
     { href: "#stack", label: t.stack },
-    { href: "#sobre-mi", label: t.about },
+    { href: "#about", label: t.about },
   ];
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <a href="#inicio" className={styles.brand}>
+        <a href="#home" className={styles.brand}>
           <span className={styles.logo}>{site.initials}</span>
           <span>{site.name}</span>
         </a>
@@ -50,7 +50,7 @@ export function Header({ lang, t }: HeaderProps) {
             ))}
           </div>
           <ThemeToggle label={t.theme} />
-          <a href="#contacto" className={styles.cta}>
+          <a href="#contact" className={styles.cta}>
             {t.cta}
           </a>
         </div>

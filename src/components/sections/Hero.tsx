@@ -7,7 +7,7 @@ import styles from "./Hero.module.css";
 
 export function Hero({ t }: { t: Dictionary["hero"] }) {
   return (
-    <section id="inicio" className={styles.hero}>
+    <section id="home" className={styles.hero}>
       <div className={styles.pattern} aria-hidden />
       <div className={styles.glow} aria-hidden />
 
@@ -39,7 +39,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
             <li>{t.location}</li>
           </ul>
           <div className={styles.actions}>
-            <ButtonLink href="#contacto">
+            <ButtonLink href="#contact">
               {t.primaryCta} <span aria-hidden>→</span>
             </ButtonLink>
             <ButtonLink href={encodeURI(site.cvPath)} variant="secondary" external>

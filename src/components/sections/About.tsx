@@ -5,7 +5,7 @@ import styles from "./About.module.css";
 
 export function About({ t }: { t: Dictionary["about"] }) {
   return (
-    <section id="sobre-mi" className="section">
+    <section id="about" className="section">
       <div className={`container ${styles.grid}`} data-reveal>
         <div className={styles.photoCard}>
           <div className={styles.photo}>

@@ -16,7 +16,7 @@ export function Contact({ t }: { t: Dictionary["contact"] }) {
     : { href: `mailto:${site.email}`, label: t.emailCta, external: false };
 
   return (
-    <section id="contacto" className="section">
+    <section id="contact" className="section">
       <div className={`container ${styles.grid}`} data-reveal>
         <div className={`${styles.card} ${styles.info}`}>
           <div className={styles.glow} aria-hidden />

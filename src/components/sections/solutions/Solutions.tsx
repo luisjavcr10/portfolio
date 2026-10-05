@@ -17,9 +17,9 @@ export function Solutions({ t }: { t: Dictionary["solutions"] }) {
   });
 
   return (
-    <section id="soluciones" className={`section ${styles.section}`} aria-labelledby="soluciones-title">
+    <section id="solutions" className={`section ${styles.section}`} aria-labelledby="solutions-title">
       <SolutionsCarousel
-        heading={<SectionHeading id="soluciones-title" eyebrow={t.eyebrow} title={t.title} lead={t.lead} />}
+        heading={<SectionHeading id="solutions-title" eyebrow={t.eyebrow} title={t.title} lead={t.lead} />}
         items={items}
         labels={{ prev: t.prev, next: t.next, hint: t.hint, region: t.eyebrow }}
       />
