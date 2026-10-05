@@ -1,0 +1,143 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  background: var(--teal);
+  display: grid;
+  place-items: center;
+  color: var(--cream);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  margin-left: 12px;
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.navLink {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.langSwitch {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+}
+
+.langOption {
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.langOption:hover {
+  color: var(--text);
+}
+
+.langOption[aria-current="true"] {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.themeToggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.themeToggle:hover {
+  border-color: var(--border-strong);
+}
+
+.themeIcon {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+}
+
+.cta {
+  white-space: nowrap;
+  margin-left: 4px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--teal);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.cta:hover {
+  background: var(--teal-light);
+}
+
+@media (max-width: 1099px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 819px) {
+  .cta {
+    display: none;
+  }
+}

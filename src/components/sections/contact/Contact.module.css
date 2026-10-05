@@ -1,0 +1,165 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 16px;
+}
+
+.card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: clamp(24px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Info card ---------- */
+
+.info {
+  position: relative;
+  overflow: hidden;
+  gap: 24px;
+}
+
+.glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  left: -140px;
+  bottom: -220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in oklab, var(--teal-light) 20%, transparent), transparent 65%);
+  pointer-events: none;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.title {
+  font-size: clamp(30px, 3.8vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.lead {
+  color: var(--muted);
+}
+
+.primary {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 18px;
+  border-radius: 14px;
+  background: var(--teal);
+  color: var(--cream);
+  font-weight: 500;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.primary:hover {
+  background: var(--teal-light);
+  box-shadow: 0 0 0 4px var(--teal-glow);
+}
+
+.channels {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.channel {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 2px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.channel:hover {
+  color: var(--accent-text);
+}
+
+.channelLabel {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.channelValue {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+/* ---------- Form ---------- */
+
+.form {
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.grow {
+  flex: 1;
+}
+
+.input {
+  font-weight: 400;
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--inset);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  border-color: var(--teal-light);
+  box-shadow: 0 0 0 3px rgba(47, 133, 131, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  flex: 1;
+  min-height: 130px;
+}
+
+.submit {
+  padding: 13px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit:hover {
+  background: var(--inset);
+}
+
+@media (max-width: 819px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

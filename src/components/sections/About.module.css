@@ -1,0 +1,87 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: 16px;
+}
+
+.photoCard {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 10px;
+}
+
+.photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--placeholder-1);
+}
+
+.photoImage {
+  object-fit: cover;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.text {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 620px;
+  text-wrap: pretty;
+}
+
+.signature {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 13px;
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background: var(--brown);
+}
+
+.fret {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 16px;
+  background-image: var(--fret);
+  background-repeat: repeat-x;
+  background-size: 32px 16px;
+  opacity: 0.45;
+}
+
+@media (max-width: 819px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

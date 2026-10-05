@@ -1,0 +1,37 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.outline {
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+}
+
+.filled {
+  background: var(--inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.sm {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.md {
+  font-size: 12px;
+  padding: 4px 9px;
+}
+
+.filled.md {
+  font-size: 13px;
+  padding: 5px 10px;
+}
