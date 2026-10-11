@@ -10,7 +10,6 @@ const en: Dictionary = {
     solutions: "Solutions",
     projects: "Projects",
     experience: "Experience",
-    stack: "Stack",
     about: "About",
     cta: "Let's work together",
     theme: "Toggle theme",
@@ -52,20 +51,6 @@ const en: Dictionary = {
           { value: "30 s", label: "to book a visit" },
         ],
       },
-      agronorte: {
-        industry: "Agri-export",
-        title: "Traceability for every lot, from field to container.",
-        benefits: [
-          { title: "Lots and harvests by plot", text: "Blueberry, asparagus and avocado in one record." },
-          { title: "Quality control", text: "Alerts when a lot goes out of spec." },
-          { title: "Export-ready reports", text: "Documents ready for certifiers and buyers." },
-        ],
-        metrics: [
-          { value: "−40%", label: "time on reports" },
-          { value: "100%", label: "traceable lots" },
-          { value: "3", label: "crops in one panel" },
-        ],
-      },
       fitmoche: {
         industry: "Gyms",
         title: "Memberships, attendance and classes in one panel.",
@@ -90,19 +75,6 @@ const en: Dictionary = {
         metrics: [
           { value: "−35%", label: "no-shows" },
           { value: "2 min", label: "to book a visit" },
-        ],
-      },
-      credipyme: {
-        industry: "SME fintech",
-        title: "Simulate, assess and track loans for SMEs.",
-        benefits: [
-          { title: "Loan simulator", text: "Installments, rates and schedule in real time." },
-          { title: "Finance dashboard", text: "Cash flow and business indicators." },
-          { title: "Portfolio reports", text: "Payment and delinquency tracking per client." },
-        ],
-        metrics: [
-          { value: "3×", label: "faster assessment" },
-          { value: "−50%", label: "manual errors" },
         ],
       },
     },
@@ -138,16 +110,6 @@ const en: Dictionary = {
       label: "Education",
       school: "Universidad Nacional de Trujillo",
       degree: "Systems Engineering",
-    },
-  },
-  stack: {
-    eyebrow: "Stack",
-    title: "TypeScript end to end.",
-    groups: {
-      frontend: "Frontend",
-      backend: "Backend",
-      databases: "Databases",
-      tools: "Tools",
     },
   },
   about: {

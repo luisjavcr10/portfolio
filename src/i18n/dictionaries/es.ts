@@ -8,7 +8,6 @@ const es = {
     solutions: "Soluciones",
     projects: "Proyectos",
     experience: "Experiencia",
-    stack: "Stack",
     about: "Sobre mí",
     cta: "Trabajemos juntos",
     theme: "Cambiar tema",
@@ -50,20 +49,6 @@ const es = {
           { value: "30 s", label: "para reservar una cita" },
         ],
       },
-      agronorte: {
-        industry: "Agroexportación",
-        title: "Trazabilidad de cada lote, del campo al contenedor.",
-        benefits: [
-          { title: "Lotes y cosechas por parcela", text: "Arándano, espárrago y palta en un solo registro." },
-          { title: "Control de calidad", text: "Alertas cuando un lote sale de especificación." },
-          { title: "Reportes para exportación", text: "Documentos listos para certificadoras y clientes." },
-        ],
-        metrics: [
-          { value: "−40%", label: "tiempo en reportes" },
-          { value: "100%", label: "lotes trazables" },
-          { value: "3", label: "cultivos en un panel" },
-        ],
-      },
       fitmoche: {
         industry: "Gimnasios",
         title: "Membresías, asistencia y clases en un solo panel.",
@@ -88,19 +73,6 @@ const es = {
         metrics: [
           { value: "−35%", label: "inasistencias" },
           { value: "2 min", label: "para agendar una cita" },
-        ],
-      },
-      credipyme: {
-        industry: "Fintech para pymes",
-        title: "Simula, evalúa y controla créditos para pymes.",
-        benefits: [
-          { title: "Simulador de créditos", text: "Cuotas, tasas y cronograma en tiempo real." },
-          { title: "Panel de finanzas", text: "Flujo de caja e indicadores del negocio." },
-          { title: "Reportes de cartera", text: "Seguimiento de pagos y mora por cliente." },
-        ],
-        metrics: [
-          { value: "3×", label: "más rápido evaluar" },
-          { value: "−50%", label: "errores manuales" },
         ],
       },
     },
@@ -136,16 +108,6 @@ const es = {
       label: "Formación",
       school: "Universidad Nacional de Trujillo",
       degree: "Ingeniería de Sistemas",
-    },
-  },
-  stack: {
-    eyebrow: "Stack",
-    title: "TypeScript de punta a punta.",
-    groups: {
-      frontend: "Frontend",
-      backend: "Backend",
-      databases: "Bases de datos",
-      tools: "Herramientas",
     },
   },
   about: {

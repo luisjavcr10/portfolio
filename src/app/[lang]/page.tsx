@@ -7,7 +7,6 @@ import { Hero } from "@/components/sections/Hero";
 import { Solutions } from "@/components/sections/solutions/Solutions";
 import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
-import { Stack } from "@/components/sections/Stack";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/contact/Contact";
 
@@ -24,7 +23,6 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <Solutions t={t.solutions} />
         <Projects t={t.projects} />
         <Experience t={t.experience} />
-        <Stack t={t.stack} />
         <About t={t.about} />
         <Contact t={t.contact} />
       </main>

@@ -1,7 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import type { Solution } from "@/data/solutions";
 import { ButtonLink } from "@/components/ui/Button";
-import { ChipList } from "@/components/ui/Chip";
 import { DeviceMockup } from "@/components/ui/DeviceMockup";
 import styles from "./Solutions.module.css";
 
@@ -62,21 +61,16 @@ export function SolutionSlide({ solution, copy, index, t }: SolutionSlideProps) 
           ))}
         </ul>
 
-        <div className={`${styles.card} ${styles.metrics}`}>
-          {copy.metrics.map((metric) => (
-            <div key={metric.label} className={styles.metric}>
-              <span className={styles.metricValue}>{metric.value}</span>
-              <span className={styles.metricLabel}>{metric.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className={`${styles.card} ${styles.stack}`}>
-          <div className={styles.stackHeader}>
-            <span>Stack</span>
-            <span>{t.sampleFigures}</span>
+        <div className={`${styles.card} ${styles.metricsCard}`}>
+          <div className={styles.metrics}>
+            {copy.metrics.map((metric) => (
+              <div key={metric.label} className={styles.metric}>
+                <span className={styles.metricValue}>{metric.value}</span>
+                <span className={styles.metricLabel}>{metric.label}</span>
+              </div>
+            ))}
           </div>
-          <ChipList items={solution.stack} />
+          <p className={styles.sampleNote}>{t.sampleFigures}</p>
         </div>
       </div>
     </>
