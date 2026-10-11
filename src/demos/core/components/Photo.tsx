@@ -29,14 +29,37 @@ export function Photo({
   className,
 }: PhotoProps) {
   const style = { aspectRatio: ratio, borderRadius: radius } as CSSProperties;
+  const imageStyle = photo.position ? { objectPosition: photo.position } : undefined;
 
   return (
     <div
       className={[styles.frame, styles[tone], styles[labelAlign], className].filter(Boolean).join(" ")}
       style={style}
     >
-      {photo.src ? (
-        <Image src={photo.src} alt={photo.alt} fill sizes={sizes} preload={priority} className={styles.image} />
+      {photo.src && photo.srcMobile ? (
+        // Art direction: lazy loading means only the visible version is fetched.
+        <>
+          <Image
+            src={photo.srcMobile}
+            alt={photo.alt}
+            fill
+            sizes={sizes}
+            fetchPriority={priority ? "high" : undefined}
+            className={`${styles.image} ${styles.mobileOnly}`}
+            style={imageStyle}
+          />
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            fill
+            sizes={sizes}
+            fetchPriority={priority ? "high" : undefined}
+            className={`${styles.image} ${styles.desktopOnly}`}
+            style={imageStyle}
+          />
+        </>
+      ) : photo.src ? (
+        <Image src={photo.src} alt={photo.alt} fill sizes={sizes} preload={priority} className={styles.image} style={imageStyle} />
       ) : (
         <span className={styles.label} role="img" aria-label={photo.alt}>
           {photo.hint}

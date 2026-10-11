@@ -26,7 +26,7 @@ export type SalonSiteCopy = {
   testimonials: {
     eyebrow: string;
     title: string;
-    items: { quote: string; author: string; service: string }[];
+    items: { quote: string; author: string; service: string; photo?: Photo }[];
   };
   steps: { eyebrow: string; title: string; items: { title: string; text: string }[]; cta: string };
   location: {
@@ -121,7 +121,17 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
     fonts: { display: "fraunces", body: "manrope" },
     grain: true,
   },
-  owner: { name: "Lucía Paredes", role: "Dueña", greeting: "Buenos días, Lucía" },
+  owner: {
+    name: "Lucía Paredes",
+    role: "Dueña",
+    greeting: "Buenos días, Lucía",
+    photo: {
+      src: "/demos/salon/duena-lucia.webp",
+      alt: "Lucía Paredes, dueña de Casa Bruma",
+      hint: "retrato · Lucía",
+      position: "50% 22%",
+    },
+  },
   contact: {
     address: "Av. Larco 1240",
     area: "San Andrés",
@@ -144,7 +154,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       kicker: "01",
       blurb: "Cortes y brushing para el día a día o para una ocasión especial.",
       tone: "muted",
-      photo: { alt: "Corte y brushing", hint: "foto · corte y brushing" },
+      photo: {
+        src: "/demos/salon/servicio-cabello.webp",
+        alt: "Estilista cortando el cabello mojado de una clienta con tijera y peine",
+        hint: "foto · corte y brushing",
+        position: "55% 35%",
+      },
     },
     {
       id: "color",
@@ -152,7 +167,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       kicker: "02",
       blurb: "Tintes y balayage a mano alzada, con diagnóstico previo de tu cabello.",
       tone: "accent",
-      photo: { alt: "Balayage tono miel", hint: "foto · balayage miel" },
+      photo: {
+        src: "/demos/salon/servicio-color.webp",
+        alt: "Colorista aplicando balayage con papel aluminio",
+        hint: "foto · balayage miel",
+        position: "50% 40%",
+      },
     },
     {
       id: "unas",
@@ -160,7 +180,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       kicker: "03",
       blurb: "Manicure, pedicure, acrílicas y lifting de pestañas.",
       tone: "primarySoft",
-      photo: { alt: "Manos con uñas color nude", hint: "foto · manos, uñas nude" },
+      photo: {
+        src: "/demos/salon/servicio-unas.webp",
+        alt: "Manicurista pintando uñas en tono terracota",
+        hint: "foto · manos, uñas nude",
+        position: "50% 60%",
+      },
     },
     {
       id: "spa",
@@ -168,7 +193,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       kicker: "04",
       blurb: "Keratina e hidratación para devolverle brillo y suavidad a tu cabello.",
       tone: "primary",
-      photo: { alt: "Tratamiento capilar", hint: "foto · tratamiento capilar" },
+      photo: {
+        src: "/demos/salon/servicio-spa.webp",
+        alt: "Clienta relajada durante un lavado con tratamiento capilar",
+        hint: "foto · tratamiento capilar",
+        position: "45% 55%",
+      },
     },
   ],
   services: [
@@ -191,7 +221,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       role: "Colorista",
       bio: "Balayage, rubios y correcciones de color.",
       categoryIds: ["color", "cabello"],
-      photo: { alt: "Retrato de Valeria", hint: "retrato · Valeria" },
+      photo: {
+        src: "/demos/salon/estilista-valeria.webp",
+        alt: "Valeria, colorista, sonriendo con una brocha de tinte en el salón",
+        hint: "retrato · Valeria",
+        position: "50% 25%",
+      },
     },
     {
       id: "diego",
@@ -199,7 +234,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       role: "Cortes y barbería",
       bio: "Fades, cortes clásicos y cortes de dama.",
       categoryIds: ["cabello"],
-      photo: { alt: "Retrato de Diego", hint: "retrato · Diego" },
+      photo: {
+        src: "/demos/salon/estilista-diego.webp",
+        alt: "Diego, barbero, con mandil negro y tijeras en la mano",
+        hint: "retrato · Diego",
+        position: "50% 25%",
+      },
     },
     {
       id: "camila",
@@ -207,7 +247,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       role: "Uñas y pestañas",
       bio: "Acrílicas, diseños y lifting de pestañas.",
       categoryIds: ["unas"],
-      photo: { alt: "Retrato de Camila", hint: "retrato · Camila" },
+      photo: {
+        src: "/demos/salon/estilista-camila.webp",
+        alt: "Camila, especialista en uñas y pestañas, sonriendo",
+        hint: "retrato · Camila",
+        position: "50% 30%",
+      },
     },
     {
       id: "rosa",
@@ -215,7 +260,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       role: "Tratamientos y spa",
       bio: "Keratina e hidratación profunda.",
       categoryIds: ["spa", "cabello"],
-      photo: { alt: "Retrato de Rosa", hint: "retrato · Rosa" },
+      photo: {
+        src: "/demos/salon/estilista-rosa.webp",
+        alt: "Rosa, especialista en tratamientos, con uniforme verde en el salón",
+        hint: "retrato · Rosa",
+        position: "50% 25%",
+      },
     },
   ],
   modules: { reservas: true, recordatorios: true, ventas: true, clientes: true },
@@ -268,8 +318,19 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       lead: "Cortes, color, uñas y spa en Trujillo. Elige tu servicio, tu estilista y tu hora desde el celular, y recibe tu recordatorio un día antes.",
       primaryCta: "Reservar cita",
       secondaryCta: "Ver servicios",
-      mainPhoto: { alt: "Cabello en movimiento con luz cálida", hint: "foto grande · cabello en movimiento, luz cálida" },
-      detailPhoto: { alt: "Detalle de manos", hint: "foto · manos" },
+      mainPhoto: {
+        src: "/demos/salon/hero-desktop.webp",
+        srcMobile: "/demos/salon/hero-mobile.webp",
+        alt: "Clienta sonriendo frente al espejo mientras su estilista le arregla las ondas",
+        hint: "foto grande · cabello en movimiento, luz cálida",
+        position: "74% 50%",
+      },
+      detailPhoto: {
+        src: "/demos/salon/hero-detalle.webp",
+        alt: "Tijeras, cepillo y peine sobre lino con hojas de olivo",
+        hint: "foto · manos",
+        position: "28% 50%",
+      },
     },
     trust: [
       { value: "4.8", star: true, label: "en Google" },
@@ -287,13 +348,39 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
     work: {
       eyebrow: "Trabajos recientes",
       title: "Antes y *después*",
-      before: { alt: "Antes: cabello sin color", hint: "antes · cabello sin color" },
-      after: { alt: "Después: balayage miel, por Valeria", hint: "después · balayage miel, por Valeria" },
+      before: {
+        src: "/demos/salon/antes.webp",
+        alt: "Antes: cabello negro, lacio y sin color",
+        hint: "antes · cabello sin color",
+      },
+      after: {
+        src: "/demos/salon/despues.webp",
+        alt: "Después: balayage miel con ondas, por Valeria",
+        hint: "después · balayage miel, por Valeria",
+      },
       gallery: [
-        { alt: "Corte bob por Diego", hint: "corte bob · Diego" },
-        { alt: "Uñas acrílicas tono nude", hint: "uñas acrílicas · nude" },
-        { alt: "Fade de barbería", hint: "fade · barbería" },
-        { alt: "Lifting de pestañas", hint: "lifting de pestañas" },
+        {
+          src: "/demos/salon/galeria-bob.webp",
+          alt: "Corte bob liso y brillante, de perfil",
+          hint: "corte bob · Diego",
+        },
+        {
+          src: "/demos/salon/galeria-unas.webp",
+          alt: "Uñas nude con diseño de hojas terracota",
+          hint: "uñas acrílicas · nude",
+        },
+        {
+          src: "/demos/salon/galeria-fade.webp",
+          alt: "Corte fade de barbería visto de perfil",
+          hint: "fade · barbería",
+          position: "55% 40%",
+        },
+        {
+          src: "/demos/salon/galeria-pestanas.webp",
+          alt: "Primer plano de pestañas con lifting",
+          hint: "lifting de pestañas",
+          position: "40% 50%",
+        },
         { alt: "Keratina antes de un evento", hint: "keratina · antes de evento" },
         { alt: "Brushing con ondas", hint: "brushing con ondas" },
       ],
@@ -306,17 +393,20 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
           quote:
             "Llegué con el cabello maltratado por las planchas y Rosa me lo dejó como nuevo. Reservé por la web en un minuto, sin estar escribiendo a cada rato.",
           author: "Mariela P.",
+          photo: { src: "/demos/salon/cliente-mariela.webp", alt: "Mariela P., sonriendo", hint: "retrato · Mariela P." },
           service: "Keratina",
         },
         {
           quote: "Valeria entendió el tono que quería a la primera. Mi balayage sigue lindo después de cuatro meses.",
           author: "Fiorella C.",
+          photo: { src: "/demos/salon/cliente-fiorella.webp", alt: "Fiorella C., sonriendo", hint: "retrato · Fiorella C." },
           service: "Mechas / balayage",
         },
         {
           quote:
             "Diego es un crack con el fade. Me llega el recordatorio al WhatsApp un día antes y ya no se me pasa la cita.",
           author: "Renzo T.",
+          photo: { src: "/demos/salon/cliente-renzo.webp", alt: "Renzo T., sonriendo", hint: "retrato · Renzo T." },
           service: "Corte de caballero",
         },
       ],
@@ -335,7 +425,11 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       eyebrow: "Ubicación y horario",
       whatsappCta: "Escribir por WhatsApp",
       mapsCta: "Cómo llegar",
-      map: { alt: "Mapa: Av. Larco 1240, Trujillo", hint: "mapa · Av. Larco 1240, Trujillo" },
+      map: {
+        src: "/demos/salon/interior.webp",
+        alt: "Interior de Casa Bruma: sillones color camel frente a espejos de arco dorados",
+        hint: "interior · Av. Larco 1240, Trujillo",
+      },
     },
     footer: { note: "Demo de portafolio · negocio ficticio" },
     panel: {

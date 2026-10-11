@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { addDays, capitalize, dayLabels, formatTime, relativeDay, shortDate } from "@/demos/core/dates";
 import { fill, firstName, formatPhone, money, priceLabel, whatsappLink } from "@/demos/core/format";
@@ -25,6 +26,31 @@ type OwnerPanelProps = {
 
 const SYNC_MS = 950;
 const GLOW_MS = 3400;
+
+/** Owner photo, or her initial when the config has none. */
+function OwnerAvatar({ owner, decorative = false }: { owner: TenantConfig["owner"]; decorative?: boolean }) {
+  const label = `${owner.name}, ${owner.role}`;
+  if (owner.photo?.src)
+    return (
+      <Image
+        src={owner.photo.src}
+        alt={decorative ? "" : label}
+        width={40}
+        height={40}
+        className={styles.avatar}
+        style={owner.photo.position ? { objectPosition: owner.photo.position } : undefined}
+      />
+    );
+  return decorative ? (
+    <span className={styles.avatar} aria-hidden>
+      {owner.name.charAt(0)}
+    </span>
+  ) : (
+    <span className={styles.avatar} role="img" aria-label={label}>
+      {owner.name.charAt(0)}
+    </span>
+  );
+}
 
 /** Business owner's system ("Para ti"). */
 export function OwnerPanel({ config, arrivalId, onTryBooking }: OwnerPanelProps) {
@@ -96,9 +122,7 @@ export function OwnerPanel({ config, arrivalId, onTryBooking }: OwnerPanelProps)
           ))}
         </nav>
         <div className={styles.profile}>
-          <span className={styles.avatar} aria-hidden>
-            {config.owner.name.charAt(0)}
-          </span>
+          <OwnerAvatar owner={config.owner} decorative />
           <span className={styles.profileText}>
             <strong>{config.owner.name}</strong>
             <span>{config.owner.role}</span>
@@ -108,9 +132,7 @@ export function OwnerPanel({ config, arrivalId, onTryBooking }: OwnerPanelProps)
 
       <header className={styles.mobileHeader}>
         <span className={styles.brandName}>{config.name}</span>
-        <span className={styles.avatar} role="img" aria-label={`${config.owner.name}, ${config.owner.role}`}>
-          {config.owner.name.charAt(0)}
-        </span>
+        <OwnerAvatar owner={config.owner} />
       </header>
 
       <main className={styles.main} id="panel">
