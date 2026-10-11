@@ -33,8 +33,11 @@ export const solutions: Solution[] = [
   },
   {
     id: "clinica",
-    company: "Consultorio Huanchaco",
-    accent: "#B8AC92",
-    inquiry: "consultorio",
+    company: "KusiVet",
+    // Leaf green of the KusiVet demo.
+    accent: "#2E7D5B",
+    inquiry: "veterinaria",
+    demoUrl: "/demos/veterinaria",
+    screens: { laptop: "/demos/veterinaria/panel-desktop.webp", phone: "/demos/veterinaria/site-mobile.webp" },
   },
 ];

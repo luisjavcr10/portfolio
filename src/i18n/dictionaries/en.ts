@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: "Luis Castillo · Website, bookings and a system for your business",
     description:
-      "Website, online bookings and a management system with your brand, for businesses in Trujillo: salons, gyms and clinics.",
+      "Website, online bookings and a management system with your brand, for businesses in Trujillo: salons, gyms and vet clinics.",
   },
   nav: {
     solutions: "Solutions",
@@ -69,18 +69,18 @@ const en: Dictionary = {
         parts: ["Website", "Bookings", "Memberships", "Dashboard"],
       },
       clinica: {
-        industry: "Clinics",
-        title: "A clash-free schedule and patients who show up.",
+        industry: "Vet clinics",
+        title: "Pets come back on time for their shots.",
         benefits: [
-          { title: "Schedule by specialist", text: "Hours and rooms in one calendar." },
-          { title: "Automatic reminders", text: "WhatsApp and email notices before each visit." },
-          { title: "Patient history", text: "Visits, prescriptions and files in order." },
+          { title: "Bookings with the pet's record", text: "Owners book for their pet and it lands in your system." },
+          { title: "Digital vaccine card", text: "Vaccines, deworming and weight in one record." },
+          { title: "WhatsApp reminders", text: "Remind owners before every vaccine in one tap." },
         ],
         metrics: [
-          { value: "−35%", label: "no-shows" },
-          { value: "2 min", label: "to book a visit" },
+          { value: "68%", label: "come back for check-ups" },
+          { value: "1 min", label: "to book a visit" },
         ],
-        parts: ["Website", "Bookings", "Reminders", "Records"],
+        parts: ["Website", "Bookings", "Vaccine card", "Reminders"],
       },
     },
   },
@@ -155,7 +155,7 @@ const en: Dictionary = {
     businesses: [
       { id: "salon", label: "Salon or barbershop", phrase: "a salon" },
       { id: "gym", label: "Gym", phrase: "a gym" },
-      { id: "consultorio", label: "Clinic", phrase: "a clinic" },
+      { id: "veterinaria", label: "Vet clinic", phrase: "a vet clinic" },
       { id: "otro", label: "Other", phrase: "" },
     ],
   },

@@ -1,0 +1,40 @@
+/* KusiVet tokens, derived from the tenant theme (themeStyle sets --t-*). */
+
+.root {
+  --kv-cream: var(--t-base);
+  --kv-leaf: var(--t-primary);
+  --kv-leaf-soft: color-mix(in oklch, var(--t-primary) 15%, white);
+  --kv-leaf-deep: var(--t-accent-ink);
+  --kv-coral: var(--t-accent);
+  --kv-coral-soft: color-mix(in oklch, var(--t-accent) 20%, white);
+  --kv-ink: var(--t-ink);
+  --kv-ink-2: var(--t-ink-soft);
+  --kv-line: var(--t-muted);
+  --kv-card: #fff;
+  --kv-r-xl: 40px;
+  --kv-r-lg: 24px;
+  --kv-r-md: 16px;
+  --kv-shadow: 0 1px 2px rgba(30, 42, 38, 0.06), 0 8px 24px rgba(30, 42, 38, 0.07);
+  --kv-shadow-lift: 0 2px 6px rgba(30, 42, 38, 0.08), 0 20px 40px rgba(30, 42, 38, 0.14);
+  --kv-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Card surfaces of the shared components (booking, agenda, toast) are white here. */
+  --t-card: #fff;
+  --t-paper: color-mix(in oklch, var(--t-base) 60%, white);
+  --t-primary-tint: var(--kv-leaf-soft);
+  --t-accent-tint: var(--kv-coral-soft);
+  --t-shadow: var(--kv-shadow-lift);
+  --t-display-weight: 900;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.root :where(h1, h2, h3) {
+  font-family: var(--t-font-display);
+}
+
+/* Main buttons of the shared booking flow follow the clinic's coral CTA. */
+.root dialog button[type="submit"]:not(:disabled) {
+  background: var(--kv-coral);
+  color: var(--kv-ink);
+}

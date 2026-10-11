@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { anton } from "@/demos/core/fontLoaders/anton";
+import { archivo } from "@/demos/core/fontLoaders/archivo";
+import { jetbrainsMono } from "@/demos/core/fontLoaders/jetbrains-mono";
+import { fontVariables } from "@/demos/core/theme";
 import { GymDemo } from "@/demos/gimnasio/GymDemo";
 import { gymConfig } from "@/demos/gimnasio/config";
 
@@ -16,5 +20,5 @@ export const metadata: Metadata = {
 
 export default async function GymDemoPage({ searchParams }: PageProps<"/demos/gimnasio">) {
   const { vista } = await searchParams;
-  return <GymDemo initialView={vista === "dueno" ? "owner" : "client"} />;
+  return <GymDemo initialView={vista === "dueno" ? "owner" : "client"} fontClassName={fontVariables(anton, archivo, jetbrainsMono)} />;
 }

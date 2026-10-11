@@ -72,6 +72,11 @@ export function shortDate(key: string): string {
   return `${date.getDate()} ${MONTHS_SHORT[date.getMonth()]}`;
 }
 
+/** "vie 16 oct" */
+export function weekdayDate(key: string): string {
+  return `${WEEKDAYS_SHORT[weekday(key)].toLowerCase()} ${shortDate(key)}`;
+}
+
 /** "Hoy", "Mañana · Mar 14" or "Jue 16". */
 export function relativeDay(key: string, today: string): string {
   const labels = dayLabels(key, today);

@@ -139,6 +139,10 @@
   color: var(--t-base);
 }
 
+.block.done {
+  opacity: 0.55;
+}
+
 .block.highlight {
   z-index: 2;
   background: var(--t-card);

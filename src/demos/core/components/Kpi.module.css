@@ -22,6 +22,7 @@
 
 .value {
   font-family: var(--t-font-display);
+  font-weight: var(--t-display-weight, 400);
   font-size: 42px;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -43,4 +44,42 @@
 .attention {
   color: var(--t-accent-ink);
   font-weight: 800;
+}
+
+/* Clickable card */
+.action {
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--t-shadow);
+}
+
+.meter {
+  height: 8px;
+  border-radius: 8px;
+  background: var(--t-primary-tint);
+  overflow: hidden;
+}
+
+.meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--t-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action {
+    transition: none;
+  }
+
+  .action:hover {
+    transform: none;
+  }
 }
