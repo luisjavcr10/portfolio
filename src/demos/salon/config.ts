@@ -95,6 +95,8 @@ export type SalonSiteCopy = {
   };
   demo: {
     switchLabel: string;
+    /** Always-visible label that says the business is made up. */
+    notice: string;
     clientView: string;
     ownerView: string;
     reset: string;
@@ -133,12 +135,12 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
     },
   },
   contact: {
-    address: "Av. Larco 1240",
+    address: "Av. Larco",
     area: "San Andrés",
     city: "Trujillo",
-    mapsUrl: "https://maps.google.com/?q=Av.+Larco+1240+Trujillo",
-    // Fictional business: no number, so WhatsApp opens without a recipient.
-    whatsapp: { display: "987 654 321", message: "Hola Casa Bruma, quisiera información" },
+    mapsUrl: "https://maps.google.com/?q=Av.+Larco+Trujillo",
+    // Fictional business: no real number, so WhatsApp opens without a recipient.
+    whatsapp: { display: "9XX XXX XXX", message: "Hola Casa Bruma, quisiera información" },
     instagram: { handle: "@casabruma.trujillo", url: "https://instagram.com/casabruma.trujillo" },
   },
   hours: [
@@ -286,7 +288,7 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       nameLabel: "Tu nombre",
       namePlaceholder: "Ej. Andrea Ruiz",
       phoneLabel: "Tu WhatsApp",
-      phonePlaceholder: "987 654 321",
+      phonePlaceholder: "9XX XXX XXX",
       privacyNote: "Solo usamos tu número para confirmar y recordarte la cita.",
       errors: {
         name: "Escribe tu nombre para saber a quién esperamos.",
@@ -313,7 +315,7 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
     ],
     bookCta: "Reservar",
     hero: {
-      eyebrow: "Av. Larco 1240 · San Andrés",
+      eyebrow: "Av. Larco · San Andrés",
       title: "Tu mejor versión, *sin esperar* en WhatsApp",
       lead: "Cortes, color, uñas y spa en Trujillo. Elige tu servicio, tu estilista y tu hora desde el celular, y recibe tu recordatorio un día antes.",
       primaryCta: "Reservar cita",
@@ -333,8 +335,8 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       },
     },
     trust: [
-      { value: "4.8", star: true, label: "en Google" },
-      { value: "+230", label: "reseñas verificadas" },
+      { value: "4.8", star: true, label: "de nuestras clientas" },
+      { value: "+230", label: "reseñas" },
       { value: "11 años", label: "de experiencia en Trujillo" },
       { value: "30 s", label: "para reservar tu cita" },
     ],
@@ -386,7 +388,7 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       ],
     },
     testimonials: {
-      eyebrow: "4.8 ★ en Google · 230 reseñas",
+      eyebrow: "4.8 ★ · 230 reseñas",
       title: "Lo que dicen *nuestras clientas*",
       items: [
         {
@@ -428,10 +430,10 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       map: {
         src: "/demos/salon/interior.webp",
         alt: "Interior de Casa Bruma: sillones color camel frente a espejos de arco dorados",
-        hint: "interior · Av. Larco 1240, Trujillo",
+        hint: "interior · Av. Larco, Trujillo",
       },
     },
-    footer: { note: "Demo de portafolio · negocio ficticio" },
+    footer: { note: "Demo de portafolio · negocio ficticio · fotos generadas con IA" },
     panel: {
       subtitle: "Panel del salón",
       tabs: { hoy: "Hoy", agenda: "Agenda", clientes: "Clientes", ventas: "Ventas" },
@@ -504,6 +506,7 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
     },
     demo: {
       switchLabel: "Vista de la demo",
+      notice: "Demo · negocio ficticio",
       clientView: "Para tus clientes",
       ownerView: "Para ti",
       reset: "Reiniciar demo",

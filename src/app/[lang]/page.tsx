@@ -18,7 +18,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const t = getDictionary(lang);
 
   return (
-    <ContactPanelProvider t={t.contactPanel}>
+    <ContactPanelProvider lang={lang} t={t.contactPanel}>
       <Header lang={lang} t={t.nav} />
       <main>
         <Hero t={t.hero} />
@@ -29,7 +29,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <About t={t.about} />
         <Contact t={t.contact} />
       </main>
-      <Footer t={t.footer} />
+      <Footer lang={lang} t={t.footer} />
     </ContactPanelProvider>
   );
 }

@@ -25,12 +25,12 @@ export const gymConfig: GymConfig = {
   },
   owner: { name: "Martín", role: "Dueño", greeting: "Buenas" },
   contact: {
-    address: "Av. América Sur 1580",
+    address: "Av. América Sur",
     area: "Trujillo",
     city: "Trujillo",
-    mapsUrl: "https://maps.google.com/?q=Av.+Am%C3%A9rica+Sur+1580+Trujillo",
-    // Fictional business: no number, so WhatsApp opens without a recipient.
-    whatsapp: { display: "987 111 222", message: "Hola FitMoche, quiero mi clase gratis" },
+    mapsUrl: "https://maps.google.com/?q=Av.+Am%C3%A9rica+Sur+Trujillo",
+    // Fictional business: no real number, so WhatsApp opens without a recipient.
+    whatsapp: { display: "9XX XXX XXX", message: "Hola FitMoche, quiero mi clase gratis" },
     instagram: { handle: "@fitmoche.trujillo", url: "https://instagram.com/fitmoche.trujillo" },
   },
   hours: [
@@ -312,13 +312,13 @@ export const gymConfig: GymConfig = {
     headerCta: "Clase gratis",
     hero: {
       promo: "Matrícula gratis este mes",
-      address: "Av. América Sur 1580 · Trujillo",
+      address: "Av. América Sur · Trujillo",
       titleTop: "Sin",
       titleBottom: "excusas.",
       lead: "El gimnasio de Trujillo que no te deja rendirte",
       primary: "Pide tu clase gratis",
       secondary: "Ver planes",
-      trust: ["★ 4.7 en Google · 410 reseñas", "Primera clase gratis", "Abierto 17 horas al día"],
+      trust: ["★ 4.7 · 410 reseñas", "Primera clase gratis", "Abierto 17 horas al día"],
       image: {
         desktop: `${IMG}/hero-desktop.webp`,
         mobile: `${IMG}/hero-mobile.webp`,
@@ -370,11 +370,11 @@ export const gymConfig: GymConfig = {
       before: "Antes",
       after: "Después",
     },
-    testimonials: { kicker: "07 · Lo dicen ellos", title: "Palabra de socio", reviewsLabel: "reseñas en Google" },
+    testimonials: { kicker: "07 · Lo dicen ellos", title: "Palabra de socio", reviewsLabel: "reseñas de socios" },
     location: {
       kicker: "08 · Dónde estamos",
-      title: "Av. América Sur 1580, Trujillo",
-      badge: "600 m² · Av. América Sur 1580",
+      title: "Av. América Sur, Trujillo",
+      badge: "600 m² · Av. América Sur",
       image: { src: `${IMG}/interior.webp`, alt: "Sala de pesas de FitMoche con columnas amarillas", hint: "interior" },
     },
     cta: {
@@ -383,7 +383,7 @@ export const gymConfig: GymConfig = {
       text: "Matrícula gratis este mes. Separa tu cupo en menos de un minuto.",
       plate: { src: `${IMG}/disco.webp`, alt: "", hint: "disco de 20 kg" },
     },
-    footer: { tagline: "Entrena como moche", note: "Gimnasio ficticio · demo de portafolio" },
+    footer: { tagline: "Entrena como moche", note: "Gimnasio ficticio · fotos generadas con IA · demo de portafolio" },
     decor: { dumbbell: { src: `${IMG}/mancuerna.webp`, alt: "", hint: "mancuerna" } },
     flow: {
       title: "Pide tu clase gratis",
@@ -396,7 +396,7 @@ export const gymConfig: GymConfig = {
       nameLabel: "Tu nombre",
       namePlaceholder: "Ej. Valeria Gutiérrez",
       phoneLabel: "WhatsApp",
-      phonePlaceholder: "987 654 321",
+      phonePlaceholder: "9XX XXX XXX",
       goalLabel: "¿Cuál es tu objetivo?",
       errors: {
         name: "Escribe tu nombre para tu pase.",
@@ -425,6 +425,7 @@ export const gymConfig: GymConfig = {
     },
     demo: {
       switchLabel: "Vista de la demo",
+      notice: "Demo · negocio ficticio",
       clientView: "Para tus clientes",
       ownerView: "Para ti",
       hint: "Esto es una demo. Cambia de vista para ver el sistema del gimnasio",

@@ -85,6 +85,34 @@
   white-space: nowrap;
 }
 
+.notice {
+  composes: glass;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--t-ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: var(--t-shadow);
+}
+
+.notice:hover {
+  color: var(--t-ink);
+}
+
+.noticeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--t-primary);
+}
+
 .hint {
   display: flex;
   align-items: center;

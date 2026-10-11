@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import Link from "next/link";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { site } from "@/data/site";
 import styles from "./ContactPanel.module.css";
@@ -19,7 +21,9 @@ function useContactPanel(): ContactPanelApi {
  * Side panel (bottom sheet on phones) that prepares a WhatsApp message. Every
  * "Let's work together" button on the page opens it through ContactTrigger.
  */
-export function ContactPanelProvider({ t, children }: { t: Dictionary["contactPanel"]; children: ReactNode }) {
+type ContactPanelProviderProps = { lang: Locale; t: Dictionary["contactPanel"]; children: ReactNode };
+
+export function ContactPanelProvider({ lang, t, children }: ContactPanelProviderProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [business, setBusiness] = useState<string | null>(null);
 
@@ -106,6 +110,12 @@ export function ContactPanelProvider({ t, children }: { t: Dictionary["contactPa
           <a href={mailHref} className={styles.mail}>
             {t.email}
           </a>
+          <p className={styles.privacy}>
+            {t.privacy}{" "}
+            <Link href={`/${lang}/legal#privacidad`} onClick={() => dialogRef.current?.close()}>
+              {t.privacyLink}
+            </Link>
+          </p>
         </div>
       </dialog>
     </ContactPanelContext.Provider>

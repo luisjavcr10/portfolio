@@ -164,6 +164,8 @@ export type GymSiteCopy = {
   };
   demo: {
     switchLabel: string;
+    /** Always-visible label that says the business is made up. */
+    notice: string;
     clientView: string;
     ownerView: string;
     hint: string;

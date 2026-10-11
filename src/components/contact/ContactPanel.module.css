@@ -259,6 +259,24 @@
   color: var(--accent-text);
 }
 
+.privacy {
+  margin-top: -12px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.privacy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border-strong);
+}
+
+.privacy a:hover {
+  color: var(--accent-text);
+}
+
 @media (max-width: 819px) {
   .dialog {
     inset: auto 0 0 0;

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BookingFlow, type BookingRequest } from "@/demos/core/components/BookingFlow";
 import { ToastProvider, useToast } from "@/demos/core/components/Toast";
-import { ViewSwitch } from "@/demos/core/components/ViewSwitch";
+import { DEMO_NOTICE_HREF, ViewSwitch } from "@/demos/core/components/ViewSwitch";
 import { DemoStoreProvider, useDemoStore } from "@/demos/core/store";
 import { themeStyle } from "@/demos/core/theme";
 import theme from "@/demos/core/theme.module.css";
@@ -98,6 +98,7 @@ function Demo({ initialView }: { initialView: DemoView }) {
       {!booking && (
         <ViewSwitch<DemoView>
           label={copy.switchLabel}
+          notice={{ text: copy.notice, href: DEMO_NOTICE_HREF }}
           options={[
             { id: "client", label: copy.clientView },
             { id: "owner", label: copy.ownerView },

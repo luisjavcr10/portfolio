@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ToastProvider, useToast } from "@/demos/core/components/Toast";
-import { ViewSwitch } from "@/demos/core/components/ViewSwitch";
+import { DEMO_NOTICE_HREF, ViewSwitch } from "@/demos/core/components/ViewSwitch";
 import { themeStyle } from "@/demos/core/theme";
 import theme from "@/demos/core/theme.module.css";
 import { useStoredFlag } from "@/demos/core/useStoredFlag";
@@ -116,6 +116,7 @@ function Demo({ initialView }: { initialView: DemoView }) {
       {!booking && (
         <ViewSwitch<DemoView>
           label={copy.switchLabel}
+          notice={{ text: copy.notice, href: DEMO_NOTICE_HREF }}
           options={[
             { id: "client", label: copy.clientView },
             { id: "owner", label: copy.ownerView },

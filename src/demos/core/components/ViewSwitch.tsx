@@ -5,6 +5,9 @@ import styles from "./ViewSwitch.module.css";
 
 export type ViewOption<V extends string> = { id: V; label: string };
 
+/** Where the demo notice links: the portfolio's legal page, section about the demos. */
+export const DEMO_NOTICE_HREF = "/es/legal#demos";
+
 type ViewSwitchProps<V extends string> = {
   label: string;
   options: [ViewOption<V>, ViewOption<V>];
@@ -13,6 +16,8 @@ type ViewSwitchProps<V extends string> = {
   resetLabel: string;
   onReset: () => void;
   hint?: { text: string; dismissLabel: string; onDismiss: () => void } | null;
+  /** Always-visible label that says the business is made up. Unlike the hint, it cannot be closed. */
+  notice?: { text: string; href: string };
   /** Leaves room for a bottom navigation bar on small screens. */
   raised?: boolean;
 };
@@ -26,6 +31,7 @@ export function ViewSwitch<V extends string>({
   resetLabel,
   onReset,
   hint,
+  notice,
   raised = false,
 }: ViewSwitchProps<V>) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
@@ -48,6 +54,12 @@ export function ViewSwitch<V extends string>({
             ×
           </button>
         </div>
+      )}
+      {notice && (
+        <a href={notice.href} className={styles.notice}>
+          <span className={styles.noticeDot} aria-hidden />
+          {notice.text}
+        </a>
       )}
       <div className={styles.row}>
         <div className={styles.tabs} role="tablist" aria-label={label} onKeyDown={handleKeyDown}>

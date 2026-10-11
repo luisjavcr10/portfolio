@@ -1,8 +1,10 @@
+import Link from "next/link";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { site } from "@/data/site";
 import styles from "./Footer.module.css";
 
-export function Footer({ t }: { t: Dictionary["footer"] }) {
+export function Footer({ lang, t }: { lang: Locale; t: Dictionary["footer"] }) {
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
@@ -20,6 +22,7 @@ export function Footer({ t }: { t: Dictionary["footer"] }) {
           <a href={encodeURI(site.cvPath)} target="_blank" rel="noopener noreferrer">
             {t.cv}
           </a>
+          <Link href={`/${lang}/legal`}>{t.legal}</Link>
         </div>
       </div>
     </footer>

@@ -181,6 +181,8 @@ export type VetSiteCopy = {
   };
   demo: {
     switchLabel: string;
+    /** Always-visible label that says the business is made up. */
+    notice: string;
     clientView: string;
     ownerView: string;
     reset: string;
@@ -220,12 +222,12 @@ export const vetConfig: VetConfig = {
     },
   },
   contact: {
-    address: "Av. Larco 1240",
+    address: "Av. Larco",
     area: "Urb. San Andrés",
     city: "Trujillo, La Libertad",
-    mapsUrl: "https://maps.google.com/?q=Av.+Larco+1240+Trujillo",
-    // Fictional business: no number, so WhatsApp opens without a recipient.
-    whatsapp: { display: "944 555 777", message: "Hola KusiVet, quiero reservar una cita para mi mascota." },
+    mapsUrl: "https://maps.google.com/?q=Av.+Larco+Trujillo",
+    // Fictional business: no real number, so WhatsApp opens without a recipient.
+    whatsapp: { display: "9XX XXX XXX", message: "Hola KusiVet, quiero reservar una cita para mi mascota." },
     instagram: { handle: "@kusivet.trujillo", url: "https://instagram.com/kusivet.trujillo" },
   },
   hours: [
@@ -389,15 +391,15 @@ export const vetConfig: VetConfig = {
       { label: "Ubicación", href: "#ubicacion" },
     ],
     // Fictional business: no `tel`, so the emergency buttons lead to the location section.
-    emergency: { display: "944 555 777", label: "Emergencias: 944 555 777, ver cómo llegar" },
+    emergency: { display: "9XX XXX XXX", label: "Emergencias: 9XX XXX XXX, ver cómo llegar" },
     bookCta: "Reserva su cita",
     hero: {
-      badge: "Atendemos emergencias · 944 555 777",
+      badge: "Atendemos emergencias · 9XX XXX XXX",
       title: "Cuidamos a tu mascota como parte de tu *familia*",
       lead: "Consultas, vacunas, cirugía y baño en la Urb. San Andrés. Guardamos su carnet digital y te escribimos por WhatsApp cuando le toque su próxima vacuna.",
       primaryCta: "Reserva su cita",
       secondaryCta: "Ver servicios",
-      rating: { value: "4.8", text: "en Google · 260 reseñas" },
+      rating: { value: "4.8", text: "· 260 reseñas" },
       hours: "Lun a sáb 9:00–20:00",
       photo: {
         src: "/demos/veterinaria/hero-desktop.webp",
@@ -505,7 +507,7 @@ export const vetConfig: VetConfig = {
       items: [
         { value: 3500, prefix: "+", label: "mascotas atendidas" },
         { value: 12, label: "años en Trujillo" },
-        { value: 4.8, decimals: 1, star: true, label: "en Google · 260 reseñas" },
+        { value: 4.8, decimals: 1, star: true, label: "de 5 · 260 reseñas" },
       ],
     },
     testimonials: {
@@ -570,7 +572,7 @@ export const vetConfig: VetConfig = {
       photo: {
         src: "/demos/veterinaria/ubicacion.webp",
         alt: "Sala de espera y recepción de KusiVet, con sillones verdes y familias esperando con sus mascotas",
-        hint: "interior · Av. Larco 1240",
+        hint: "interior · Av. Larco",
       },
       hours: [
         { label: "Lunes a sábado", value: "9:00–20:00" },
@@ -585,7 +587,7 @@ export const vetConfig: VetConfig = {
       text: "Eliges servicio, día y hora. Te confirmamos por WhatsApp.",
       button: "Reserva su cita",
     },
-    footer: { tagline: "Mascotas sanas, familias felices", note: "Negocio ficticio · demo de portafolio" },
+    footer: { tagline: "Mascotas sanas, familias felices", note: "Negocio ficticio · fotos generadas con IA · demo de portafolio" },
     panel: {
       subtitle: "Panel de la clínica",
       navLabel: "Secciones del panel",
@@ -605,7 +607,7 @@ export const vetConfig: VetConfig = {
         confirm: "Confirmar por WhatsApp",
         confirmed: "Confirmación enviada",
         message:
-          "Hola {owner}, te escribimos de KusiVet para confirmar la cita de {pet} ({service}) el {day} a las {time}. ¡Los esperamos en Av. Larco 1240!",
+          "Hola {owner}, te escribimos de KusiVet para confirmar la cita de {pet} ({service}) el {day} a las {time}. ¡Los esperamos en KusiVet!",
         toast: "Confirmación abierta en WhatsApp",
       },
       kpis: {
@@ -700,6 +702,7 @@ export const vetConfig: VetConfig = {
     },
     demo: {
       switchLabel: "Vista de la demo",
+      notice: "Demo · negocio ficticio",
       clientView: "Para tus clientes",
       ownerView: "Para ti",
       reset: "Reiniciar demo",

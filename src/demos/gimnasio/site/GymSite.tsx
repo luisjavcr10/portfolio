@@ -205,10 +205,10 @@ function Hero({ config, onBook }: { config: GymConfig; onBook: () => void }) {
 }
 
 function TrustRating({ text }: { text: string }) {
-  const [rating, rest] = text.split(" en ");
+  const [rating, rest] = text.split(" · ");
   return (
     <>
-      <span className={styles.yellow}>{rating}</span> en {rest}
+      <span className={styles.yellow}>{rating}</span> · {rest}
     </>
   );
 }
