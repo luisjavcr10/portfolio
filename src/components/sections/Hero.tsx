@@ -8,10 +8,12 @@ import styles from "./Hero.module.css";
 /**
  * Wide screens: full-bleed photo with the copy over its dark left side.
  * Phones: the photo on top, fading into the page, and the copy below.
+ * The hero is always dark (the photo is a night shot): data-theme="dark" scopes
+ * the dark tokens to this section, whatever theme the page uses.
  */
 export function Hero({ t }: { t: Dictionary["hero"] }) {
   return (
-    <section id="inicio" className={styles.hero}>
+    <section id="inicio" data-theme="dark" className={styles.hero}>
       <div className={styles.media}>
         <Image
           src="/images/profile/hero.webp"

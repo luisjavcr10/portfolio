@@ -8,6 +8,13 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Light theme: the cream header scrolls over the always-dark hero, so keep it
+   opaque (otherwise the hero shows through) with a firmer edge. */
+:global([data-theme="light"]) .header {
+  background: var(--bg);
+  border-bottom-color: var(--border-strong);
+}
+
 .inner {
   min-height: var(--header-height);
   display: flex;
