@@ -15,7 +15,6 @@ export function Header({ lang, t }: HeaderProps) {
     { href: "#soluciones", label: t.solutions },
     { href: "#proyectos", label: t.projects },
     { href: "#experiencia", label: t.experience },
-    { href: "#stack", label: t.stack },
     { href: "#sobre-mi", label: t.about },
   ];
 

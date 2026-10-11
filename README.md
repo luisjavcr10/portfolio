@@ -22,13 +22,12 @@ src/
     dictionaries/      todos los textos (es.ts es la fuente de tipos, en.ts debe cumplirla)
   data/                datos que no dependen del idioma
     site.ts            correo, redes, WhatsApp, ruta del CV
-    solutions.ts       slides de "Soluciones por rubro" (acento, stack, demo, capturas)
-    projects.ts        proyectos reales (imagen, stack, enlaces)
-    stack.ts           grupos de tecnologías
+    solutions.ts       slides de "Soluciones por rubro" (acento, demo, capturas)
+    projects.ts        proyectos reales (imagen, enlaces)
   components/
     layout/            Header, Footer, ThemeToggle
-    sections/          Hero, Solutions (carrusel), Projects, Experience, Stack, About, Contact
-    ui/                Button, Chip, SectionHeading, DeviceMockup
+    sections/          Hero, Solutions (carrusel), Projects, Experience, About, Contact
+    ui/                Button, SectionHeading, DeviceMockup
   styles/globals.css   tokens de color, tipografía y utilidades
 ```
 

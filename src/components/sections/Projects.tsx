@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { projects } from "@/data/projects";
-import { ChipList } from "@/components/ui/Chip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import styles from "./Projects.module.css";
 
@@ -28,14 +27,13 @@ export function Projects({ t }: { t: Dictionary["projects"] }) {
                   <span className={styles.role}>{project.role}</span>
                 </div>
                 <p className={styles.description}>{t.items[project.id]}</p>
-                <div className={styles.footer}>
-                  <ChipList items={project.stack} />
-                  {project.link && (
+                {project.link && (
+                  <div className={styles.footer}>
                     <a href={project.link.href} target="_blank" rel="noopener noreferrer" className={styles.link}>
                       {t.links[project.link.kind]} <span aria-hidden>↗</span>
                     </a>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </article>
           ))}
