@@ -1,8 +1,10 @@
-import { Nunito } from "next/font/google";
+import localFont from "next/font/local";
 
-export const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["700", "800", "900"],
+// Self-hosted (latin, variable weight): next/font/google failed on Vercel for Nunito.
+export const nunito = localFont({
+  src: "./files/nunito-latin-var.woff2",
+  weight: "200 1000",
   variable: "--font-nunito",
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });

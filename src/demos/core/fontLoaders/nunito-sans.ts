@@ -1,8 +1,10 @@
-import { Nunito_Sans } from "next/font/google";
+import localFont from "next/font/local";
 
-export const nunitoSans = Nunito_Sans({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+// Self-hosted (latin, variable weight) for the same reason as Nunito.
+export const nunitoSans = localFont({
+  src: "./files/nunito-sans-latin-var.woff2",
+  weight: "200 1000",
   variable: "--font-nunito-sans",
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
