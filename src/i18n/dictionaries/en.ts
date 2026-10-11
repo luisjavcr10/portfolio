@@ -223,7 +223,7 @@ const en: Dictionary = {
         title: "Cookies and storage in your browser",
         body: [
           "I don't use cookies or analytics or advertising tools, which is why you won't see a cookie banner.",
-          "The site does keep a few things in your browser (localStorage): the light or dark theme you chose and, in the demos, the sample data and whether you closed their tips. It never leaves your device. You can clear it from your browser settings or with the demo's reset button.",
+          "The site does keep a few things in your browser (localStorage): the light or dark theme you chose and, in the demos, the sample data you play with. It never leaves your device. Demo data renews itself every day, and you can clear everything from your browser settings.",
         ],
       },
       {

@@ -168,10 +168,6 @@ export type GymSiteCopy = {
     notice: string;
     clientView: string;
     ownerView: string;
-    hint: string;
-    hintDismiss: string;
-    reset: string;
-    resetDone: string;
   };
   panel: GymPanelCopy;
 };

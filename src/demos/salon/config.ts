@@ -99,10 +99,6 @@ export type SalonSiteCopy = {
     notice: string;
     clientView: string;
     ownerView: string;
-    reset: string;
-    resetDone: string;
-    hint: string;
-    hintDismiss: string;
   };
 };
 
@@ -509,10 +505,6 @@ export const salonConfig: TenantConfig<SalonSiteCopy> = {
       notice: "Demo · negocio ficticio",
       clientView: "Para tus clientes",
       ownerView: "Para ti",
-      reset: "Reiniciar demo",
-      resetDone: "Demo reiniciada con los datos de ejemplo",
-      hint: "Esto es una demo. Cambia de vista para ver el sistema del dueño",
-      hintDismiss: "Ocultar aviso",
     },
   },
 };

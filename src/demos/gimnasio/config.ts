@@ -428,10 +428,6 @@ export const gymConfig: GymConfig = {
       notice: "Demo · negocio ficticio",
       clientView: "Para tus clientes",
       ownerView: "Para ti",
-      hint: "Esto es una demo. Cambia de vista para ver el sistema del gimnasio",
-      hintDismiss: "Ocultar aviso",
-      reset: "Reiniciar demo",
-      resetDone: "Demo reiniciada con los datos de ejemplo",
     },
     panel: {
       badge: "Panel",

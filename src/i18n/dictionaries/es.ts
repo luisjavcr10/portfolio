@@ -222,7 +222,7 @@ const es = {
         title: "Cookies y almacenamiento en tu navegador",
         body: [
           "No uso cookies ni herramientas de analítica o publicidad, por eso no verás un aviso de cookies.",
-          "El sitio sí guarda algunas cosas en tu navegador (localStorage): el tema claro u oscuro que elegiste y, en las demos, los datos de ejemplo y si cerraste sus avisos. Nunca salen de tu dispositivo. Puedes borrarlos desde la configuración de tu navegador o con el botón «Reiniciar demo».",
+          "El sitio sí guarda algunas cosas en tu navegador (localStorage): el tema claro u oscuro que elegiste y, en las demos, los datos de ejemplo con los que juegas. Nunca salen de tu dispositivo. Los datos de las demos se renuevan solos cada día, y puedes borrar todo desde la configuración de tu navegador.",
         ],
       },
       {
