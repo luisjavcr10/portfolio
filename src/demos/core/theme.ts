@@ -15,11 +15,13 @@ export function themeStyle(theme: ThemeConfig): CSSProperties {
     "--t-ink-soft": colors.inkSoft,
     "--t-font-display": fontRegistry[fonts.display].stack,
     "--t-font-body": fontRegistry[fonts.body].stack,
+    ...(fonts.mono && { "--t-font-mono": fontRegistry[fonts.mono].stack }),
   } as CSSProperties;
 }
 
 /** next/font class names that expose the font variables used by the theme. */
 export function themeFontClasses(theme: ThemeConfig): string {
-  const keys = new Set([theme.fonts.display, theme.fonts.body]);
+  const { display, body, mono } = theme.fonts;
+  const keys = new Set([display, body, ...(mono ? [mono] : [])]);
   return [...keys].map((key) => fontRegistry[key].variable).join(" ");
 }

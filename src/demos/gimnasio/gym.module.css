@@ -1,0 +1,96 @@
+/* Gym demo root: tokens derived from the tenant theme (themeStyle sets --t-*). */
+
+.root {
+  --g-black: var(--t-base);
+  --g-white: var(--t-ink);
+  --g-muted: var(--t-ink-soft);
+  --g-yellow: var(--t-primary);
+  --g-yellow-dark: var(--t-accent);
+  --g-carbon: color-mix(in srgb, var(--t-base) 94%, white);
+  --g-r-sm: 6px;
+  --g-r-md: 14px;
+  --g-ease-punch: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --g-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-shadow: 0 14px 44px rgba(0, 0, 0, 0.6);
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Dark surfaces on yellow: switch the focus ring to black. */
+.root [data-on-yellow] :focus-visible {
+  outline-color: var(--g-black);
+}
+
+/* Film grain (overlay so it shows on black). */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Striped wipe used when switching views (ANIM 08). */
+.wipe {
+  position: fixed;
+  top: -20vh;
+  bottom: -20vh;
+  left: -30vw;
+  width: 160vw;
+  z-index: 400;
+  display: flex;
+  pointer-events: none;
+  transform: translateX(-140%) skewX(-14deg);
+}
+
+.wipe span:first-child {
+  flex: 1;
+  background: repeating-linear-gradient(-45deg, var(--g-yellow) 0 70px, var(--g-black) 70px 140px);
+}
+
+.wipe span:last-child {
+  width: 22vw;
+  background: var(--g-yellow);
+}
+
+/* Plate cursor (fine pointers, motion allowed). */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 500;
+  display: none;
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 0 16%, #ffd400 17% 30%, rgba(10, 10, 10, 0.85) 31% 62%, #ffd400 63% 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+:global(html[data-plate-cursor]),
+:global(html[data-plate-cursor] *) {
+  cursor: none !important;
+}
+
+/* Modal dialogs render in the top layer, above any z-index: while one is open,
+   hide the plate cursor and give the native pointer back. */
+:global(html:has(dialog[open])) .cursor {
+  display: none !important;
+}
+
+:global(html[data-plate-cursor]:has(dialog[open])),
+:global(html[data-plate-cursor]:has(dialog[open]) *) {
+  cursor: auto !important;
+}
+
+:global(html[data-plate-cursor]:has(dialog[open])) :is(button, a, label, input[type="radio"]) {
+  cursor: pointer !important;
+}
+
+:global(html[data-plate-cursor]:has(dialog[open])) :is(input[type="text"], input[type="tel"]) {
+  cursor: text !important;
+}

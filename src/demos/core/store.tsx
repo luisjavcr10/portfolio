@@ -1,42 +1,29 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, type ReactNode } from "react";
-import { todayKey } from "./dates";
+import { createContext, useContext, useMemo, type ReactNode } from "react";
 import type { Appointment, DemoData } from "./types";
-
-type State = { status: "loading" } | { status: "ready"; data: DemoData };
+import { usePersistedReducer } from "./usePersistedReducer";
 
 type Action =
-  | { type: "load"; data: DemoData }
   | { type: "book"; appointment: Appointment }
   | { type: "confirm"; id: string }
   | { type: "contact"; clientId: string };
 
-function reducer(state: State, action: Action): State {
-  if (action.type === "load") return { status: "ready", data: action.data };
-  if (state.status !== "ready") return state;
-
-  const { data } = state;
+function reducer(data: DemoData, action: Action): DemoData {
   switch (action.type) {
     case "book":
-      return {
-        status: "ready",
-        data: { ...data, appointments: [...data.appointments, action.appointment], lastBookingId: action.appointment.id },
-      };
+      return { ...data, appointments: [...data.appointments, action.appointment], lastBookingId: action.appointment.id };
     case "confirm":
       return {
-        status: "ready",
-        data: {
-          ...data,
-          appointments: data.appointments.map((a) =>
-            a.id === action.id ? { ...a, status: "confirmed", reminder: "scheduled" } : a,
-          ),
-        },
+        ...data,
+        appointments: data.appointments.map((a) =>
+          a.id === action.id ? { ...a, status: "confirmed", reminder: "scheduled" } : a,
+        ),
       };
     case "contact":
       return data.contacted.includes(action.clientId)
-        ? state
-        : { status: "ready", data: { ...data, contacted: [...data.contacted, action.clientId] } };
+        ? data
+        : { ...data, contacted: [...data.contacted, action.clientId] };
   }
 }
 
@@ -51,24 +38,6 @@ type StoreValue = {
 
 const StoreContext = createContext<StoreValue | null>(null);
 
-function readStorage(key: string): DemoData | null {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as DemoData) : null;
-  } catch {
-    return null;
-  }
-}
-
-function writeStorage(key: string, data: DemoData | null) {
-  try {
-    if (data) localStorage.setItem(key, JSON.stringify(data));
-    else localStorage.removeItem(key);
-  } catch {
-    // Storage may be unavailable (private mode, quota); the demo keeps working in memory.
-  }
-}
-
 type DemoStoreProviderProps = {
   storageKey: string;
   /** Builds the sample data for a given day ("YYYY-MM-DD"). */
@@ -76,29 +45,10 @@ type DemoStoreProviderProps = {
   children: ReactNode;
 };
 
-/**
- * Client-only store for a demo. Sample data is generated in the browser (dates are
- * relative to the visitor's today) and persisted in localStorage. Data seeded on an
- * earlier day is discarded so the agenda never looks stale.
- */
+/** Client-only store for appointment-based demos (see usePersistedReducer). */
 export function DemoStoreProvider({ storageKey, createSeed, children }: DemoStoreProviderProps) {
-  const [state, dispatch] = useReducer(reducer, { status: "loading" });
+  const { data, dispatch, reset } = usePersistedReducer(storageKey, createSeed, reducer);
 
-  useEffect(() => {
-    const today = todayKey();
-    const saved = readStorage(storageKey);
-    dispatch({ type: "load", data: saved?.seededOn === today ? saved : createSeed(today) });
-  }, [storageKey, createSeed]);
-
-  useEffect(() => {
-    if (state.status === "ready") writeStorage(storageKey, state.data);
-  }, [state, storageKey]);
-
-  const reset = useCallback(() => {
-    dispatch({ type: "load", data: createSeed(todayKey()) });
-  }, [createSeed]);
-
-  const data = state.status === "ready" ? state.data : null;
   const value = useMemo<StoreValue>(
     () => ({
       data,
@@ -108,7 +58,7 @@ export function DemoStoreProvider({ storageKey, createSeed, children }: DemoStor
       contact: (clientId) => dispatch({ type: "contact", clientId }),
       reset,
     }),
-    [data, reset],
+    [data, dispatch, reset],
   );
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
