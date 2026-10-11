@@ -1,14 +1,20 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background: #0b0b0a;
+  background: var(--bg);
 }
 
 /* ---------- Photo ---------- */
 
+/* The photo is framed to the content width (centered, max 1600px) so on
+   wide monitors the portrait stays next to the copy instead of drifting to
+   the screen edge. */
 .media {
   position: absolute;
   inset: 0;
+  left: 50%;
+  width: min(100%, 1600px);
+  transform: translateX(-50%);
 }
 
 .photo {
@@ -32,8 +38,18 @@
   background-image: var(--pattern);
   background-size: 56px 56px;
   opacity: 0.06;
-  mask-image: linear-gradient(90deg, #000 0%, transparent 45%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, transparent 45%);
   pointer-events: none;
+}
+
+/* Wider than the frame: also fade the photo's right edge into the page. */
+@media (min-width: 1601px) {
+  .shade {
+    background:
+      linear-gradient(90deg, var(--bg) 0%, color-mix(in oklab, var(--bg) 85%, transparent) 32%, transparent 62%),
+      linear-gradient(270deg, var(--bg) 0%, transparent 14%),
+      linear-gradient(0deg, var(--bg) 0%, transparent 22%);
+  }
 }
 
 /* ---------- Copy ---------- */
@@ -127,13 +143,11 @@
 /* ---------- Phones: photo on top, copy below ---------- */
 
 @media (max-width: 819px) {
-  .hero {
-    background: var(--bg);
-  }
-
   .media {
     position: relative;
     inset: auto;
+    left: auto;
+    transform: none;
     width: 100%;
     aspect-ratio: 4 / 5;
     max-height: 560px;
