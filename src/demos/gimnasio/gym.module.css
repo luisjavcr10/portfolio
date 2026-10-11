@@ -75,3 +75,22 @@
 :global(html[data-plate-cursor] *) {
   cursor: none !important;
 }
+
+/* Modal dialogs render in the top layer, above any z-index: while one is open,
+   hide the plate cursor and give the native pointer back. */
+:global(html:has(dialog[open])) .cursor {
+  display: none !important;
+}
+
+:global(html[data-plate-cursor]:has(dialog[open])),
+:global(html[data-plate-cursor]:has(dialog[open]) *) {
+  cursor: auto !important;
+}
+
+:global(html[data-plate-cursor]:has(dialog[open])) :is(button, a, label, input[type="radio"]) {
+  cursor: pointer !important;
+}
+
+:global(html[data-plate-cursor]:has(dialog[open])) :is(input[type="text"], input[type="tel"]) {
+  cursor: text !important;
+}
