@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { fontRegistry } from "./fonts";
+import { fontStacks } from "./fonts";
 import type { ThemeConfig } from "./types";
 
 /** CSS custom properties for a tenant; derived tokens live in theme.module.css. */
@@ -13,15 +13,13 @@ export function themeStyle(theme: ThemeConfig): CSSProperties {
     "--t-primary": colors.primary,
     "--t-ink": colors.ink,
     "--t-ink-soft": colors.inkSoft,
-    "--t-font-display": fontRegistry[fonts.display].stack,
-    "--t-font-body": fontRegistry[fonts.body].stack,
-    ...(fonts.mono && { "--t-font-mono": fontRegistry[fonts.mono].stack }),
+    "--t-font-display": fontStacks[fonts.display],
+    "--t-font-body": fontStacks[fonts.body],
+    ...(fonts.mono && { "--t-font-mono": fontStacks[fonts.mono] }),
   } as CSSProperties;
 }
 
-/** next/font class names that expose the font variables used by the theme. */
-export function themeFontClasses(theme: ThemeConfig): string {
-  const { display, body, mono } = theme.fonts;
-  const keys = new Set([display, body, ...(mono ? [mono] : [])]);
-  return [...keys].map((key) => fontRegistry[key].variable).join(" ");
+/** Class names that expose the font variables (pass the next/font objects the tenant uses). */
+export function fontVariables(...fonts: { variable: string }[]): string {
+  return fonts.map((font) => font.variable).join(" ");
 }

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { fraunces } from "@/demos/core/fontLoaders/fraunces";
+import { manrope } from "@/demos/core/fontLoaders/manrope";
+import { fontVariables } from "@/demos/core/theme";
 import { SalonDemo } from "@/demos/salon/SalonDemo";
 import { salonConfig } from "@/demos/salon/config";
 
@@ -10,5 +13,5 @@ export const metadata: Metadata = {
 
 export default async function SalonDemoPage({ searchParams }: PageProps<"/demos/salon">) {
   const { vista } = await searchParams;
-  return <SalonDemo initialView={vista === "dueno" ? "owner" : "client"} />;
+  return <SalonDemo initialView={vista === "dueno" ? "owner" : "client"} fontClassName={fontVariables(fraunces, manrope)} />;
 }

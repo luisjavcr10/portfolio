@@ -1,39 +1,45 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { addDays, dayLabels, formatTime } from "../dates";
 import { durationLabel, fill, firstName, formatPhone, priceLabel } from "../format";
 import { ANY_STAFF, canPerform, eligibleStaff, getService, getStaff, hoursFor, slotsFor } from "../schedule";
 import { useDemoStore } from "../store";
-import type { Appointment, TenantConfig } from "../types";
+import type { AnyTenantConfig, Appointment, PetDetails } from "../types";
 import ui from "../ui.module.css";
 import styles from "./BookingFlow.module.css";
 
 export type BookingRequest = { serviceId: string | null; staffId: string | null };
 
 type BookingFlowProps = {
-  config: TenantConfig;
+  config: AnyTenantConfig;
   request: BookingRequest;
   onClose: () => void;
   /** "See your booking in the business system" — receives the new appointment id. */
   onGoToPanel: (appointmentId: string) => void;
 };
 
-type Step = 1 | 2 | 3 | 4 | 5;
+type Step = "pet" | "service" | "staff" | "time" | "details" | "done";
 
 /**
- * Four-step booking (service → staff → day and time → contact details) plus a
- * confirmation. Mount it when the visitor opens booking; unmount to close.
+ * Booking in four steps (service → staff → day and time → contact details) plus a
+ * confirmation. Tenants with `booking.pet` get a first "your pet" step. Mount it
+ * when the visitor opens booking; unmount to close.
  */
 export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFlowProps) {
   const { data, today, book } = useDemoStore();
   const copy = config.booking.copy;
+  const petStep = config.booking.pet;
+  const flow: Step[] = petStep ? ["pet", "service", "staff", "time", "details"] : ["service", "staff", "time", "details"];
+  const stepLabels = petStep ? [petStep.stepLabel, ...copy.steps] : copy.steps;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const presetService = getService(config, request.serviceId);
   const presetStaff = getStaff(config, request.staffId);
-  const [step, setStep] = useState<Step>(presetService ? 2 : 1);
+  const [step, setStep] = useState<Step>(petStep ? "pet" : presetService ? "staff" : "service");
+  const [pet, setPet] = useState<PetDetails>({ species: "", name: "", age: "" });
   const [serviceId, setServiceId] = useState<string | null>(presetService?.id ?? null);
   const [staffId, setStaffId] = useState<string | null>(
     presetStaff && (!presetService || canPerform(presetStaff, presetService)) ? presetStaff.id : null,
@@ -86,12 +92,28 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
   const freeCount = slots.filter((slot) => slot.free).length;
   const activeDay = activeDate ? dayLabels(activeDate, today) : null;
 
-  const canContinue = step === 1 ? Boolean(service) : step === 2 ? Boolean(staffId) : step === 3 ? start !== null : true;
+  const stepIndex = flow.indexOf(step);
+  const stepNumber = stepIndex + 1;
+  const goTo = (offset: 1 | -1) => setStep(flow[stepIndex + offset] ?? step);
+  const petName = pet.name.trim();
+  const canContinue =
+    step === "pet"
+      ? Boolean(pet.species && petName && pet.age)
+      : step === "service"
+        ? Boolean(service)
+        : step === "staff"
+          ? Boolean(staffId)
+          : step === "time"
+            ? start !== null
+            : true;
   const staffSummary = staffId === ANY_STAFF ? copy.anyStaffSummary : (staff?.name ?? "");
   const recap = [
-    service?.name,
+    petStep && stepIndex > 0 ? petName : null,
+    step !== "pet" ? service?.name : null,
     staffId ? (staff?.name ?? copy.anyStaff.name) : null,
-    step >= 3 && start !== null && activeDay ? `${activeDay.short}, ${formatTime(start)}` : null,
+    (step === "time" || step === "details") && start !== null && activeDay
+      ? `${activeDay.short}, ${formatTime(start)}`
+      : null,
   ]
     .filter(Boolean)
     .join(" · ");
@@ -117,13 +139,12 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
     );
     if (!slot?.free || !slot.staffId) {
       setStart(null);
-      setStep(3);
+      setStep("time");
       return setError({ field: "slot", message: copy.errors.slotTaken });
     }
 
     const appointment: Appointment = {
-      id: `online-${Date.now()}`,
-      code: `${config.booking.codePrefix}-${1000 + Math.floor(Math.random() * 9000)}`,
+      ...newBookingIds(config.booking.codePrefix),
       clientName: name.trim(),
       phone: digits,
       serviceId: service.id,
@@ -134,18 +155,27 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
       status: "booked",
       source: "online",
       reminder: "scheduled",
+      ...(petStep && { pet: { ...pet, name: petName } }),
     };
     book(appointment);
     setBooked(appointment);
     setError(null);
-    setStep(5);
+    setStep("done");
+  }
+
+  function fillExample() {
+    const example = petStep?.example;
+    if (!example) return;
+    setPet(example.pet);
+    setName(example.clientName);
+    setPhone(example.phone);
   }
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     if (!canContinue) return;
-    if (step < 4) setStep((step + 1) as Step);
-    else if (step === 4) confirmBooking();
+    if (step === "details") confirmBooking();
+    else if (step !== "done") goTo(1);
   }
 
   const bookedStaff = booked ? getStaff(config, booked.staffId) : undefined;
@@ -170,29 +200,29 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
           <span className={styles.grabber} aria-hidden />
           <div className={styles.titleRow}>
             <h2 id="booking-title" className={styles.title}>
-              {step === 5 ? copy.confirmedTitle : copy.title}
+              {step === "done" ? copy.confirmedTitle : copy.title}
             </h2>
             <button type="button" className={styles.close} onClick={onClose} aria-label={copy.close}>
               ×
             </button>
           </div>
-          {step <= 4 && (
+          {step !== "done" && (
             <div className={styles.progressWrap}>
               <div
                 className={styles.progress}
                 role="progressbar"
                 aria-valuemin={1}
-                aria-valuemax={4}
-                aria-valuenow={step}
-                aria-label={`Paso ${step} de 4`}
+                aria-valuemax={flow.length}
+                aria-valuenow={stepNumber}
+                aria-label={`Paso ${stepNumber} de ${flow.length}`}
               >
-                {[1, 2, 3, 4].map((i) => (
-                  <span key={i} className={i <= step ? styles.progressOn : undefined} />
+                {flow.map((id, i) => (
+                  <span key={id} className={i < stepNumber ? styles.progressOn : undefined} />
                 ))}
               </div>
               <div className={styles.stepInfo}>
                 <span>
-                  Paso {step} de 4 · <strong>{copy.steps[step - 1]}</strong>
+                  Paso {stepNumber} de {flow.length} · <strong>{stepLabels[stepIndex]}</strong>
                 </span>
                 <span className={styles.recap}>{recap}</span>
               </div>
@@ -201,10 +231,76 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
         </header>
 
         <div className={styles.body}>
-          {step === 1 && (
+          {step === "pet" && petStep && (
             <>
-              <h3 ref={headingRef} tabIndex={-1} className={ui.visuallyHidden}>
-                {copy.steps[0]}
+              <div className={styles.petHead}>
+                <h3 ref={headingRef} tabIndex={-1} className={styles.stepHeading}>
+                  {petStep.title}
+                </h3>
+                {petStep.example && (
+                  <button type="button" className={styles.example} onClick={fillExample}>
+                    {petStep.example.label}
+                  </button>
+                )}
+              </div>
+              <fieldset className={styles.group}>
+                <legend className={ui.visuallyHidden}>{petStep.title}</legend>
+                <div className={styles.species}>
+                  {petStep.species.map((option) => (
+                    <label key={option.id} className={styles.speciesOption}>
+                      <input
+                        type="radio"
+                        name="species"
+                        value={option.id}
+                        checked={pet.species === option.id}
+                        onChange={() => setPet({ ...pet, species: option.id })}
+                        className={ui.visuallyHidden}
+                      />
+                      <SpeciesFace species={option.id} />
+                      <span>{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <label className={styles.field}>
+                {petStep.nameLabel}
+                <input
+                  value={pet.name}
+                  onChange={(e) => setPet({ ...pet, name: e.target.value.slice(0, 24) })}
+                  autoComplete="off"
+                  placeholder={petStep.namePlaceholder}
+                  className={styles.input}
+                />
+              </label>
+              <fieldset className={styles.group}>
+                <legend className={styles.fieldLegend}>{petStep.ageLabel}</legend>
+                <div className={styles.chips}>
+                  {petStep.ages.map((age) => (
+                    <label key={age} className={styles.chip}>
+                      <input
+                        type="radio"
+                        name="age"
+                        value={age}
+                        checked={pet.age === age}
+                        onChange={() => setPet({ ...pet, age })}
+                        className={ui.visuallyHidden}
+                      />
+                      {age}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            </>
+          )}
+
+          {step === "service" && (
+            <>
+              <h3
+                ref={headingRef}
+                tabIndex={-1}
+                className={petStep ? styles.stepHeading : ui.visuallyHidden}
+              >
+                {petStep ? fill(petStep.serviceIntro, { pet: petName || petStep.petFallback }) : copy.steps[0]}
               </h3>
               {config.categories.map((category) => (
                 <fieldset key={category.id} className={styles.group}>
@@ -233,7 +329,7 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
             </>
           )}
 
-          {step === 2 && service && (
+          {step === "staff" && service && (
             <fieldset className={styles.group}>
               <legend className={styles.intro}>
                 <h3 ref={headingRef} tabIndex={-1} className={styles.introHeading}>
@@ -241,7 +337,14 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
                 </h3>
               </legend>
               {[
-                { id: ANY_STAFF, name: copy.anyStaff.name, role: copy.anyStaff.role, note: copy.anyStaff.note, initial: "·" },
+                {
+                  id: ANY_STAFF,
+                  name: copy.anyStaff.name,
+                  role: copy.anyStaff.role,
+                  note: copy.anyStaff.note,
+                  initial: "·",
+                  avatar: undefined,
+                },
                 ...eligibleStaff(config, service).map((m) => ({ ...m, note: "", initial: m.name.charAt(0) })),
               ].map((option) => (
                 <label key={option.id} className={styles.option}>
@@ -258,7 +361,11 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
                   />
                   <span className={styles.person}>
                     <span className={styles.avatar} aria-hidden>
-                      {option.initial}
+                      {option.avatar ? (
+                        <Image src={option.avatar} alt="" width={48} height={48} className={styles.avatarImage} />
+                      ) : (
+                        option.initial
+                      )}
                     </span>
                     <span className={styles.optionText}>
                       <strong>{option.name}</strong>
@@ -271,7 +378,7 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
             </fieldset>
           )}
 
-          {step === 3 && service && (
+          {step === "time" && service && (
             <>
               <h3 ref={headingRef} tabIndex={-1} className={ui.visuallyHidden}>
                 {copy.steps[2]}
@@ -354,13 +461,13 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
             </>
           )}
 
-          {step === 4 && service && start !== null && (
+          {step === "details" && service && start !== null && (
             <div className={styles.details}>
               <h3 ref={headingRef} tabIndex={-1} className={ui.visuallyHidden}>
                 {copy.steps[3]}
               </h3>
               <div className={styles.summary}>
-                <strong>{service.name}</strong>
+                <strong>{petStep && petName ? `${petName} · ${service.name}` : service.name}</strong>
                 <span>
                   {activeDay?.long} · {formatTime(start)} · con {staffSummary}
                 </span>
@@ -412,7 +519,7 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
             </div>
           )}
 
-          {step === 5 && booked && service && (
+          {step === "done" && booked && service && (
             <div className={styles.done}>
               <div className={styles.doneHead}>
                 <span className={styles.doneIcon} aria-hidden>
@@ -424,6 +531,14 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
                 <p className={styles.doneText}>{copy.doneText}</p>
               </div>
               <dl className={styles.receipt}>
+                {booked.pet && petStep && (
+                  <div>
+                    <dt>{petStep.summaryLabel}</dt>
+                    <dd>
+                      {booked.pet.name} · {petStep.species.find((o) => o.id === booked.pet?.species)?.label}
+                    </dd>
+                  </div>
+                )}
                 <div>
                   <dt>Servicio</dt>
                   <dd>{service.name}</dd>
@@ -465,22 +580,22 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
         </div>
 
         <footer className={styles.footer}>
-          {step <= 4 ? (
+          {step !== "done" ? (
             <div className={styles.footerRow}>
-              {step > 1 && (
+              {stepIndex > 0 && (
                 <button
                   type="button"
                   className={`${ui.btn} ${ui.md} ${ui.outline}`}
                   onClick={() => {
                     setError(null);
-                    setStep((step - 1) as Step);
+                    goTo(-1);
                   }}
                 >
                   {copy.back}
                 </button>
               )}
               <button type="submit" className={`${ui.btn} ${ui.md} ${ui.primary} ${styles.next}`} disabled={!canContinue}>
-                {step === 4 ? copy.confirm : copy.next}
+                {step === "details" ? copy.confirm : copy.next}
               </button>
             </div>
           ) : (
@@ -500,5 +615,47 @@ export function BookingFlow({ config, request, onClose, onGoToPanel }: BookingFl
         </footer>
       </form>
     </dialog>
+  );
+}
+
+/** Unique id and a short human-friendly code for a new online booking. */
+function newBookingIds(prefix: string) {
+  return { id: `online-${Date.now()}`, code: `${prefix}-${1000 + Math.floor(Math.random() * 9000)}` };
+}
+
+/** Simple line drawing for the species picker (dog, cat or a paw for anything else). */
+function SpeciesFace({ species }: { species: string }) {
+  const common = { width: 64, height: 56, viewBox: "0 0 64 56", fill: "none", stroke: "currentColor", strokeWidth: 3 } as const;
+  if (species === "perro") {
+    return (
+      <svg {...common} aria-hidden className={styles.speciesFace}>
+        <ellipse cx="13" cy="20" rx="8" ry="14" transform="rotate(18 13 20)" className={styles.faceSoft} />
+        <ellipse cx="51" cy="20" rx="8" ry="14" transform="rotate(-18 51 20)" className={styles.faceSoft} />
+        <path d="M14 22c0-11 8-18 18-18s18 7 18 18v8c0 12-8 22-18 22S14 42 14 30z" className={styles.faceFill} />
+        <circle cx="25" cy="26" r="2.5" fill="currentColor" stroke="none" />
+        <circle cx="39" cy="26" r="2.5" fill="currentColor" stroke="none" />
+        <ellipse cx="32" cy="36" rx="5" ry="3.5" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (species === "gato") {
+    return (
+      <svg {...common} aria-hidden className={styles.speciesFace}>
+        <path d="M12 26 14 4l14 12M52 26 50 4 36 16" className={styles.faceAccent} strokeLinejoin="round" />
+        <ellipse cx="32" cy="32" rx="22" ry="20" className={styles.faceFill} />
+        <ellipse cx="25" cy="30" rx="2.5" ry="3.5" fill="currentColor" stroke="none" />
+        <ellipse cx="39" cy="30" rx="2.5" ry="3.5" fill="currentColor" stroke="none" />
+        <ellipse cx="32" cy="39" rx="3.5" ry="2.5" className={styles.faceNose} stroke="none" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...common} aria-hidden className={styles.speciesFace}>
+      <ellipse cx="32" cy="36" rx="12" ry="10" className={styles.faceFill} />
+      <circle cx="17" cy="22" r="5" className={styles.faceFill} />
+      <circle cx="27" cy="14" r="5" className={styles.faceFill} />
+      <circle cx="37" cy="14" r="5" className={styles.faceFill} />
+      <circle cx="47" cy="22" r="5" className={styles.faceFill} />
+    </svg>
   );
 }

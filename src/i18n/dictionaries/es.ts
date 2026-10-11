@@ -2,7 +2,7 @@ const es = {
   meta: {
     title: "Luis Castillo · Página web, reservas y sistema para tu negocio",
     description:
-      "Página web, reservas en línea y sistema de gestión con tu marca, para negocios de Trujillo: salones, gimnasios y consultorios.",
+      "Página web, reservas en línea y sistema de gestión con tu marca, para negocios de Trujillo: salones, gimnasios y veterinarias.",
   },
   nav: {
     solutions: "Soluciones",
@@ -67,18 +67,18 @@ const es = {
         parts: ["Página", "Reservas", "Membresías", "Panel"],
       },
       clinica: {
-        industry: "Consultorios",
-        title: "Agenda sin cruces y pacientes que llegan a su cita.",
+        industry: "Veterinarias",
+        title: "Las mascotas vuelven a tiempo por su vacuna.",
         benefits: [
-          { title: "Agenda por especialista", text: "Horarios y consultorios en un calendario." },
-          { title: "Recordatorios automáticos", text: "Avisos por WhatsApp y correo antes de cada cita." },
-          { title: "Historial del paciente", text: "Consultas, recetas y archivos ordenados." },
+          { title: "Citas con su ficha", text: "Reservan para su mascota y queda registrada en tu sistema." },
+          { title: "Carnet de vacunas digital", text: "Vacunas, desparasitaciones y peso en una sola ficha." },
+          { title: "Recordatorios por WhatsApp", text: "Avisas antes de cada vacuna con un solo toque." },
         ],
         metrics: [
-          { value: "−35%", label: "inasistencias" },
-          { value: "2 min", label: "para agendar una cita" },
+          { value: "68%", label: "vuelven por su control" },
+          { value: "1 min", label: "para reservar una cita" },
         ],
-        parts: ["Página", "Reservas", "Recordatorios", "Historial"],
+        parts: ["Página", "Reservas", "Carnet", "Recordatorios"],
       },
     },
   },
@@ -153,7 +153,7 @@ const es = {
     businesses: [
       { id: "salon", label: "Salón o barbería", phrase: "un salón" },
       { id: "gym", label: "Gimnasio", phrase: "un gimnasio" },
-      { id: "consultorio", label: "Consultorio", phrase: "un consultorio" },
+      { id: "veterinaria", label: "Veterinaria", phrase: "una veterinaria" },
       { id: "otro", label: "Otro", phrase: "" },
     ],
   },

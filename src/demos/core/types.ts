@@ -69,6 +69,8 @@ export type StaffMember = {
   bio: string;
   categoryIds: string[];
   photo: Photo;
+  /** Small square face crop for pickers; without it the initial is shown. */
+  avatar?: string;
 };
 
 /** Opening hours for a set of weekdays (0 = Sunday). Times are "HH:MM". */
@@ -107,6 +109,23 @@ export type BookingCopy = {
   close: string;
 };
 
+/** Optional first booking step that asks who the appointment is for (veterinary clinics). */
+export type PetStepConfig = {
+  stepLabel: string;
+  title: string;
+  species: { id: string; label: string }[];
+  nameLabel: string;
+  namePlaceholder: string;
+  ageLabel: string;
+  ages: string[];
+  /** {pet} is replaced with the pet's name in the service step heading. */
+  serviceIntro: string;
+  petFallback: string;
+  summaryLabel: string;
+  /** "Use example" button that fills the pet and contact details. */
+  example?: { label: string; pet: PetDetails; clientName: string; phone: string };
+};
+
 /** Identity, look and contact details shared by every vertical. */
 export type TenantBase = {
   id: string;
@@ -128,13 +147,13 @@ export type TenantBase = {
 };
 
 /** Appointment-based tenant (salon, clinic…): services booked with a staff member. */
-export type TenantConfig<SiteCopy = unknown> = TenantBase & {
+export type TenantConfig<SiteCopy = unknown, Modules extends string = ModuleId> = TenantBase & {
   /** Words that change per vertical (estilista / entrenador / doctora…). */
   vocabulary: { staff: string; client: string; clients: string };
   categories: Category[];
   services: Service[];
   staff: StaffMember[];
-  modules: Record<ModuleId, boolean>;
+  modules: Record<Modules, boolean>;
   booking: {
     slotMinutes: number;
     /** Minimum minutes between now and a same-day booking. */
@@ -144,14 +163,22 @@ export type TenantConfig<SiteCopy = unknown> = TenantBase & {
     /** Phone validation for the client form. */
     phone: { countryCode: string; pattern: string };
     copy: BookingCopy;
+    /** Adds the "your pet" step before choosing the service. */
+    pet?: PetStepConfig;
   };
   /** Vertical-specific marketing copy (sections of the public site). */
   site: SiteCopy;
 };
 
+/** Any appointment-based tenant, whatever its site copy and modules. Used by core helpers. */
+export type AnyTenantConfig = TenantConfig<unknown, string>;
+
 /* ------------------------------------------------------------------ */
 /* Demo data (client-side store)                                       */
 /* ------------------------------------------------------------------ */
+
+/** Who the appointment is for, when the tenant books for pets. */
+export type PetDetails = { species: string; name: string; age: string };
 
 export type ReminderStatus = "confirmed" | "no-reply" | "cancelled" | "scheduled";
 
@@ -171,6 +198,9 @@ export type Appointment = {
   status: "booked" | "confirmed" | "cancelled";
   source: "online" | "sample";
   reminder: ReminderStatus | null;
+  pet?: PetDetails;
+  /** Patient record the appointment belongs to (pet-based tenants). */
+  petId?: string;
 };
 
 export type Client = {

@@ -1,13 +1,13 @@
 import { formatTime, minutesNow, parseTime, weekday } from "./dates";
-import type { Appointment, Service, StaffMember, TenantConfig } from "./types";
+import type { AnyTenantConfig, Appointment, Service, StaffMember } from "./types";
 
 export const ANY_STAFF = "any";
 
-export function getService(config: TenantConfig, id: string | null): Service | undefined {
+export function getService(config: AnyTenantConfig, id: string | null): Service | undefined {
   return config.services.find((service) => service.id === id);
 }
 
-export function getStaff(config: TenantConfig, id: string | null): StaffMember | undefined {
+export function getStaff(config: AnyTenantConfig, id: string | null): StaffMember | undefined {
   return config.staff.find((member) => member.id === id);
 }
 
@@ -15,12 +15,12 @@ export function canPerform(member: StaffMember, service: Service): boolean {
   return member.categoryIds.includes(service.categoryId);
 }
 
-export function eligibleStaff(config: TenantConfig, service?: Service): StaffMember[] {
+export function eligibleStaff(config: AnyTenantConfig, service?: Service): StaffMember[] {
   return service ? config.staff.filter((member) => canPerform(member, service)) : config.staff;
 }
 
 /** Opening and closing minutes for a date, or null when closed. */
-export function hoursFor(config: TenantConfig, date: string): { open: number; close: number } | null {
+export function hoursFor(config: AnyTenantConfig, date: string): { open: number; close: number } | null {
   const day = weekday(date);
   const entry = config.hours.find((hours) => hours.weekdays.includes(day));
   return entry ? { open: parseTime(entry.open), close: parseTime(entry.close) } : null;
@@ -51,7 +51,7 @@ export type Slot = {
  * another appointment of the chosen staff member (or of any eligible one).
  */
 export function slotsFor(params: {
-  config: TenantConfig;
+  config: AnyTenantConfig;
   appointments: Appointment[];
   date: string;
   today: string;

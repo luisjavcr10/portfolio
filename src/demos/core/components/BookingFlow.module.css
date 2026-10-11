@@ -606,6 +606,131 @@
   cursor: pointer;
 }
 
+/* ---------- Pet step (tenants with booking.pet) ---------- */
+
+.petHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepHeading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.example {
+  min-height: 44px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--t-accent-ink);
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.species {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.speciesOption {
+  min-height: 150px;
+  border-radius: 24px;
+  border: 2px solid var(--t-muted);
+  background: var(--t-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--t-font-display);
+  font-weight: 800;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s var(--t-ease), background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.speciesOption:hover {
+  transform: translateY(-3px);
+}
+
+.speciesOption:has(input:checked) {
+  border-color: var(--t-primary);
+  background: var(--t-primary-tint);
+}
+
+.speciesOption:has(input:focus-visible),
+.chip:has(input:focus-visible) {
+  outline: 3px solid var(--t-accent-ink);
+  outline-offset: 3px;
+}
+
+.speciesFace {
+  color: var(--t-ink);
+}
+
+.faceFill {
+  fill: var(--t-card);
+}
+
+.faceSoft {
+  fill: var(--t-primary-tint);
+}
+
+.faceAccent {
+  fill: var(--t-accent-tint);
+}
+
+.faceNose {
+  fill: var(--t-accent);
+}
+
+.fieldLegend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 2px solid var(--t-muted);
+  background: var(--t-card);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.chip:has(input:checked) {
+  border-color: var(--t-primary);
+  background: var(--t-primary);
+  color: var(--t-base);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
 /* ---------- Mobile: bottom sheet ---------- */
 
 @media (max-width: 819px) {
@@ -633,7 +758,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dialog {
+  .dialog,
+  .speciesOption {
     transition: none;
+  }
+
+  .speciesOption:hover {
+    transform: none;
   }
 }

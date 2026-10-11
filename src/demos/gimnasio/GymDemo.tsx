@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { ToastProvider, useToast } from "@/demos/core/components/Toast";
 import { ViewSwitch } from "@/demos/core/components/ViewSwitch";
-import { themeFontClasses, themeStyle } from "@/demos/core/theme";
+import { themeStyle } from "@/demos/core/theme";
 import theme from "@/demos/core/theme.module.css";
 import { useStoredFlag } from "@/demos/core/useStoredFlag";
 import { GymBooking } from "./booking/GymBooking";
@@ -23,9 +23,9 @@ const HINT_KEY = `demo:${config.id}:hint-dismissed`;
 const createSeed = createGymSeed(config);
 
 /** FitMoche demo: public site and owner panel sharing one client-side store. */
-export function GymDemo({ initialView }: { initialView: DemoView }) {
+export function GymDemo({ initialView, fontClassName }: { initialView: DemoView; fontClassName: string }) {
   return (
-    <div className={[theme.root, styles.root, themeFontClasses(config.theme)].join(" ")} style={themeStyle(config.theme)}>
+    <div className={[theme.root, styles.root, fontClassName].join(" ")} style={themeStyle(config.theme)}>
       {/* Match the page background to the tenant (visible on overscroll). */}
       <style href={`tenant-${config.id}`} precedence="default">
         {`body{background:${config.theme.colors.base}}`}

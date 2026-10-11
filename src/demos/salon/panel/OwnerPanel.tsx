@@ -513,9 +513,11 @@ function SalesSection({ config, data, today }: SectionProps) {
 }
 
 function LapsedSection({ config, data, today }: SectionProps) {
-  const { contact } = useDemoStore();
+  const { update } = useDemoStore();
   const toast = useToast();
   const copy = config.site.panel.lapsed;
+  const contact = (clientId: string) =>
+    update((d) => (d.contacted.includes(clientId) ? d : { ...d, contacted: [...d.contacted, clientId] }));
   const all = lapsedClients(data, today);
   const featured = all.filter((c) => c.featured);
   const pendingOthers = all.filter((c) => !c.featured && !c.contacted).length;

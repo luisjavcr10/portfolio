@@ -5,7 +5,7 @@ import { BookingFlow, type BookingRequest } from "@/demos/core/components/Bookin
 import { ToastProvider, useToast } from "@/demos/core/components/Toast";
 import { ViewSwitch } from "@/demos/core/components/ViewSwitch";
 import { DemoStoreProvider, useDemoStore } from "@/demos/core/store";
-import { themeFontClasses, themeStyle } from "@/demos/core/theme";
+import { themeStyle } from "@/demos/core/theme";
 import theme from "@/demos/core/theme.module.css";
 import { useStoredFlag } from "@/demos/core/useStoredFlag";
 import { salonConfig as config } from "./config";
@@ -21,10 +21,10 @@ const STORAGE_KEY = `demo:${config.id}:v1`;
 const HINT_KEY = `demo:${config.id}:hint-dismissed`;
 
 /** Casa Bruma demo: public site and owner panel sharing one client-side store. */
-export function SalonDemo({ initialView }: { initialView: DemoView }) {
+export function SalonDemo({ initialView, fontClassName }: { initialView: DemoView; fontClassName: string }) {
   return (
     <div
-      className={[theme.root, config.theme.grain ? theme.grain : "", themeFontClasses(config.theme)].join(" ")}
+      className={[theme.root, config.theme.grain ? theme.grain : "", fontClassName].join(" ")}
       style={themeStyle(config.theme)}
     >
       {/* Match the page background to the tenant (visible on overscroll). */}

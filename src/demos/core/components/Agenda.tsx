@@ -14,6 +14,8 @@ export type AgendaBlock = {
   subtitle: string;
   tone: CategoryTone;
   highlight?: boolean;
+  /** Already attended: shown faded. */
+  done?: boolean;
 };
 
 type AgendaProps = {
@@ -27,6 +29,8 @@ type AgendaProps = {
   hours: { open: number; close: number } | null;
   closedText: string;
   hourHeight?: number;
+  /** Shortest block drawn, so short appointments stay readable. */
+  minBlockMinutes?: number;
 };
 
 /** Day agenda: one column per staff member, blocks positioned by time. */
@@ -39,6 +43,7 @@ export function Agenda({
   hours,
   closedText,
   hourHeight = 64,
+  minBlockMinutes = 45,
 }: AgendaProps) {
   const style = { "--hour": `${hourHeight}px`, "--cols": columns.length } as CSSProperties;
 
@@ -89,10 +94,10 @@ export function Agenda({
                     <li
                       key={block.id}
                       data-appointment-id={block.id}
-                      className={`${styles.block} ${styles[block.tone]} ${block.highlight ? styles.highlight : ""}`}
+                      className={`${styles.block} ${styles[block.tone]} ${block.highlight ? styles.highlight : ""} ${block.done ? styles.done : ""}`}
                       style={{
                         top: ((block.start - hours.open) / 60) * hourHeight + 2,
-                        height: (Math.max(block.duration, 45) / 60) * hourHeight - 4,
+                        height: (Math.max(block.duration, minBlockMinutes) / 60) * hourHeight - 4,
                       }}
                     >
                       <strong>{block.title}</strong>
