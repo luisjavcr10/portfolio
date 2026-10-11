@@ -31,7 +31,9 @@ export const solutions: Solution[] = [
     id: "fitmoche",
     company: "FitMoche",
     accent: "#9A6B43",
-    stack: ["React", "Node.js", "PostgreSQL", "TailwindCSS"],
+    stack: ["Next.js", "React", "TypeScript", "CSS Modules"],
+    demoUrl: "/demos/gimnasio",
+    screens: { laptop: "/demos/gimnasio/panel-desktop.webp", phone: "/demos/gimnasio/site-mobile.webp" },
   },
   {
     id: "clinica",

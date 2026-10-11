@@ -30,7 +30,7 @@ export type ThemeConfig = {
     ink: string;
     inkSoft: string;
   };
-  fonts: { display: FontKey; body: FontKey };
+  fonts: { display: FontKey; body: FontKey; mono?: FontKey };
   /** Subtle film grain over the page. */
   grain: boolean;
 };
@@ -103,7 +103,8 @@ export type BookingCopy = {
   close: string;
 };
 
-export type TenantConfig<SiteCopy = unknown> = {
+/** Identity, look and contact details shared by every vertical. */
+export type TenantBase = {
   id: string;
   name: string;
   tagline: string;
@@ -120,6 +121,10 @@ export type TenantConfig<SiteCopy = unknown> = {
   };
   hours: OpeningHours[];
   currency: { symbol: string; locale: string };
+};
+
+/** Appointment-based tenant (salon, clinic…): services booked with a staff member. */
+export type TenantConfig<SiteCopy = unknown> = TenantBase & {
   /** Words that change per vertical (estilista / entrenador / doctora…). */
   vocabulary: { staff: string; client: string; clients: string };
   categories: Category[];
