@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries/es";
-import { site } from "@/data/site";
-import { ButtonLink } from "@/components/ui/Button";
+import { ContactTrigger } from "@/components/contact/ContactPanel";
+import { ButtonLink, buttonClass } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import styles from "./Hero.module.css";
 
@@ -33,19 +33,18 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
           <Eyebrow>{t.eyebrow}</Eyebrow>
           <h1 className={styles.title}>{t.title}</h1>
           <p className={styles.lead}>{t.lead}</p>
-          <ul className={styles.credentials}>
-            <li>{t.role}</li>
-            <li>UNT</li>
-            <li>{t.location}</li>
-          </ul>
           <div className={styles.actions}>
-            <ButtonLink href="#contacto">
+            <ContactTrigger className={buttonClass("primary")}>
               {t.primaryCta} <span aria-hidden>→</span>
-            </ButtonLink>
-            <ButtonLink href={encodeURI(site.cvPath)} variant="secondary" external>
-              {t.cvCta} <span className={styles.fileType}>PDF</span>
+            </ContactTrigger>
+            <ButtonLink href="#soluciones" variant="secondary">
+              {t.secondaryCta} <span className={styles.arrowDown} aria-hidden>↓</span>
             </ButtonLink>
           </div>
+          <p className={styles.credentials}>
+            <span className={styles.diamond} aria-hidden />
+            {t.credentials}
+          </p>
         </div>
       </div>
     </section>
