@@ -124,7 +124,7 @@ export function useReveal(rootRef: RefObject<HTMLElement | null>, key: unknown) 
 }
 
 /* ------------------------------------------------------------------ */
-/* Scroll scene: marquees, 3D barbell, pinned carousel, ECG, tapes     */
+/* Scroll scene: marquees, pinned carousel, ECG, tapes                 */
 /* ------------------------------------------------------------------ */
 
 type MarqueeTrack = HTMLElement & { _x?: number };
@@ -144,15 +144,9 @@ export function useScrollScene(rootRef: RefObject<HTMLElement | null>, onPlates:
     let lastY = window.scrollY;
     let vel = 0;
     let dir = 1;
-    let spin = -28;
-    const rot = { x: -14, y: -28 };
-    const mouse = { nx: 0, ny: 0 };
-    const tilt = { x: 0, y: 0 };
     let plates = -1;
 
     const tracks = q<MarqueeTrack>("[data-mq-track]");
-    const rig = q("[data-bb-rig]")[0];
-    const scene = q("[data-bb-scene]")[0];
     const pin = q("[data-pin]")[0];
     const pinTrack = q("[data-pin-track]")[0];
     const reveals = q("[data-reveal]");
@@ -162,25 +156,13 @@ export function useScrollScene(rootRef: RefObject<HTMLElement | null>, onPlates:
     ecgs.forEach(({ p, len }) => (p.style.strokeDasharray = String(len)));
 
     const layout = () => {
-      if (scene) scene.style.transform = `scale(${clamp(window.innerWidth / 1150, 0.46, 1.15)})`;
       if (pin && pinTrack)
         pin.style.height = `${Math.max(window.innerHeight * 1.2, pinTrack.scrollWidth - window.innerWidth + window.innerHeight)}px`;
     };
     layout();
     document.fonts?.ready.then(layout);
 
-    const onMove = (e: PointerEvent) => {
-      mouse.nx = e.clientX / window.innerWidth - 0.5;
-      mouse.ny = e.clientY / window.innerHeight - 0.5;
-    };
-    const onOrient = (e: DeviceOrientationEvent) => {
-      if (e.gamma == null) return;
-      tilt.y = clamp(e.gamma, -40, 40) * 0.9;
-      tilt.x = clamp((e.beta ?? 45) - 45, -40, 40) * -0.4;
-    };
     window.addEventListener("resize", layout);
-    window.addEventListener("pointermove", onMove, { passive: true });
-    window.addEventListener("deviceorientation", onOrient);
 
     let raf = 0;
     const tick = () => {
@@ -202,16 +184,6 @@ export function useScrollScene(rootRef: RefObject<HTMLElement | null>, onPlates:
         if (track._x > 0) track._x -= half;
         track.style.transform = `translate3d(${track._x.toFixed(1)}px,0,0)`;
       });
-
-      // 3D barbell: slow spin + mouse / gyroscope / scroll, lerp 0.06.
-      if (rig && y < vh * 1.3) {
-        if (!reduced) spin += 0.18;
-        const ty = spin + mouse.nx * 38 + tilt.y + y * 0.06;
-        const tx = -14 + mouse.ny * -24 + tilt.x + y * 0.02;
-        rot.x += (tx - rot.x) * 0.06;
-        rot.y += (ty - rot.y) * 0.06;
-        rig.style.transform = `rotateX(${rot.x.toFixed(2)}deg) rotateY(${rot.y.toFixed(2)}deg) rotateZ(-8deg)`;
-      }
 
       // Pinned classes carousel: horizontal travel tied to vertical scroll + yellow wipe.
       if (pin && pinTrack) {
@@ -260,8 +232,6 @@ export function useScrollScene(rootRef: RefObject<HTMLElement | null>, onPlates:
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", layout);
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("deviceorientation", onOrient);
     };
   }, [rootRef, active]);
 }
