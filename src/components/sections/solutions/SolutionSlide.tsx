@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import type { Solution } from "@/data/solutions";
-import { ButtonLink } from "@/components/ui/Button";
+import { ContactTrigger } from "@/components/contact/ContactPanel";
+import { ButtonLink, buttonClass } from "@/components/ui/Button";
 import { DeviceMockup } from "@/components/ui/DeviceMockup";
 import styles from "./Solutions.module.css";
 
@@ -35,15 +36,19 @@ export function SolutionSlide({ solution, copy, index, t }: SolutionSlideProps) 
         ) : (
           <span className={styles.soon}>{t.comingSoon}</span>
         )}
-        {solution.caseStudyUrl && (
-          <ButtonLink href={solution.caseStudyUrl} size="sm" variant="secondary">
-            {t.caseStudy}
-          </ButtonLink>
-        )}
+        <ContactTrigger className={buttonClass("secondary", "sm")} business={solution.inquiry} stopPropagation>
+          {t.want}
+        </ContactTrigger>
       </div>
 
       <div className={styles.mockup}>
-        <DeviceMockup label={solution.company} laptopSrc={solution.screens?.laptop} phoneSrc={solution.screens?.phone} />
+        <DeviceMockup
+          label={solution.company}
+          laptopLabel={t.mockup.laptop}
+          phoneLabel={t.mockup.phone}
+          laptopSrc={solution.screens?.laptop}
+          phoneSrc={solution.screens?.phone}
+        />
       </div>
 
       <div className={styles.side}>
@@ -71,6 +76,15 @@ export function SolutionSlide({ solution, copy, index, t }: SolutionSlideProps) 
             ))}
           </div>
           <p className={styles.sampleNote}>{t.sampleFigures}</p>
+        </div>
+
+        <div className={`${styles.card} ${styles.parts}`}>
+          <span className={styles.partsLabel}>{t.includesLabel}</span>
+          <ul className={styles.partsList}>
+            {copy.parts.map((part) => (
+              <li key={part}>{part}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

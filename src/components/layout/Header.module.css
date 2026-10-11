@@ -119,6 +119,8 @@
   margin-left: 4px;
   padding: 8px 14px;
   border-radius: 10px;
+  border: 0;
+  cursor: pointer;
   background: var(--teal);
   color: var(--cream);
   font-size: 14px;

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { site } from "@/data/site";
+import { ContactTrigger } from "@/components/contact/ContactPanel";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
 
@@ -13,8 +14,9 @@ type HeaderProps = {
 export function Header({ lang, t }: HeaderProps) {
   const links = [
     { href: "#soluciones", label: t.solutions },
+    { href: "#incluye", label: t.includes },
+    { href: "#como", label: t.how },
     { href: "#proyectos", label: t.projects },
-    { href: "#experiencia", label: t.experience },
     { href: "#sobre-mi", label: t.about },
   ];
 
@@ -49,9 +51,7 @@ export function Header({ lang, t }: HeaderProps) {
             ))}
           </div>
           <ThemeToggle label={t.theme} />
-          <a href="#contacto" className={styles.cta}>
-            {t.cta}
-          </a>
+          <ContactTrigger className={styles.cta}>{t.cta}</ContactTrigger>
         </div>
       </div>
     </header>

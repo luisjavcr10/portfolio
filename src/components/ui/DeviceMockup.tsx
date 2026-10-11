@@ -3,6 +3,9 @@ import styles from "./DeviceMockup.module.css";
 
 type DeviceMockupProps = {
   label: string;
+  /** Short names for each screen, used as alt text and placeholder labels. */
+  laptopLabel: string;
+  phoneLabel: string;
   laptopSrc?: string;
   phoneSrc?: string;
 };
@@ -18,7 +21,7 @@ function Screen({ src, alt, placeholder }: { src?: string; alt: string; placehol
  * Laptop with a phone overlapping its bottom-right corner.
  * Below 1000px only the phone is shown, centered and larger.
  */
-export function DeviceMockup({ label, laptopSrc, phoneSrc }: DeviceMockupProps) {
+export function DeviceMockup({ label, laptopLabel, phoneLabel, laptopSrc, phoneSrc }: DeviceMockupProps) {
   return (
     <div className={styles.stage}>
       <div className={styles.pattern} aria-hidden />
@@ -26,7 +29,7 @@ export function DeviceMockup({ label, laptopSrc, phoneSrc }: DeviceMockupProps) 
         <div className={styles.laptop}>
           <div className={styles.lid}>
             <div className={styles.screen}>
-              <Screen src={laptopSrc} alt={`${label} dashboard`} placeholder={`${label} · dashboard`} />
+              <Screen src={laptopSrc} alt={`${label} · ${laptopLabel}`} placeholder={`${label} · ${laptopLabel}`} />
             </div>
           </div>
           <div className={styles.base} />
@@ -34,7 +37,7 @@ export function DeviceMockup({ label, laptopSrc, phoneSrc }: DeviceMockupProps) 
         <div className={styles.phone}>
           <div className={styles.phoneScreen}>
             <span className={styles.notch} aria-hidden />
-            <Screen src={phoneSrc} alt={`${label} app`} placeholder="app" />
+            <Screen src={phoneSrc} alt={`${label} · ${phoneLabel}`} placeholder={phoneLabel} />
           </div>
         </div>
       </div>

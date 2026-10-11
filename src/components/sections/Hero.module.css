@@ -90,43 +90,34 @@
 }
 
 .title {
-  font-size: clamp(40px, 6.4vw, 76px);
-  line-height: 1.02;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.03;
   letter-spacing: -0.035em;
   font-weight: 600;
   text-wrap: balance;
 }
 
 .lead {
-  max-width: 540px;
+  max-width: 520px;
   font-size: clamp(17px, 1.6vw, 19px);
   color: var(--muted);
   text-wrap: pretty;
 }
 
 .credentials {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  font-size: 14px;
-}
-
-.credentials li {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
-.credentials li + li::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
+.diamond {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
   background: var(--brown);
+  flex-shrink: 0;
 }
 
 .actions {
@@ -136,14 +127,18 @@
   margin-top: 4px;
 }
 
-.fileType {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 12px;
+.arrowDown {
   color: var(--muted);
 }
 
 @media (max-width: 819px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Phones: the message first, the photo below it. */
+  .portrait {
+    order: 2;
   }
 }

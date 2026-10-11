@@ -17,6 +17,9 @@ export function Footer({ t }: { t: Dictionary["footer"] }) {
             LinkedIn
           </a>
           <a href={`mailto:${site.email}`}>Email</a>
+          <a href={encodeURI(site.cvPath)} target="_blank" rel="noopener noreferrer">
+            {t.cv}
+          </a>
         </div>
       </div>
     </footer>

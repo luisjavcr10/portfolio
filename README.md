@@ -26,7 +26,8 @@ src/
     projects.ts        proyectos reales (imagen, enlaces)
   components/
     layout/            Header, Footer, ThemeToggle
-    sections/          Hero, Solutions (carrusel), Projects, Experience, About, Contact
+    sections/          Hero, Solutions (carrusel), Includes, HowWeWork, Projects, About, Contact
+    contact/           panel lateral de contacto (WhatsApp con mensaje armado)
     ui/                Button, SectionHeading, DeviceMockup
   styles/globals.css   tokens de color, tipografía y utilidades
 ```

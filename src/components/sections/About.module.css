@@ -1,7 +1,8 @@
 .grid {
   display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
 }
 
 .photoCard {
@@ -21,18 +22,14 @@
 
 .photoImage {
   object-fit: cover;
+  object-position: 50% 30%;
 }
 
-.card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  padding: clamp(24px, 4vw, 44px);
+.copy {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-width: 0;
 }
 
 .title {
@@ -50,38 +47,73 @@
   text-wrap: pretty;
 }
 
-.signature {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 20px;
+.timeline {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
   border-top: 1px solid var(--border);
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 13px;
 }
 
-.diamond {
-  width: 10px;
-  height: 10px;
+.row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 4px 20px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.node {
+  width: 7px;
+  height: 7px;
   transform: rotate(45deg);
+  background: var(--muted);
+  flex-shrink: 0;
+}
+
+.row[data-tone="current"] .label {
+  color: var(--accent-text);
+}
+
+.row[data-tone="current"] .node {
+  background: var(--teal-light);
+}
+
+.row[data-tone="education"] .node {
   background: var(--brown);
 }
 
-.fret {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 16px;
-  background-image: var(--fret);
-  background-repeat: repeat-x;
-  background-size: 32px 16px;
-  opacity: 0.45;
+.rowTitle {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.rowText {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 @media (max-width: 819px) {
   .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .row {
     grid-template-columns: 1fr;
   }
 }
