@@ -20,7 +20,8 @@ function negotiateLocale(header: string | null): Locale {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const firstSegment = pathname.split("/")[1];
-  if (isLocale(firstSegment)) return;
+  // Demos live outside the localized portfolio (Spanish only, own root layout).
+  if (isLocale(firstSegment) || firstSegment === "demos") return;
 
   const locale = negotiateLocale(request.headers.get("accept-language"));
   const url = request.nextUrl.clone();

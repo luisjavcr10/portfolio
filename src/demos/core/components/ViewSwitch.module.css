@@ -1,0 +1,145 @@
+.wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: calc(14px + env(safe-area-inset-bottom));
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100vw - 16px);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.glass {
+  background: color-mix(in oklch, var(--t-base) 88%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--t-muted);
+}
+
+.tabs {
+  composes: glass;
+  position: relative;
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: 999px;
+  box-shadow: var(--t-shadow);
+}
+
+.indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 999px;
+  background: var(--t-primary);
+  transition: transform 0.4s var(--t-ease);
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--t-ink);
+  transition: color 0.3s ease;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--t-base);
+}
+
+.reset {
+  composes: glass;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--t-ink-soft);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  width: min(300px, calc(100vw - 16px));
+  padding: 6px 6px 6px 14px;
+  border-radius: 16px;
+  background: var(--t-ink);
+  color: var(--t-base);
+  font-size: 13px;
+  line-height: 1.35;
+  box-shadow: 0 10px 30px -10px rgba(30, 26, 23, 0.5);
+}
+
+.hintClose {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  color: var(--t-base);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media (max-width: 819px) {
+  .wrap {
+    flex-direction: column;
+  }
+
+  .raised {
+    bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  .tab {
+    padding: 0 12px;
+    font-size: 13.5px;
+  }
+
+  /* Icon-only reset so the switch fits on a 390px screen. */
+  .reset {
+    padding: 0;
+    width: 44px;
+    font-size: 17px;
+  }
+
+  .resetText {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator {
+    transition: none;
+  }
+}

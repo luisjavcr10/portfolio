@@ -1,0 +1,56 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.muted {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--t-muted) 0 10px,
+    color-mix(in oklch, var(--t-muted) 70%, var(--t-base)) 10px 20px
+  );
+}
+
+.accent {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--t-accent-tint) 0 10px,
+    color-mix(in oklch, var(--t-accent-tint) 60%, var(--t-base)) 10px 20px
+  );
+}
+
+.base {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--t-base) 0 10px,
+    color-mix(in oklch, var(--t-base) 70%, var(--t-muted)) 10px 20px
+  );
+}
+
+.start {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.label {
+  font-family: var(--t-font-mono);
+  font-size: 11px;
+  color: var(--t-ink-soft);
+  background: var(--t-base);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.image {
+  object-fit: cover;
+}

@@ -1,4 +1,4 @@
-export type SolutionId = "agronorte" | "fitmoche" | "clinica" | "credipyme";
+export type SolutionId = "casabruma" | "agronorte" | "fitmoche" | "clinica" | "credipyme";
 
 export type Solution = {
   id: SolutionId;
@@ -13,6 +13,14 @@ export type Solution = {
 };
 
 export const solutions: Solution[] = [
+  {
+    id: "casabruma",
+    company: "Casa Bruma",
+    accent: "#B86B4B",
+    stack: ["Next.js", "React", "TypeScript", "CSS Modules"],
+    demoUrl: "/demos/salon",
+    screens: { laptop: "/demos/salon/panel-desktop.webp", phone: "/demos/salon/site-mobile.webp" },
+  },
   {
     id: "agronorte",
     company: "AgroNorte",
