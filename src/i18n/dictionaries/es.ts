@@ -28,7 +28,7 @@ const es = {
   solutions: {
     eyebrow: "Soluciones por rubro",
     title: "Sistemas listos para tu industria.",
-    lead: "Cuatro ejemplos con empresas ficticias. Cada uno se adapta a tus procesos, tu marca y tu equipo.",
+    lead: "Ejemplos con empresas ficticias. Cada uno se adapta a tus procesos, tu marca y tu equipo.",
     prev: "Anterior",
     next: "Siguiente",
     hint: "← → para navegar",
@@ -37,6 +37,19 @@ const es = {
     comingSoon: "Demo en construcción",
     sampleFigures: "Cifras de ejemplo",
     items: {
+      casabruma: {
+        industry: "Salones de belleza",
+        title: "Reservas online y agenda llena, sin depender del WhatsApp.",
+        benefits: [
+          { title: "Reservas desde el celular", text: "Servicio, estilista y horario libre en 30 segundos." },
+          { title: "Recordatorios automáticos", text: "Aviso por WhatsApp un día antes de cada cita." },
+          { title: "Panel para la dueña", text: "Agenda, ingresos y clientas por recuperar." },
+        ],
+        metrics: [
+          { value: "3%", label: "inasistencias (antes 14%)" },
+          { value: "30 s", label: "para reservar una cita" },
+        ],
+      },
       agronorte: {
         industry: "Agroexportación",
         title: "Trazabilidad de cada lote, del campo al contenedor.",

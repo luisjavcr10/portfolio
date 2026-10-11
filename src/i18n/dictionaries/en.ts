@@ -30,7 +30,7 @@ const en: Dictionary = {
   solutions: {
     eyebrow: "Solutions by industry",
     title: "Systems ready for your industry.",
-    lead: "Four examples with fictional companies. Each one adapts to your processes, brand and team.",
+    lead: "Examples with fictional companies. Each one adapts to your processes, brand and team.",
     prev: "Previous",
     next: "Next",
     hint: "← → to navigate",
@@ -39,6 +39,19 @@ const en: Dictionary = {
     comingSoon: "Demo in progress",
     sampleFigures: "Sample figures",
     items: {
+      casabruma: {
+        industry: "Beauty salons",
+        title: "Online booking and a full schedule, without living on WhatsApp.",
+        benefits: [
+          { title: "Booking from the phone", text: "Service, stylist and a free slot in 30 seconds." },
+          { title: "Automatic reminders", text: "A WhatsApp message one day before each visit." },
+          { title: "Owner dashboard", text: "Schedule, revenue and clients to win back." },
+        ],
+        metrics: [
+          { value: "3%", label: "no-shows (was 14%)" },
+          { value: "30 s", label: "to book a visit" },
+        ],
+      },
       agronorte: {
         industry: "Agri-export",
         title: "Traceability for every lot, from field to container.",
