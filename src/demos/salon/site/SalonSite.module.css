@@ -408,8 +408,19 @@
 }
 
 .quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 14px;
   color: var(--t-ink-soft);
+}
+
+.quoteAvatar {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .quote figcaption strong {

@@ -10,6 +10,10 @@ export type ModuleId = "reservas" | "recordatorios" | "ventas" | "clientes";
 /** A photo slot. Without `src` the UI shows a labelled placeholder. */
 export type Photo = {
   src?: string;
+  /** Optional art-directed version for narrow screens (≤ 700px). */
+  srcMobile?: string;
+  /** CSS object-position to fine-tune the crop, e.g. "70% 30%". */
+  position?: string;
   alt: string;
   /** Short description of the intended photo, shown on the placeholder. */
   hint: string;
@@ -109,7 +113,7 @@ export type TenantBase = {
   name: string;
   tagline: string;
   theme: ThemeConfig;
-  owner: { name: string; role: string; greeting: string };
+  owner: { name: string; role: string; greeting: string; photo?: Photo };
   contact: {
     address: string;
     area: string;

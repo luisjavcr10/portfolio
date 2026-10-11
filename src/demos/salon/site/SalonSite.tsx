@@ -1,6 +1,7 @@
 import { formatTime, parseTime } from "@/demos/core/dates";
 import { durationLabel, priceLabel, whatsappLink } from "@/demos/core/format";
 import type { BookingRequest } from "@/demos/core/components/BookingFlow";
+import Image from "next/image";
 import { Photo } from "@/demos/core/components/Photo";
 import { Rich } from "@/demos/core/components/Rich";
 import ui from "@/demos/core/ui.module.css";
@@ -247,7 +248,18 @@ export function SalonSite({ config, onBook }: SalonSiteProps) {
               <figure key={item.author} className={`${styles.quote} ${styles[`quote${i % 3}`]}`}>
                 <blockquote>“{item.quote}”</blockquote>
                 <figcaption>
-                  <strong>{item.author}</strong> · {item.service}
+                  {item.photo?.src && (
+                    <Image
+                      src={item.photo.src}
+                      alt={item.photo.alt}
+                      width={44}
+                      height={44}
+                      className={styles.quoteAvatar}
+                    />
+                  )}
+                  <span>
+                    <strong>{item.author}</strong> · {item.service}
+                  </span>
                 </figcaption>
               </figure>
             ))}
