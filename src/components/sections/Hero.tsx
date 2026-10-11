@@ -1,51 +1,55 @@
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries/es";
-import { site } from "@/data/site";
-import { ButtonLink } from "@/components/ui/Button";
+import { ContactTrigger } from "@/components/contact/ContactPanel";
+import { ButtonLink, buttonClass } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import styles from "./Hero.module.css";
 
+/**
+ * Wide screens: full-bleed photo with the copy over its dark left side.
+ * Phones: the photo on top, fading into the page, and the copy below.
+ */
 export function Hero({ t }: { t: Dictionary["hero"] }) {
   return (
     <section id="inicio" className={styles.hero}>
-      <div className={styles.pattern} aria-hidden />
-      <div className={styles.glow} aria-hidden />
+      <div className={styles.media}>
+        <Image
+          src="/images/profile/hero.webp"
+          alt={t.photoAlt}
+          fill
+          preload
+          sizes="100vw"
+          className={styles.photo}
+        />
+        <div className={styles.shade} aria-hidden />
+        <div className={styles.pattern} aria-hidden />
+        <div className={`${styles.badge} ${styles.badgeMobile}`}>
+          <span className={styles.dot} aria-hidden />
+          {t.available}
+        </div>
+      </div>
 
-      <div className={`container ${styles.grid}`} data-reveal>
-        <div className={styles.portrait}>
-          <div className={styles.photo}>
-            <Image
-              src="/images/profile/inhco.jpeg"
-              alt={t.photoAlt}
-              fill
-              preload
-              sizes="(max-width: 819px) 90vw, 440px"
-              className={styles.photoImage}
-            />
-          </div>
-          <div className={styles.badge}>
+      <div className={`container ${styles.content}`} data-reveal>
+        <div className={styles.copy}>
+          <div className={`${styles.badge} ${styles.badgeDesktop}`}>
             <span className={styles.dot} aria-hidden />
             {t.available}
           </div>
-        </div>
-
-        <div className={styles.copy}>
           <Eyebrow>{t.eyebrow}</Eyebrow>
           <h1 className={styles.title}>{t.title}</h1>
           <p className={styles.lead}>{t.lead}</p>
-          <ul className={styles.credentials}>
-            <li>{t.role}</li>
-            <li>UNT</li>
-            <li>{t.location}</li>
-          </ul>
           <div className={styles.actions}>
-            <ButtonLink href="#contacto">
+            <ContactTrigger className={buttonClass("primary")}>
               {t.primaryCta} <span aria-hidden>→</span>
-            </ButtonLink>
-            <ButtonLink href={encodeURI(site.cvPath)} variant="secondary" external>
-              {t.cvCta} <span className={styles.fileType}>PDF</span>
+            </ContactTrigger>
+            <ButtonLink href="#soluciones" variant="secondary">
+              {t.secondaryCta} <span className={styles.arrowDown} aria-hidden>↓</span>
             </ButtonLink>
           </div>
+          <p className={styles.credentials}>
+            <span className={styles.diamond} aria-hidden />
+            {t.credentials}
+          </p>
         </div>
       </div>
     </section>

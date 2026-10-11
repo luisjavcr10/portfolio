@@ -1,0 +1,140 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.bundle {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid color-mix(in oklab, var(--teal-light) 60%, var(--border));
+  background: var(--surface);
+  padding: clamp(28px, 3vw, 36px) clamp(16px, 2.4vw, 28px) clamp(16px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 28px 80px -44px rgba(47, 133, 131, 0.75);
+}
+
+.fret {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 16px;
+  background-image: var(--fret);
+  background-repeat: repeat-x;
+  background-size: 32px 16px;
+  opacity: 0.6;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(640px circle at 100% 0%, color-mix(in oklab, var(--teal-light) 14%, transparent), transparent 60%);
+  pointer-events: none;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  grid-column: span 2;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--inset);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.25s;
+}
+
+.item:hover {
+  border-color: var(--border-strong);
+}
+
+.wide {
+  grid-column: span 3;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  color: var(--accent-text);
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemTitle {
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.itemBody {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 4px 0;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.diamond {
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+  background: var(--teal-light);
+  flex-shrink: 0;
+}
+
+.note {
+  margin-top: -24px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 819px) {
+  .item,
+  .wide {
+    grid-column: 1 / -1;
+  }
+
+  .cta {
+    width: 100%;
+    white-space: normal;
+  }
+}

@@ -77,6 +77,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Keep the page still behind the contact panel. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;

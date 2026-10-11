@@ -1,6 +1,35 @@
 .hero {
   position: relative;
   overflow: hidden;
+  background: var(--bg);
+}
+
+/* ---------- Photo ---------- */
+
+/* The photo is framed to the content width (centered, max 1600px) so on
+   wide monitors the portrait stays next to the copy instead of drifting to
+   the screen edge. */
+.media {
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  width: min(100%, 1600px);
+  transform: translateX(-50%);
+}
+
+.photo {
+  object-fit: cover;
+  object-position: 80% 30%;
+}
+
+/* Fades the photo into the page on the left (behind the copy) and at the bottom. */
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--bg) 0%, color-mix(in oklab, var(--bg) 85%, transparent) 32%, transparent 62%),
+    linear-gradient(0deg, var(--bg) 0%, transparent 22%);
+  pointer-events: none;
 }
 
 .pattern {
@@ -8,59 +37,42 @@
   inset: 0;
   background-image: var(--pattern);
   background-size: 56px 56px;
-  opacity: 0.07;
-  mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, #000 20%, transparent 75%);
+  opacity: 0.06;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 10%, transparent 45%);
   pointer-events: none;
 }
 
-.glow {
-  position: absolute;
-  width: 640px;
-  height: 640px;
-  right: -120px;
-  top: -200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in oklab, var(--teal-light) 18%, transparent), transparent 65%);
-  pointer-events: none;
+/* Wider than the frame: also fade the photo's right edge into the page. */
+@media (min-width: 1601px) {
+  .shade {
+    background:
+      linear-gradient(90deg, var(--bg) 0%, color-mix(in oklab, var(--bg) 85%, transparent) 32%, transparent 62%),
+      linear-gradient(270deg, var(--bg) 0%, transparent 14%),
+      linear-gradient(0deg, var(--bg) 0%, transparent 22%);
+  }
 }
 
-.grid {
+/* ---------- Copy ---------- */
+
+.content {
   position: relative;
-  padding-block: clamp(40px, 8vw, 96px) clamp(56px, 9vw, 112px);
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(28px, 5vw, 64px);
+  min-height: min(720px, 88vh);
+  padding-block: clamp(56px, 8vw, 112px);
+  display: flex;
   align-items: center;
 }
 
-.portrait {
-  position: relative;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  padding: 10px;
-  max-width: 440px;
-  width: 100%;
-}
-
-.photo {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-  background: var(--placeholder-1);
-}
-
-.photoImage {
-  object-fit: cover;
-  object-position: 50% 35%;
+.copy {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
 }
 
 .badge {
-  position: absolute;
-  left: 22px;
-  bottom: 22px;
-  display: flex;
+  display: inline-flex;
+  align-self: flex-start;
   align-items: center;
   gap: 8px;
   padding: 7px 12px;
@@ -74,6 +86,10 @@
   font-size: 12px;
 }
 
+.badgeMobile {
+  display: none;
+}
+
 .dot {
   width: 7px;
   height: 7px;
@@ -82,51 +98,19 @@
   box-shadow: 0 0 0 3px rgba(47, 133, 131, 0.25);
 }
 
-.copy {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  min-width: 0;
-}
-
 .title {
-  font-size: clamp(40px, 6.4vw, 76px);
-  line-height: 1.02;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.03;
   letter-spacing: -0.035em;
   font-weight: 600;
   text-wrap: balance;
 }
 
 .lead {
-  max-width: 540px;
+  max-width: 520px;
   font-size: clamp(17px, 1.6vw, 19px);
   color: var(--muted);
   text-wrap: pretty;
-}
-
-.credentials {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  font-size: 14px;
-}
-
-.credentials li {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.credentials li + li::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--brown);
 }
 
 .actions {
@@ -136,14 +120,65 @@
   margin-top: 4px;
 }
 
-.fileType {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 12px;
+.arrowDown {
   color: var(--muted);
 }
 
+.credentials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.diamond {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--brown);
+  flex-shrink: 0;
+}
+
+/* ---------- Phones: photo on top, copy below ---------- */
+
 @media (max-width: 819px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .media {
+    position: relative;
+    inset: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 560px;
+    overflow: hidden;
+  }
+
+  .photo {
+    object-position: 76% 25%;
+  }
+
+  .shade {
+    background: linear-gradient(0deg, var(--bg) 0%, transparent 40%);
+  }
+
+  .pattern {
+    display: none;
+  }
+
+  .badgeMobile {
+    display: inline-flex;
+    position: absolute;
+    left: 24px;
+    bottom: 28px;
+  }
+
+  .badgeDesktop {
+    display: none;
+  }
+
+  .content {
+    min-height: 0;
+    padding-block: 8px 64px;
   }
 }

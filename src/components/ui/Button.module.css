@@ -8,11 +8,17 @@
   white-space: nowrap;
   transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .md {
   padding: 13px 20px;
   font-size: 15px;
+}
+
+.lg {
+  padding: 15px 22px;
+  font-size: 16px;
 }
 
 .sm {
@@ -39,4 +45,5 @@
 
 .secondary:hover {
   background: var(--inset);
+  border-color: var(--muted);
 }
