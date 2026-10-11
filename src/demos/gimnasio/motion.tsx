@@ -282,7 +282,24 @@ export function useCursor(cursorRef: RefObject<HTMLElement | null>, rootRef: Ref
     const cur = { x: target.x, y: target.y, s: 1 };
     let pressed = false;
     let visible = false;
-    const magnets = new Set<HTMLElement>();
+    // Only one button follows the pointer at a time, a few pixels at most, so
+    // neighbours (plan cards, WhatsApp / Cómo llegar) never overlap.
+    const MAX_X = 6;
+    const MAX_Y = 4;
+    const ZONE = 10;
+    let active: { el: HTMLElement; x: number; y: number } | null = null;
+
+    const release = () => {
+      if (!active) return;
+      active.el.style.translate = "";
+      active = null;
+    };
+
+    /** Button rect without the current magnetic offset. */
+    const restRect = (el: HTMLElement, x: number, y: number) => {
+      const r = el.getBoundingClientRect();
+      return { left: r.left - x, top: r.top - y, right: r.right - x, bottom: r.bottom - y, width: r.width, height: r.height };
+    };
 
     const onMove = (e: PointerEvent) => {
       if (e.pointerType !== "mouse") return;
@@ -293,21 +310,26 @@ export function useCursor(cursorRef: RefObject<HTMLElement | null>, rootRef: Ref
       }
       target.x = e.clientX;
       target.y = e.clientY;
-      const el = e.target instanceof Element ? e.target.closest("a,button,input,label,[data-magnet],[tabindex]") : null;
-      target.s = el ? 1.9 : 1;
-      root.querySelectorAll<HTMLElement>("[data-magnet]").forEach((b) => {
-        const r = b.getBoundingClientRect();
-        if (!r.width) return;
-        const dx = e.clientX - (r.left + r.width / 2);
-        const dy = e.clientY - (r.top + r.height / 2);
-        if (Math.hypot(dx, dy) < Math.max(r.width, r.height) * 0.9) {
-          b.style.translate = `${(dx * 0.28).toFixed(1)}px ${(dy * 0.35).toFixed(1)}px`;
-          magnets.add(b);
-        } else if (magnets.has(b)) {
-          b.style.translate = "";
-          magnets.delete(b);
-        }
-      });
+      const hit = e.target instanceof Element ? e.target : null;
+      target.s = hit?.closest("a,button,input,label,[data-magnet],[tabindex]") ? 1.9 : 1;
+
+      const hovered = hit?.closest<HTMLElement>("[data-magnet]") ?? null;
+      if (hovered && root.contains(hovered) && hovered !== active?.el) {
+        release();
+        active = { el: hovered, x: 0, y: 0 };
+      }
+      if (!active) return;
+
+      const r = restRect(active.el, active.x, active.y);
+      const inside =
+        e.clientX > r.left - ZONE && e.clientX < r.right + ZONE && e.clientY > r.top - ZONE && e.clientY < r.bottom + ZONE;
+      if (!inside) return release();
+
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      active.x = clamp(dx * 0.28, -MAX_X, MAX_X);
+      active.y = clamp(dy * 0.35, -MAX_Y, MAX_Y);
+      active.el.style.translate = `${active.x.toFixed(1)}px ${active.y.toFixed(1)}px`;
     };
     const onDown = () => (pressed = true);
     const onUp = () => (pressed = false);
@@ -337,7 +359,7 @@ export function useCursor(cursorRef: RefObject<HTMLElement | null>, rootRef: Ref
       window.removeEventListener("pointerdown", onDown);
       window.removeEventListener("pointerup", onUp);
       document.removeEventListener("pointerleave", onLeave);
-      magnets.forEach((b) => (b.style.translate = ""));
+      release();
       cursor.style.display = "none";
       delete html.dataset.plateCursor;
     };
