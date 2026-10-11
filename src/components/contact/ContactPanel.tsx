@@ -1,9 +1,15 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, type MouseEvent as ReactMouseEvent, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { site } from "@/data/site";
 import styles from "./ContactPanel.module.css";
+
+function isPhone(): boolean {
+  const uaData = (navigator as Navigator & { userAgentData?: { mobile: boolean } }).userAgentData;
+  if (uaData) return uaData.mobile;
+  return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+}
 
 type ContactPanelApi = { open: (business?: string) => void };
 
@@ -42,7 +48,14 @@ export function ContactPanelProvider({ t, children }: { t: Dictionary["contactPa
 
   const chosen = t.businesses.find((b) => b.id === business);
   const message = chosen?.phrase ? t.messageWithBusiness.replace("{business}", chosen.phrase) : t.message;
+  const whatsappQuery = `phone=${site.whatsapp}&text=${encodeURIComponent(message)}`;
   const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
+
+  // wa.me opens the app on phones, but on a computer without WhatsApp Desktop it
+  // lands on a page whose "Continue to chat" fails. Send desktops to WhatsApp Web.
+  const onWhatsappClick = (event: ReactMouseEvent<HTMLAnchorElement>) => {
+    if (!isPhone()) event.currentTarget.href = `https://web.whatsapp.com/send?${whatsappQuery}`;
+  };
   const mailHref = `mailto:${site.email}?subject=${encodeURIComponent(t.emailSubject)}&body=${encodeURIComponent(message)}`;
 
   return (
@@ -99,7 +112,13 @@ export function ContactPanelProvider({ t, children }: { t: Dictionary["contactPa
             </p>
           </div>
 
-          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className={styles.whatsapp}>
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.whatsapp}
+            onClick={onWhatsappClick}
+          >
             <span>{t.whatsapp}</span>
             <span aria-hidden>→</span>
           </a>
