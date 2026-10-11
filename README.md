@@ -71,7 +71,7 @@ src/demos/
   gimnasio/
     config.ts            FitMoche: planes, clases, horario semanal, coaches, textos y datos del panel
     data.tsx             cupos por clase, leads, seed relativo a hoy y store
-    motion.tsx           animaciones (contadores, barra 3D, marquesinas, carrusel fijado, confeti…)
+    motion.tsx           animaciones (contadores, marquesinas, carrusel fijado, confeti…)
     GymDemo.tsx          une store, vistas, URL (?vista=dueno), flujo "clase gratis" y switch
     site/ booking/ panel/  web pública, flujo con pase QR y panel del dueño
 ```

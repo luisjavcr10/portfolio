@@ -158,7 +158,6 @@ function Hero({ config, onBook }: { config: GymConfig; onBook: () => void }) {
       <div aria-hidden className={styles.heroShade} />
       <div aria-hidden className={styles.heroGlow} />
       <div aria-hidden className={styles.heroDots} />
-      <Barbell3D />
 
       <div className={styles.heroContent}>
         <div className={`${styles.heroIn} ${styles.heroMeta}`} style={{ "--i": 0 } as CSSProperties}>
@@ -211,64 +210,6 @@ function TrustRating({ text }: { text: string }) {
     <>
       <span className={styles.yellow}>{rating}</span> en {rest}
     </>
-  );
-}
-
-/** CSS 3D barbell behind the hero title; rotated by useScrollScene. */
-function Barbell3D() {
-  const L = 820;
-  const plates = [
-    { x: 250, s: 340, t: 34, yellow: true },
-    { x: 292, s: 270, t: 28 },
-    { x: 326, s: 200, t: 22 },
-    { x: 352, s: 150, t: 16, yellow: true },
-  ];
-  const faces: { key: string; style: CSSProperties }[] = [];
-  for (let a = 0; a < 180; a += 30)
-    faces.push({
-      key: `bar${a}`,
-      style: { width: L, height: 16, margin: `-8px 0 0 -${L / 2}px`, background: "linear-gradient(#9a9a9a,#3c3c3c)", transform: `rotateX(${a}deg)` },
-    });
-  for (const side of [-1, 1]) {
-    plates.forEach((p, pi) => {
-      for (let k = 0; k < 5; k++) {
-        const x = side * (p.x + (k / 4) * p.t);
-        const outer = k === 4;
-        const background = p.yellow
-          ? outer
-            ? "radial-gradient(circle,#0A0A0A 0 8%,#E6B800 8.5% 14%,#FFD400 14.5% 66%,#C9A200 67% 69%,#FFD400 70%)"
-            : "#B89400"
-          : outer
-            ? "radial-gradient(circle,#0A0A0A 0 8%,#444 8.5% 14%,#1d1d1d 14.5% 64%,rgba(255,212,0,.75) 65% 67%,#1d1d1d 68%)"
-            : "#101010";
-        faces.push({
-          key: `p${side}${pi}${k}`,
-          style: {
-            width: p.s,
-            height: p.s,
-            margin: `-${p.s / 2}px 0 0 -${p.s / 2}px`,
-            borderRadius: "50%",
-            background,
-            boxShadow: "inset 0 0 0 2px rgba(255,255,255,.06)",
-            transform: `translateX(${x}px) rotateY(90deg)`,
-          },
-        });
-      }
-    });
-    for (let k = 0; k < 3; k++)
-      faces.push({
-        key: `c${side}${k}`,
-        style: { width: 46, height: 46, margin: "-23px 0 0 -23px", borderRadius: "50%", background: "#E6B800", transform: `translateX(${side * (236 + k * 5)}px) rotateY(90deg)` },
-      });
-  }
-  return (
-    <div data-bb-scene="" aria-hidden className={styles.bbScene}>
-      <div data-bb-rig="" className={styles.bbRig}>
-        {faces.map((f) => (
-          <div key={f.key} className={styles.bbPart} style={f.style} />
-        ))}
-      </div>
-    </div>
   );
 }
 
