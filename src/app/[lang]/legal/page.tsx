@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { site } from "@/data/site";
+import { socialImage } from "@/i18n/social-image";
 import { ContactPanelProvider } from "@/components/contact/ContactPanel";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -21,7 +22,16 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/legal">): 
       canonical: `/${lang}/legal`,
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}/legal`])),
     },
-    openGraph: { title: t.meta.title, description: t.meta.description },
+    // openGraph replaces the layout's object instead of merging, so repeat what it set.
+    openGraph: {
+      title: t.meta.title,
+      description: t.meta.description,
+      type: "website",
+      locale: lang === "es" ? "es_PE" : "en_US",
+      url: `/${lang}/legal`,
+      siteName: site.name,
+      images: [socialImage(lang)],
+    },
   };
 }
 

@@ -1,5 +1,13 @@
+/**
+ * Public origin used for canonical, hreflang and social-preview URLs. Vercel sets
+ * VERCEL_PROJECT_PRODUCTION_URL on every build (previews included), so shared links
+ * always point at production; local builds fall back to localhost.
+ */
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+
 export const site = {
   name: "Luis Castillo",
+  url: new URL(productionHost ? `https://${productionHost}` : "http://localhost:3000"),
   initials: "LC",
   email: "lcastillorabanal@icloud.com",
   linkedin: {
