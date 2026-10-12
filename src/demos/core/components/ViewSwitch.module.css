@@ -67,50 +67,36 @@
   color: var(--t-base);
 }
 
-.reset {
+
+.notice {
   composes: glass;
   flex: none;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0 14px;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 12px;
   border-radius: 999px;
   color: var(--t-ink-soft);
+  font-size: 12px;
   font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
+  box-shadow: var(--t-shadow);
 }
 
-.hint {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex: none;
-  width: min(300px, calc(100vw - 16px));
-  padding: 6px 6px 6px 14px;
-  border-radius: 16px;
-  background: var(--t-ink);
-  color: var(--t-base);
-  font-size: 13px;
-  line-height: 1.35;
-  box-shadow: 0 10px 30px -10px rgba(30, 26, 23, 0.5);
+.notice:hover {
+  color: var(--t-ink);
 }
 
-.hintClose {
-  flex: none;
-  width: 36px;
-  height: 36px;
+.noticeDot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  border: 0;
-  background: transparent;
-  color: var(--t-base);
-  font-size: 18px;
-  cursor: pointer;
+  background: var(--t-primary);
 }
+
+
 
 @media (max-width: 819px) {
   .wrap {
@@ -126,16 +112,6 @@
     font-size: 13.5px;
   }
 
-  /* Icon-only reset so the switch fits on a 390px screen. */
-  .reset {
-    padding: 0;
-    width: 44px;
-    font-size: 17px;
-  }
-
-  .resetText {
-    display: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -9,21 +9,25 @@ import styles from "./Header.module.css";
 type HeaderProps = {
   lang: Locale;
   t: Dictionary["nav"];
+  /** Current page below the locale, e.g. "/legal", so the language switch stays on it. */
+  path?: string;
 };
 
-export function Header({ lang, t }: HeaderProps) {
+export function Header({ lang, t, path = "" }: HeaderProps) {
+  // Section links include the home path so they also work from other pages.
+  const home = `/${lang}`;
   const links = [
-    { href: "#soluciones", label: t.solutions },
-    { href: "#incluye", label: t.includes },
-    { href: "#como", label: t.how },
-    { href: "#proyectos", label: t.projects },
-    { href: "#sobre-mi", label: t.about },
+    { href: `${home}#soluciones`, label: t.solutions },
+    { href: `${home}#incluye`, label: t.includes },
+    { href: `${home}#como`, label: t.how },
+    { href: `${home}#proyectos`, label: t.projects },
+    { href: `${home}#sobre-mi`, label: t.about },
   ];
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <a href="#inicio" className={styles.brand}>
+        <a href={`${home}#inicio`} className={styles.brand}>
           <span className={styles.logo}>{site.initials}</span>
           <span>{site.name}</span>
         </a>
@@ -41,7 +45,7 @@ export function Header({ lang, t }: HeaderProps) {
             {locales.map((locale) => (
               <Link
                 key={locale}
-                href={`/${locale}`}
+                href={`/${locale}${path}`}
                 hrefLang={locale}
                 aria-current={locale === lang ? "true" : undefined}
                 className={styles.langOption}

@@ -5,14 +5,16 @@ import styles from "./ViewSwitch.module.css";
 
 export type ViewOption<V extends string> = { id: V; label: string };
 
+/** Where the demo notice links: the portfolio's legal page, section about the demos. */
+export const DEMO_NOTICE_HREF = "/es/legal#demos";
+
 type ViewSwitchProps<V extends string> = {
   label: string;
   options: [ViewOption<V>, ViewOption<V>];
   active: V;
   onChange: (view: V) => void;
-  resetLabel: string;
-  onReset: () => void;
-  hint?: { text: string; dismissLabel: string; onDismiss: () => void } | null;
+  /** Always-visible label that says the business is made up. */
+  notice?: { text: string; href: string };
   /** Leaves room for a bottom navigation bar on small screens. */
   raised?: boolean;
 };
@@ -23,9 +25,7 @@ export function ViewSwitch<V extends string>({
   options,
   active,
   onChange,
-  resetLabel,
-  onReset,
-  hint,
+  notice,
   raised = false,
 }: ViewSwitchProps<V>) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
@@ -41,13 +41,11 @@ export function ViewSwitch<V extends string>({
 
   return (
     <div className={`${styles.wrap} ${raised ? styles.raised : ""}`}>
-      {hint && (
-        <div className={styles.hint} role="status">
-          <span>{hint.text}</span>
-          <button type="button" onClick={hint.onDismiss} aria-label={hint.dismissLabel} className={styles.hintClose}>
-            ×
-          </button>
-        </div>
+      {notice && (
+        <a href={notice.href} className={styles.notice}>
+          <span className={styles.noticeDot} aria-hidden />
+          {notice.text}
+        </a>
       )}
       <div className={styles.row}>
         <div className={styles.tabs} role="tablist" aria-label={label} onKeyDown={handleKeyDown}>
@@ -73,12 +71,6 @@ export function ViewSwitch<V extends string>({
             </button>
           ))}
         </div>
-        <button type="button" className={styles.reset} onClick={onReset} title={resetLabel} aria-label={resetLabel}>
-          <span aria-hidden>↺</span>
-          <span className={styles.resetText} aria-hidden>
-            {resetLabel}
-          </span>
-        </button>
       </div>
     </div>
   );

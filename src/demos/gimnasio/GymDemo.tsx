@@ -1,11 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ToastProvider, useToast } from "@/demos/core/components/Toast";
-import { ViewSwitch } from "@/demos/core/components/ViewSwitch";
+import { ToastProvider } from "@/demos/core/components/Toast";
+import { DEMO_NOTICE_HREF, ViewSwitch } from "@/demos/core/components/ViewSwitch";
 import { themeStyle } from "@/demos/core/theme";
 import theme from "@/demos/core/theme.module.css";
-import { useStoredFlag } from "@/demos/core/useStoredFlag";
 import { GymBooking } from "./booking/GymBooking";
 import { gymConfig as config } from "./config";
 import { createGymSeed, GymStoreProvider, useGymStore } from "./data";
@@ -19,7 +18,6 @@ export type DemoView = "client" | "owner";
 const VIEW_PARAM = "vista";
 const OWNER_VALUE = "dueno";
 const STORAGE_KEY = `demo:${config.id}:v1`;
-const HINT_KEY = `demo:${config.id}:hint-dismissed`;
 const createSeed = createGymSeed(config);
 
 /** FitMoche demo: public site and owner panel sharing one client-side store. */
@@ -40,13 +38,11 @@ export function GymDemo({ initialView, fontClassName }: { initialView: DemoView;
 }
 
 function Demo({ initialView }: { initialView: DemoView }) {
-  const { data, reset } = useGymStore();
-  const toast = useToast();
+  const { data } = useGymStore();
   const copy = config.site.demo;
   const [view, setView] = useState<DemoView>(initialView);
   const [booking, setBooking] = useState<(BookRequest & { key: number }) | null>(null);
   const [arrivalId, setArrivalId] = useState<string | null>(null);
-  const [hintDismissed, setHintDismissed] = useStoredFlag(HINT_KEY);
   const wipe = useRef<HTMLDivElement>(null);
   const cursor = useRef<HTMLDivElement>(null);
   const root = useRef<HTMLDivElement>(null);
@@ -64,24 +60,14 @@ function Demo({ initialView }: { initialView: DemoView }) {
   }
 
   /** Switches views behind the striped yellow wipe (crossfade with reduced motion). */
-  function showView(next: DemoView, nextArrival: string | null = null, dismissHint = true) {
-    if (dismissHint) setHintDismissed(true);
+  function showView(next: DemoView, nextArrival: string | null = null) {
     if (next === view && nextArrival === arrivalId) return;
     screenWipe(wipe.current, () => applyView(next, nextArrival));
   }
 
   function openBooking(request: BookRequest) {
     if (!data) return;
-    setHintDismissed(true);
     setBooking({ ...request, key: Date.now() });
-  }
-
-  function handleReset() {
-    reset();
-    setBooking(null);
-    setHintDismissed(false);
-    applyView("client", null);
-    toast(copy.resetDone);
   }
 
   return (
@@ -116,20 +102,14 @@ function Demo({ initialView }: { initialView: DemoView }) {
       {!booking && (
         <ViewSwitch<DemoView>
           label={copy.switchLabel}
+          notice={{ text: copy.notice, href: DEMO_NOTICE_HREF }}
           options={[
             { id: "client", label: copy.clientView },
             { id: "owner", label: copy.ownerView },
           ]}
           active={view}
           onChange={(next) => next !== view && showView(next)}
-          resetLabel={copy.reset}
-          onReset={handleReset}
           raised={view === "owner"}
-          hint={
-            hintDismissed
-              ? null
-              : { text: copy.hint, dismissLabel: copy.hintDismiss, onDismiss: () => setHintDismissed(true) }
-          }
         />
       )}
 

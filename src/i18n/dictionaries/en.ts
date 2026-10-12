@@ -158,10 +158,105 @@ const en: Dictionary = {
       { id: "veterinaria", label: "Vet clinic", phrase: "a vet clinic" },
       { id: "otro", label: "Other", phrase: "" },
     ],
+    privacy: "I only use your details to reply.",
+    privacyLink: "Privacy",
   },
   footer: {
     madeIn: "Made in Trujillo, La Libertad",
     cv: "CV",
+    legal: "Privacy and legal",
+  },
+  legal: {
+    meta: {
+      title: "Privacy and legal notice · Luis Castillo",
+      description: "What data I receive and why, why this site uses no cookies, and what the demos are.",
+    },
+    eyebrow: "Legal",
+    title: "Privacy and legal notice",
+    updatedLabel: "Last updated:",
+    updated: "October 11, 2026",
+    summary:
+      "In short: this site uses no cookies or tracking tools, and it doesn't store what you type. If you message me on WhatsApp or by email, I only use your details to reply. The demos are made-up businesses.",
+    back: "Back to home",
+    sections: [
+      {
+        id: "responsable",
+        title: "Who is responsible",
+        body: [
+          "Luis Javier Castillo Rabanal, independent software developer in Trujillo, La Libertad, Peru. For anything about this page, write to me at {email}.",
+        ],
+      },
+      {
+        id: "privacidad",
+        title: "What data I receive and why",
+        body: [
+          "This site has no forms that send data to a server. The contact buttons open WhatsApp or your email app with a message you review before sending.",
+          "If you write to me, I receive whatever you choose to share: usually your name, your phone number or email, and what you tell me about your business. I only use it to reply, prepare a proposal and follow up on the conversation. I don't use it for advertising or add you to broadcast lists.",
+          "I process it with your consent, given when you write to me, under Peru's Personal Data Protection Law (Law No. 29733) and its regulations.",
+        ],
+      },
+      {
+        id: "terceros",
+        title: "Who it is shared with",
+        body: [
+          "I don't sell or hand over your data. Messages travel through the service you choose (WhatsApp or your email provider), which has its own privacy policy.",
+          "The site is hosted on Vercel. Like any web server, it logs technical data about visits, such as IP address and browser, for security and to keep the site running. These providers may process data outside Peru.",
+        ],
+      },
+      {
+        id: "plazo",
+        title: "How long I keep it",
+        body: [
+          "For as long as we keep talking or working together. If we don't end up working together, I delete the conversation no later than one year after our last contact, or sooner if you ask.",
+        ],
+      },
+      {
+        id: "derechos",
+        title: "Your rights",
+        body: [
+          "You can ask me to access, correct or delete your data, or object to its use (ARCO rights), by writing to {email}. I'll reply within the time limits set by law.",
+          "If you're not satisfied with my reply, you can file a complaint with Peru's National Authority for Personal Data Protection, part of the Ministry of Justice and Human Rights.",
+        ],
+      },
+      {
+        id: "cookies",
+        title: "Cookies and storage in your browser",
+        body: [
+          "I don't use cookies or analytics or advertising tools, which is why you won't see a cookie banner.",
+          "The site does keep a few things in your browser (localStorage): the light or dark theme you chose and, in the demos, the sample data you play with. It never leaves your device. Demo data renews itself every day, and you can clear everything from your browser settings.",
+        ],
+      },
+      {
+        id: "demos",
+        title: "The demos are fictional",
+        body: [
+          "Casa Bruma, FitMoche and KusiVet are made-up businesses that show how a system like this would work. Their names, staff, clients, pets, reviews, ratings, prices and figures are fictional. Any resemblance to real businesses or people is a coincidence.",
+          "Streets are mentioned only to suggest an area, with no exact address, and the phone numbers are not real.",
+          "What you type when booking in a demo stays in your browser. If you tap a WhatsApp button inside a demo, it only opens WhatsApp with a sample message: nothing is sent unless you send it.",
+        ],
+      },
+      {
+        id: "ia",
+        title: "AI-generated images",
+        body: [
+          "The demo photos (venues, people and pets) were generated with artificial intelligence (Google Gemini). They don't show real places or people.",
+        ],
+      },
+      {
+        id: "aviso",
+        title: "Figures, trademarks and content",
+        body: [
+          "The figures on the solution cards are examples of what a system like this can achieve, not guaranteed results.",
+          "Trademarks I mention, such as WhatsApp, Google, Vercel or Scotiabank, belong to their owners and appear only as references.",
+          "The design, code and copy of this site and its demos are my own work. Feel free to share the links, but don't copy them to present as your own.",
+        ],
+      },
+      {
+        id: "cambios",
+        title: "Changes",
+        body: ["If I change anything important on this page, I'll update the date above."],
+      },
+    ],
   },
 };
 

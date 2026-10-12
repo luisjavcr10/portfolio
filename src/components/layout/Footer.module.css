@@ -15,7 +15,8 @@
 
 .links {
   display: flex;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 8px 18px;
 }
 
 .links a {

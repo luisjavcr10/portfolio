@@ -156,10 +156,106 @@ const es = {
       { id: "veterinaria", label: "Veterinaria", phrase: "una veterinaria" },
       { id: "otro", label: "Otro", phrase: "" },
     ],
+    privacy: "Uso tus datos solo para responderte.",
+    privacyLink: "Privacidad",
   },
   footer: {
     madeIn: "Hecho en Trujillo, La Libertad",
     cv: "CV",
+    legal: "Privacidad y aviso legal",
+  },
+  legal: {
+    meta: {
+      title: "Privacidad y aviso legal · Luis Castillo",
+      description: "Qué datos recibo y para qué, por qué este sitio no usa cookies y qué son las demos.",
+    },
+    eyebrow: "Legal",
+    title: "Privacidad y aviso legal",
+    updatedLabel: "Última actualización:",
+    updated: "11 de octubre de 2026",
+    summary:
+      "En corto: este sitio no usa cookies ni herramientas de rastreo, y no guarda lo que escribes. Si me escribes por WhatsApp o correo, uso tus datos solo para responderte. Las demos son negocios inventados.",
+    back: "Volver al inicio",
+    /** In each paragraph, {email} is replaced with a link to the contact email. */
+    sections: [
+      {
+        id: "responsable",
+        title: "Quién es responsable",
+        body: [
+          "Luis Javier Castillo Rabanal, desarrollador de software independiente en Trujillo, La Libertad, Perú. Para cualquier tema de esta página, escríbeme a {email}.",
+        ],
+      },
+      {
+        id: "privacidad",
+        title: "Qué datos recibo y para qué",
+        body: [
+          "Este sitio no tiene formularios que envíen datos a un servidor. Los botones de contacto abren WhatsApp o tu correo con un mensaje que tú revisas antes de enviar.",
+          "Si me escribes, recibo lo que decidas compartir: normalmente tu nombre, tu número o correo y lo que me cuentes de tu negocio. Uso esos datos solo para responderte, preparar una propuesta y darle seguimiento a la conversación. No los uso para publicidad ni te agrego a listas de difusión.",
+          "Los trato con tu consentimiento, que das al escribirme, conforme a la Ley N.° 29733, Ley de Protección de Datos Personales, y su reglamento.",
+        ],
+      },
+      {
+        id: "terceros",
+        title: "Con quién se comparten",
+        body: [
+          "No vendo ni cedo tus datos. Los mensajes viajan por el servicio que tú eliges (WhatsApp o tu proveedor de correo), que tiene sus propias políticas de privacidad.",
+          "El sitio está alojado en Vercel. Como cualquier servidor web, registra datos técnicos de las visitas, como la dirección IP y el navegador, por seguridad y para que el sitio funcione. Estos proveedores pueden procesar datos fuera del Perú.",
+        ],
+      },
+      {
+        id: "plazo",
+        title: "Cuánto tiempo los guardo",
+        body: [
+          "Mientras sigamos conversando o trabajando juntos. Si no llegamos a trabajar juntos, borro la conversación a más tardar un año después del último contacto, o antes si me lo pides.",
+        ],
+      },
+      {
+        id: "derechos",
+        title: "Tus derechos",
+        body: [
+          "Puedes pedirme acceder a tus datos, corregirlos, eliminarlos u oponerte a que los use (derechos ARCO) escribiéndome a {email}. Te respondo dentro de los plazos que fija la ley.",
+          "Si no quedas conforme con mi respuesta, puedes presentar un reclamo ante la Autoridad Nacional de Protección de Datos Personales del Ministerio de Justicia y Derechos Humanos.",
+        ],
+      },
+      {
+        id: "cookies",
+        title: "Cookies y almacenamiento en tu navegador",
+        body: [
+          "No uso cookies ni herramientas de analítica o publicidad, por eso no verás un aviso de cookies.",
+          "El sitio sí guarda algunas cosas en tu navegador (localStorage): el tema claro u oscuro que elegiste y, en las demos, los datos de ejemplo con los que juegas. Nunca salen de tu dispositivo. Los datos de las demos se renuevan solos cada día, y puedes borrar todo desde la configuración de tu navegador.",
+        ],
+      },
+      {
+        id: "demos",
+        title: "Las demos son ficticias",
+        body: [
+          "Casa Bruma, FitMoche y KusiVet son negocios inventados para mostrar cómo funcionaría un sistema así. Sus nombres, equipo, clientes, mascotas, reseñas, calificaciones, precios y cifras son ficticios. Cualquier parecido con negocios o personas reales es coincidencia.",
+          "Las calles se mencionan solo como referencia de zona, sin dirección exacta, y los números de teléfono no son reales.",
+          "Lo que escribes al reservar en una demo se queda en tu navegador. Si tocas un botón de WhatsApp dentro de una demo, solo se abre WhatsApp con un mensaje de ejemplo: no se envía nada si tú no lo envías.",
+        ],
+      },
+      {
+        id: "ia",
+        title: "Imágenes generadas con IA",
+        body: [
+          "Las fotos de las demos (locales, personas y mascotas) fueron generadas con inteligencia artificial (Google Gemini). No muestran lugares ni personas reales.",
+        ],
+      },
+      {
+        id: "aviso",
+        title: "Cifras, marcas y contenido",
+        body: [
+          "Las cifras de las tarjetas de soluciones son ejemplos de lo que puede lograr un sistema así, no resultados garantizados.",
+          "Las marcas que menciono, como WhatsApp, Google, Vercel o Scotiabank, pertenecen a sus dueños y aparecen solo como referencia.",
+          "El diseño, el código y los textos de este sitio y sus demos son de mi autoría. Puedes compartir los enlaces, pero no copiarlos para presentarlos como propios.",
+        ],
+      },
+      {
+        id: "cambios",
+        title: "Cambios",
+        body: ["Si cambio algo importante en esta página, actualizaré la fecha de arriba."],
+      },
+    ],
   },
 };
 
