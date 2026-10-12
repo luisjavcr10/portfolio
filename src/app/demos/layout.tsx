@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { site } from "@/data/site";
 import "./demos.css";
 
 /*
@@ -7,6 +8,7 @@ import "./demos.css";
  */
 
 export const metadata: Metadata = {
+  metadataBase: site.url,
   title: { template: "%s · Demo", default: "Demos" },
   robots: { index: false, follow: true },
 };

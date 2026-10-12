@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { RevealObserver } from "@/components/RevealObserver";
+import { site } from "@/data/site";
+import { socialImage } from "@/i18n/social-image";
 import "@/styles/globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
@@ -24,6 +26,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const t = getDictionary(lang);
 
   return {
+    metadataBase: site.url,
     title: t.meta.title,
     description: t.meta.description,
     alternates: {
@@ -35,7 +38,11 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       description: t.meta.description,
       type: "website",
       locale: lang === "es" ? "es_PE" : "en_US",
+      url: `/${lang}`,
+      siteName: site.name,
+      images: [socialImage(lang)],
     },
+    twitter: { card: "summary_large_image" },
   };
 }
 
