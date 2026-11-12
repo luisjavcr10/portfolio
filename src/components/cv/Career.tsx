@@ -12,6 +12,7 @@ import styles from "./Career.module.css";
  */
 export function Career({ t }: { t: CvDictionary["career"] }) {
   const [filter, setFilter] = useState<Tech | null>(null);
+  const sideStart = timeline.findIndex((entry) => entry.lane === "side");
 
   const matches = timeline.filter((entry) => entry.kind === "job" && filter && entry.techs.includes(filter)).length;
   const status = filter
@@ -73,7 +74,8 @@ export function Career({ t }: { t: CvDictionary["career"] }) {
                   data-first={index === 0 || undefined}
                   data-last={index === timeline.length - 1 || undefined}
                   data-branch={entry.id === "damaris" || undefined}
-                  data-side-start={entry.id === "own" || undefined}
+                  data-side-start={index === sideStart || undefined}
+                  data-before-side={index < sideStart || undefined}
                 >
                   <div className={styles.graph} aria-hidden>
                     <span className={styles.mainLine} />

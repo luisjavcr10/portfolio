@@ -144,12 +144,6 @@
   grid-column: span 2;
 }
 
-.own {
-  grid-column: span 3;
-  padding: 28px;
-  gap: 16px;
-}
-
 .media {
   position: relative;
   border-radius: var(--radius-lg);
@@ -212,45 +206,6 @@
 
 .link:hover {
   color: var(--text);
-}
-
-.ownName {
-  font-size: 24px;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-}
-
-.ramp {
-  margin-top: auto;
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  gap: 4px;
-}
-
-.ramp span {
-  height: 36px;
-  border-radius: 6px;
-}
-
-.bigFigure {
-  margin-top: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 12px;
-}
-
-.bigValue {
-  font-size: 56px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-weight: 600;
-}
-
-.stackLine {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 12px;
-  color: var(--muted);
 }
 
 /* ---------- Approach ---------- */
@@ -428,8 +383,7 @@
   }
 
   .wide,
-  .narrow,
-  .own {
+  .narrow {
     grid-column: span 6;
   }
 

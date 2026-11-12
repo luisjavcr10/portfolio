@@ -4,7 +4,6 @@
 
 export const techs = [
   "React",
-  "Next.js",
   "Thymeleaf",
   "TypeScript",
   "Java",
@@ -14,27 +13,23 @@ export const techs = [
   "REST",
   "SOAP",
   "SQL Server",
-  "PostgreSQL",
   "AS/400",
   "Anthos",
-  "Vercel",
 ] as const;
 
 export type Tech = (typeof techs)[number];
 
-export type LayerId = "interface" | "services" | "data" | "platform";
+export type LayerId = "interface" | "services" | "data";
 
 /** The stack grouped by layer; it doubles as the filter of the career timeline. */
 export const layers: { id: LayerId; techs: Tech[] }[] = [
-  { id: "interface", techs: ["React", "Next.js", "Thymeleaf", "TypeScript"] },
-  { id: "services", techs: ["Java", ".NET", "NestJS", "Node.js", "REST", "SOAP"] },
-  { id: "data", techs: ["SQL Server", "PostgreSQL", "AS/400"] },
-  { id: "platform", techs: ["Anthos", "Vercel"] },
+  { id: "interface", techs: ["React", "Thymeleaf", "TypeScript"] },
+  { id: "services", techs: ["Java", ".NET", "NestJS", "Node.js", "REST", "SOAP", "Anthos"] },
+  { id: "data", techs: ["SQL Server", "AS/400"] },
 ];
 
 export type EntryId =
   | "graduation"
-  | "own"
   | "scotiabank"
   | "numeral"
   | "coplacont"
@@ -53,10 +48,9 @@ export type TimelineEntry = {
   current?: boolean;
 };
 
-/** Newest first. The side lane spans from "own" down to "damaris", where it branches off. */
+/** Newest first. The side lane runs from its first entry down to "damaris", where it branches off. */
 export const timeline: TimelineEntry[] = [
   { id: "graduation", lane: "main", kind: "milestone", techs: [] },
-  { id: "own", lane: "side", kind: "job", techs: ["Next.js", "React", "TypeScript", "PostgreSQL", "Vercel"] },
   {
     id: "scotiabank",
     lane: "main",
@@ -93,15 +87,3 @@ export const marquee = [
   "Scrum",
 ];
 
-/** A brand color ramp, as the `base` template generates it from a single color. */
-export const paletteRamp = [
-  "#e3f1f0",
-  "#bfdedc",
-  "#92c6c3",
-  "#63aaa7",
-  "#2f8583",
-  "#1f5c5b",
-  "#184846",
-  "#113332",
-  "#0a2020",
-];

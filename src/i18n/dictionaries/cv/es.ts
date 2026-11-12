@@ -51,7 +51,6 @@ const es = {
       interface: "Interfaz",
       services: "Servicios",
       data: "Datos",
-      platform: "Plataforma",
     } satisfies Record<LayerId, string>,
     hint: "Toca una tecnología para filtrar",
     /** {tech}, {count} and {total} are replaced at runtime. */
@@ -63,14 +62,6 @@ const es = {
         period: "Dic 2026",
         role: "Egreso de Ingeniería de Sistemas",
         company: "Universidad Nacional de Trujillo",
-      },
-      own: {
-        lane: "Proyectos propios",
-        period: "Oct 2026 – Actual",
-        role: "Proyectos propios",
-        company: "base y CRM",
-        summary:
-          "Una plantilla reutilizable con autenticación, roles y seguridad por defecto, y un CRM construido sobre ella. Arquitectura, base de datos y despliegue a mi cargo.",
       },
       scotiabank: {
         lane: "Empleo",
@@ -137,20 +128,6 @@ const es = {
       digenio: "Full stack",
       auditai: "Frontend",
     } satisfies Record<ProjectId, string>,
-    base: {
-      kind: "Proyecto propio · Plantilla",
-      name: "base",
-      text: "Plantilla para levantar aplicaciones web en días: landing, panel con roles y módulos por carpeta. Toda la paleta se genera desde un solo color de marca, con contraste AA.",
-      stack: "Next.js 16 · React 19 · Supabase · RLS · zod",
-    },
-    crm: {
-      kind: "Proyecto propio · Producto interno",
-      name: "CRM propio",
-      text: "Leads, clientes, proyectos y planes de cuotas con estados de pago. Construido sobre base y desplegado en Vercel.",
-      figure: "1,164",
-      figureText: "leads importados desde un barrido propio",
-      stack: "Next.js · PostgreSQL · Python · Vercel",
-    },
   },
   approach: {
     eyebrow: "Cómo trabajo",

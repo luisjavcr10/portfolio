@@ -163,7 +163,7 @@
   height: var(--node-y);
 }
 
-.entry[data-first] .sideLine,
+.entry[data-before-side] .sideLine,
 .entry[data-last] .sideLine {
   display: none;
 }

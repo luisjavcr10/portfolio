@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import type { CvDictionary } from "@/i18n/dictionaries/cv/es";
-import { marquee, paletteRamp } from "@/data/cv";
+import { marquee } from "@/data/cv";
 import { projects } from "@/data/projects";
 import { site } from "@/data/site";
 import { ButtonLink } from "@/components/ui/Button";
@@ -82,29 +82,6 @@ export function CvProjects({ t, shared }: CvProjectsProps) {
               </div>
             </article>
           ))}
-
-          <article className={`${styles.tile} ${styles.own}`}>
-            <span className={styles.kind}>{t.base.kind}</span>
-            <h3 className={styles.ownName}>{t.base.name}</h3>
-            <p className={styles.text}>{t.base.text}</p>
-            <div className={styles.ramp} aria-hidden>
-              {paletteRamp.map((color) => (
-                <span key={color} style={{ background: color }} />
-              ))}
-            </div>
-            <span className={styles.stackLine}>{t.base.stack}</span>
-          </article>
-
-          <article className={`${styles.tile} ${styles.own}`}>
-            <span className={styles.kind}>{t.crm.kind}</span>
-            <h3 className={styles.ownName}>{t.crm.name}</h3>
-            <p className={styles.text}>{t.crm.text}</p>
-            <p className={styles.bigFigure}>
-              <span className={styles.bigValue}>{t.crm.figure}</span>
-              <span className={styles.text}>{t.crm.figureText}</span>
-            </p>
-            <span className={styles.stackLine}>{t.crm.stack}</span>
-          </article>
         </div>
       </div>
     </section>

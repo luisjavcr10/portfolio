@@ -48,7 +48,6 @@ const en: CvDictionary = {
       interface: "Interface",
       services: "Services",
       data: "Data",
-      platform: "Platform",
     },
     hint: "Tap a technology to filter",
     result: "{tech}: {count} of {total} roles",
@@ -59,14 +58,6 @@ const en: CvDictionary = {
         period: "Dec 2026",
         role: "Graduation, Systems Engineering",
         company: "Universidad Nacional de Trujillo",
-      },
-      own: {
-        lane: "Own projects",
-        period: "Oct 2026 – Present",
-        role: "Own projects",
-        company: "base and CRM",
-        summary:
-          "A reusable template with authentication, roles and security by default, and a CRM built on top of it. I own the architecture, the database and the deployment.",
       },
       scotiabank: {
         lane: "Employment",
@@ -131,20 +122,6 @@ const en: CvDictionary = {
       smarttalent: "Tech lead · Full stack",
       digenio: "Full stack",
       auditai: "Frontend",
-    },
-    base: {
-      kind: "Own project · Template",
-      name: "base",
-      text: "A template to stand up web applications in days: landing page, role-based panel and one folder per module. The whole palette is generated from a single brand color, with AA contrast.",
-      stack: "Next.js 16 · React 19 · Supabase · RLS · zod",
-    },
-    crm: {
-      kind: "Own project · Internal product",
-      name: "Own CRM",
-      text: "Leads, clients, projects and installment plans with payment statuses. Built on base and deployed on Vercel.",
-      figure: "1,164",
-      figureText: "leads imported from my own data sweep",
-      stack: "Next.js · PostgreSQL · Python · Vercel",
     },
   },
   approach: {
