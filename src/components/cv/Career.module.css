@@ -1,0 +1,314 @@
+.wrapper {
+  /* Side lane (client and personal projects): brown, lighter on the dark theme to stay visible. */
+  --side: #b08a63;
+  --side-text: #c9a57e;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+:global([data-theme="light"]) .wrapper {
+  --side: var(--brown);
+  --side-text: var(--brown);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ---------- Stack by layers (the filter) ---------- */
+
+.layers {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.layer {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.layerLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.diamond {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--side);
+  flex-shrink: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.chip:hover {
+  border-color: var(--accent-text);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--teal);
+  border-color: var(--teal-light);
+  color: var(--cream);
+}
+
+.status {
+  min-height: 44px;
+  padding-inline: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.clear {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  color: var(--accent-text);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Two-lane timeline ---------- */
+
+.timeline {
+  --main: var(--teal-light);
+  --node-y: 39px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  transition: opacity 0.35s ease;
+}
+
+.entry[data-dimmed] {
+  opacity: 0.28;
+}
+
+.graph {
+  position: relative;
+}
+
+.mainLine,
+.sideLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.mainLine {
+  left: 13px;
+  background: var(--main);
+}
+
+.sideLine {
+  left: 41px;
+  background: var(--side);
+}
+
+/* Lanes start and end at a node instead of running past it. */
+.entry[data-first] .mainLine,
+.entry[data-side-start] .sideLine {
+  top: var(--node-y);
+}
+
+.entry[data-last] .mainLine,
+.entry[data-branch] .sideLine {
+  bottom: auto;
+  height: var(--node-y);
+}
+
+.entry[data-before-side] .sideLine,
+.entry[data-last] .sideLine {
+  display: none;
+}
+
+/* Where the side lane branches off the main one. */
+.branch {
+  display: none;
+  position: absolute;
+  left: 14px;
+  top: var(--node-y);
+  width: 28px;
+  height: 2px;
+  background: var(--side);
+}
+
+.entry[data-branch] .branch {
+  display: block;
+}
+
+.node {
+  position: absolute;
+  top: calc(var(--node-y) - 6px);
+  left: 7px;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  border: 2px solid var(--main);
+  background: var(--bg);
+}
+
+.entry[data-lane="side"] .node {
+  left: 35px;
+  border-color: var(--side);
+}
+
+.entry[data-current] .node,
+.entry[data-kind="milestone"] .node {
+  background: var(--main);
+}
+
+.body {
+  padding: 24px 0 28px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lane {
+  color: var(--accent-text);
+}
+
+.entry[data-lane="side"] .lane {
+  color: var(--side-text);
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.role {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.company {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.summary {
+  max-width: 640px;
+  font-size: 15px;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.tag[data-active] {
+  background: var(--teal);
+  border-color: var(--teal-light);
+  color: var(--cream);
+}
+
+@media (max-width: 999px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .layers {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    gap: 40px;
+  }
+
+  .entry {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry,
+  .chip,
+  .tag {
+    transition: none;
+  }
+}
